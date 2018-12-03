@@ -23,7 +23,7 @@ export TERM="xterm-256color"
 
 # Enhancing powerlevel9k (even more)
 POWERLEVEL9K_MODE="awesome-fontconfig"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=""
 
 POWERLEVEL9K_FOLDER_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON='$(print_icon "HOME_ICON")'
@@ -143,6 +143,10 @@ source ~/.zplug/init.zsh
 
 # Add zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Add pure theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Update zplug
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
