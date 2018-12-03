@@ -17,38 +17,8 @@ export PATH=$PATH:/home/carlos/android-sdk-linux/tools:/home/carlos/android-sdk-
 # set xterm for appearance improvement
 export TERM="xterm-256color"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
-# Enhancing powerlevel9k (even more)
-POWERLEVEL9K_MODE="awesome-fontconfig"
+# New zsh theme is pure!!
 ZSH_THEME=""
-
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON='$(print_icon "HOME_ICON")'
-POWERLEVEL9K_DIR_PATH_SEPARATOR=' $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") '
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
-
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
-POWERLEVEL9K_NVM_BACKGROUND="238"
-POWERLEVEL9K_NVM_FOREGROUND="green"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="blue"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
-
-POWERLEVEL9K_TIME_BACKGROUND='255'
-#POWERLEVEL9K_COMMAND_TIME_FOREGROUND='gray'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='245'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time virtualenv)
-POWERLEVEL9K_SHOW_CHANGESET=true
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
