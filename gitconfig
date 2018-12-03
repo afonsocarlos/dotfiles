@@ -1,0 +1,51 @@
+[user]
+	name = Carlos
+	email = carlos.braga@admcsc.com.br
+[alias]
+	glog = log -E -i --grep
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	unstage = reset
+       	uncommit = reset --soft HEAD^
+	branch-author = "! fn() { git for-each-ref --format=\"%(color:green)%(committerdate) %09 %(color:yellow)%(refname) %09 %(color:cyan)%(authorname) %(authoremail)\" | sort -k5nr -k2Mr -k3nr -k4nr; }; echo \"$(tput bold)local:$(tput sgr0)\"; fn | grep heads; echo ; echo \"$(tput bold)$(tput setaf 1)remote:$(tput sgr0)\"; fn | grep remotes"
+        authors = shortlog -sne
+        flog = "!f() { function=$1; file=$2; [ -z $function ] && exit 1; [ -z $file ] && exit 1; git log -L :$function:$file; }; f"
+[core]
+	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+; [mergetool "sublimerge"]
+; 	cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
+; 	trustExitCode = false
+[diff]
+    #tool = sublimerge
+	tool = vim
+; [difftool "sublimerge"]
+; 	cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
+[alias "branch"]
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool]
+	prompt = false
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[rerere]
+	enabled = 1
