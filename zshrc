@@ -139,3 +139,21 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+source ~/.zplug/init.zsh
+
+# Add zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Update zplug
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Load all plugins
+zplug load --verbose
