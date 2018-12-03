@@ -76,6 +76,9 @@ call plug#begin('~/.vim/plugged')
   " resize windows neatly!
   Plug 'roman/golden-ratio'
 
+  " highlight hex, rgb and colornames
+  Plug 'chrisbra/colorizer'
+
   " php completion
   Plug 'shawncplus/phpcomplete.vim'
 
