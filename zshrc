@@ -5,7 +5,7 @@
 # if [ "$TMUX" = "" ]; then tmux; fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/carlos/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export DEFAULT_USER="$USER"
 
 # MySql Prompt improvement Exporting
@@ -105,6 +105,7 @@ bindkey "\033[4~" end-of-line
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Overcoming muscle memory
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
