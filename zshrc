@@ -65,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,6 +115,14 @@ source ~/.zplug/init.zsh
 # Add zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
+# Add zsh-completions
+zplug "zsh-users/zsh-completions"
+
+# Oh-my-zsh plugins
+zplug 'plugins/battery', from:oh-my-zsh
+zplug 'plugins/gitfast', from:oh-my-zsh
+
+#################### Theme ####################
 # Add pure theme
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
