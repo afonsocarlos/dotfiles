@@ -150,6 +150,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'roxma/nvim-yarp'
       Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
       Plug 'phpactor/ncm2-phpactor'
+      Plug 'ncm2/ncm2-jedi'
       Plug 'ncm2/ncm2-ultisnips'
 
       " nvim markdown preview
