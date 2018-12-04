@@ -1,5 +1,10 @@
 # Dotfiles
 
+## Screenshot
+
+![desktop screenshot][screenshot-1]
+
+## Prerequisites
 * Install Git (`apt-get install git`, `pacman -S git`, etc.)
 * Install [zsh]
 * Install [oh-my-zsh]
@@ -14,3 +19,6 @@
 [neovim]: https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh#basic-installation
 [zsh]: https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH
+
+[screenshot-1]: https://github.com/Charliiee/dotfiles/raw/master/Screenshot-1.png "Workspace Screenshot"
+[screenshot-2]: https://github.com/Charliiee/dotfiles/raw/master/Screenshot-2.png "Workspace Screenshot 2"
