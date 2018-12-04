@@ -135,10 +135,12 @@ zplug 'plugins/gitfast', from:oh-my-zsh
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+###############################################
+
 # Update zplug
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-# Install plugins if there are plugins that have not been installed
+# Install plugins that have not been installed yet
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -147,4 +149,6 @@ if ! zplug check --verbose; then
 fi
 
 # Load all plugins
-zplug load --verbose
+zplug load
+
+PROMPT="%(1j.[%j] .)"$PROMPT
