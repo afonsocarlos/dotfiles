@@ -126,6 +126,9 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # Add zsh-completions
 zplug "zsh-users/zsh-completions"
 
+# Add github like contributions calendar on terminal
+zplug "k4rthik/git-cal", as:command
+
 # Oh-my-zsh plugins
 zplug 'plugins/battery', from:oh-my-zsh
 zplug 'plugins/gitfast', from:oh-my-zsh
@@ -152,3 +155,8 @@ fi
 zplug load
 
 PROMPT="%(1j.[%j] .)"$PROMPT
+
+if command -v neofetch >/dev/null 2>&1; then
+	alias clear="clear; neofetch"
+	clear; neofetch
+fi
