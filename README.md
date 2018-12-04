@@ -4,6 +4,8 @@
 
 ![desktop screenshot][screenshot-1]
 
+![desktop screenshot][screenshot-2]
+
 ## Prerequisites
 * Install Git (`apt-get install git`, `pacman -S git`, etc.)
 * Install [zsh]
