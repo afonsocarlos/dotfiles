@@ -5,7 +5,7 @@
 # if [ "$TMUX" = "" ]; then tmux; fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/carlos/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export DEFAULT_USER="$USER"
 
 # MySql Prompt improvement Exporting
@@ -17,38 +17,8 @@ export PATH=$PATH:/home/carlos/android-sdk-linux/tools:/home/carlos/android-sdk-
 # set xterm for appearance improvement
 export TERM="xterm-256color"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
-# Enhancing powerlevel9k (even more)
-POWERLEVEL9K_MODE="awesome-fontconfig"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON='$(print_icon "HOME_ICON")'
-POWERLEVEL9K_DIR_PATH_SEPARATOR=' $(print_icon "LEFT_SUBSEGMENT_SEPARATOR") '
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
-POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
-
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='black'
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='178'
-POWERLEVEL9K_NVM_BACKGROUND="238"
-POWERLEVEL9K_NVM_FOREGROUND="green"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="blue"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
-
-POWERLEVEL9K_TIME_BACKGROUND='255'
-#POWERLEVEL9K_COMMAND_TIME_FOREGROUND='gray'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='245'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time virtualenv)
-POWERLEVEL9K_SHOW_CHANGESET=true
+# New zsh theme is pure!!
+ZSH_THEME=""
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -95,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,11 +80,11 @@ source ~/.fonts/*.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -135,7 +105,58 @@ bindkey "\033[4~" end-of-line
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Overcoming muscle memory
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+
+# Install zplug automatically, if not installed yet
+if [[ ! -d ~/.zplug ]]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+
+source ~/.zplug/init.zsh
+
+#################### Packages ####################
+# Add zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Add zsh-completions
+zplug "zsh-users/zsh-completions"
+
+# Add github like contributions calendar on terminal
+zplug "k4rthik/git-cal", as:command
+
+# Oh-my-zsh plugins
+zplug 'plugins/battery', from:oh-my-zsh
+zplug 'plugins/gitfast', from:oh-my-zsh
+
+#################### Theme ####################
+# Add pure theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+###############################################
+
+# Update zplug
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# Install plugins that have not been installed yet
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Load all plugins
+zplug load
+
+PROMPT="%(1j.[%j] .)"$PROMPT
+
+if command -v neofetch >/dev/null 2>&1; then
+	alias clear="clear; neofetch"
+	clear; neofetch
+fi

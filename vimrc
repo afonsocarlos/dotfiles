@@ -76,6 +76,9 @@ call plug#begin('~/.vim/plugged')
   " resize windows neatly!
   Plug 'roman/golden-ratio'
 
+  " highlight hex, rgb and colornames
+  Plug 'chrisbra/colorizer'
+
   " php completion
   Plug 'shawncplus/phpcomplete.vim'
 
@@ -147,6 +150,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'roxma/nvim-yarp'
       Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
       Plug 'phpactor/ncm2-phpactor'
+      Plug 'ncm2/ncm2-jedi'
       Plug 'ncm2/ncm2-ultisnips'
 
       " nvim markdown preview
