@@ -20,5 +20,5 @@
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh#basic-installation
 [zsh]: https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH
 
-[screenshot-1]: https://github.com/Charliiee/dotfiles/raw/master/Screenshot-1.png "Workspace Screenshot"
-[screenshot-2]: https://github.com/Charliiee/dotfiles/raw/master/Screenshot-2.png "Workspace Screenshot 2"
+[screenshot-1]: https://raw.githubusercontent.com/Charliiee/dotfiles/master/Screenshot-1.png "Workspace Screenshot"
+[screenshot-2]: https://raw.githubusercontent.com/Charliiee/dotfiles/master/Screenshot-2.png "Workspace Screenshot 2"
