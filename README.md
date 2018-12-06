@@ -7,6 +7,7 @@
 ![desktop screenshot][screenshot-2]
 
 ## Prerequisites
+* Install [kitty]
 * Install Git (`apt-get install git`, `pacman -S git`, etc.)
 * Install [zsh]
 * Install [oh-my-zsh]
@@ -26,6 +27,7 @@
 
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [httpie]: https://github.com/jakubroztocil/httpie#installation
+[kitty]: https://sw.kovidgoyal.net/kitty/
 [neovim]: https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh#basic-installation
 [peek]: https://github.com/phw/peek
