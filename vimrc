@@ -216,6 +216,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " NeoVim specific Plugins
 if has('nvim')
+    " ************* gen_tags settings *************
+    let g:gen_tags#ctags_auto_gen = 1
+    let g:gen_tags#gtags_auto_gen = 1
+
     " ************* Neomake settings *************
     " Full config: when writing or reading a buffer, and on changes in insert and
     " normal mode (after 1s; no delay when writing).
