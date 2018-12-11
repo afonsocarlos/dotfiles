@@ -28,6 +28,8 @@
 * [peek]
 * [screenkey]
 
+Great site to get unicode characters!! [&what;](http://www.amp-what.com)
+
 [bspwm]: https://github.com/baskerville/bspwm
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [httpie]: https://github.com/jakubroztocil/httpie#installation
