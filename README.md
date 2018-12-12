@@ -23,15 +23,17 @@
 ##### For API development
 * [httpie]
 
-##### For screen recording
+##### For screen recording/capturing
 * [Simple Screen Recorder][simple-screen-recorder] (`apt-get install simplescreenrecorder`, `pacman -S simplescreenrecorder`, etc.)
 * [peek]
 * [screenkey]
+* [flameshot]
 
 Great site to get unicode characters!! [&what;](http://www.amp-what.com)
 
 [bspwm]: https://github.com/baskerville/bspwm
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
+[flameshot]: https://github.com/lupoDharkael/flameshot
 [httpie]: https://github.com/jakubroztocil/httpie#installation
 [kitty]: https://sw.kovidgoyal.net/kitty/
 [neovim]: https://github.com/neovim/neovim/wiki/Installing-Neovim#linux
