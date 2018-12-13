@@ -17,6 +17,7 @@
 * tmux (`apt-get install tmux`, `pacman -S tmux`, etc.)
 * [neovim] and **Vim** may you wish
 * neofetch (`apt-get install neofetch`, `pacman -S neofetch`, etc.)
+* [Fira Code][fira-code]
 
 ### Optional (nice) software
 
@@ -33,6 +34,7 @@ Great site to get unicode characters!! [&what;](http://www.amp-what.com)
 
 [bspwm]: https://github.com/baskerville/bspwm
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
+[fira-code]: https://github.com/tonsky/FiraCode/wiki/Linux-instructions
 [flameshot]: https://github.com/lupoDharkael/flameshot
 [httpie]: https://github.com/jakubroztocil/httpie#installation
 [kitty]: https://sw.kovidgoyal.net/kitty/
