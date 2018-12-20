@@ -130,13 +130,13 @@ zplug "zsh-users/zsh-completions"
 zplug "k4rthik/git-cal", as:command
 
 # Oh-my-zsh plugins
-zplug 'plugins/battery', from:oh-my-zsh
-zplug 'plugins/gitfast', from:oh-my-zsh
+zplug "plugins/battery", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
 
 #################### Theme ####################
 # Add pure theme
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+zplug "mafredri/zsh-async", from:github
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 ###############################################
 
