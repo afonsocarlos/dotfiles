@@ -10,6 +10,7 @@
 * [sxhkd]
 * [bspwm]
 * [kitty]
+* Curl (`apt-get install curl`, `pacman -S curl`, etc.)
 * Git (`apt-get install git`, `pacman -S git`, etc.)
 * [zsh]
 * [oh-my-zsh]
@@ -18,6 +19,7 @@
 * [neovim] and **Vim** may you wish
 * neofetch (`apt-get install neofetch`, `pacman -S neofetch`, etc.)
 * [Fira Code][fira-code]
+* qdbus, jq (`apt-get install package`, `pacman -S package`, etc.)
 
 ### Optional (nice) software
 
