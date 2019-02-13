@@ -2,13 +2,14 @@
 	name = Carlos
 	email = carlos.braga@admcsc.com.br
 [alias]
-	glog = log -E -i --grep
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
-	unstage = reset
-       	uncommit = reset --soft HEAD^
-	branch-author = "! fn() { git for-each-ref --format=\"%(color:green)%(committerdate) %09 %(color:yellow)%(refname) %09 %(color:cyan)%(authorname) %(authoremail)\" | sort -k5nr -k2Mr -k3nr -k4nr; }; echo \"$(tput bold)local:$(tput sgr0)\"; fn | grep heads; echo ; echo \"$(tput bold)$(tput setaf 1)remote:$(tput sgr0)\"; fn | grep remotes"
-        authors = shortlog -sne
-        flog = "!f() { function=$1; file=$2; [ -z $function ] && exit 1; [ -z $file ] && exit 1; git log -L :$function:$file; }; f"
+    authors = shortlog -sne
+    branch-author = "! fn() { git for-each-ref --format=\"%(color:green)%(committerdate) %09 %(color:yellow)%(refname) %09 %(color:cyan)%(authorname) %(authoremail)\" | sort -k5nr -k2Mr -k3nr -k4nr; }; echo \"$(tput bold)local:$(tput sgr0)\"; fn | grep heads; echo ; echo \"$(tput bold)$(tput setaf 1)remote:$(tput sgr0)\"; fn | grep remotes"
+    dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    flog = "!f() { function=$1; file=$2; [ -z $function ] && exit 1; [ -z $file ] && exit 1; git log -L :$function:$file; }; f"
+    glog = log -E -i --grep
+    patch = !git --no-pager diff --no-color
+    uncommit = reset --soft HEAD^
+    unstage = reset
 [core]
 	editor = vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
