@@ -432,7 +432,7 @@ if has('nvim')
 
         " Press enter key to trigger snippet expansion
         " The parameters are the same as `:help feedkeys()`
-        inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+        inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>\<C-R>=AutoPairsReturn()<CR>", 'n')
     augroup end
 endif
 
