@@ -34,6 +34,14 @@
 
 Great site to get unicode characters!! [&what;](http://www.amp-what.com)
 
+
+#### Making NeoVim work with `.vimrc` file config
+```sh
+# Create symbolic link between neovim's config directory and file and vim's
+$ ln -s ~/.vim ~/.config/nvim
+$ ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
+
 [bspwm]: https://github.com/baskerville/bspwm
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [fira-code]: https://github.com/tonsky/FiraCode/wiki/Linux-instructions
