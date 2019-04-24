@@ -149,7 +149,8 @@ call plug#begin('~/.vim/plugged')
       Plug 'ncm2/ncm2'
       Plug 'roxma/nvim-yarp'
       Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-      Plug 'phpactor/ncm2-phpactor'
+      " Plug 'phpactor/ncm2-phpactor'
+      Plug 'Charliiee/ncm2-phpactor' " TODO: Remove This after phpactor accept my merge!!!
       Plug 'ncm2/ncm2-jedi'
       Plug 'ncm2/ncm2-ultisnips'
 
@@ -428,7 +429,9 @@ if has('nvim')
         autocmd BufEnter * call ncm2#enable_for_buffer()
 
         " IMPORTANT: :help Ncm2PopupOpen for more information
-        set completeopt=noinsert,menuone,noselect
+        set completeopt=noinsert,menuone,noselect,preview
+
+        let g:ncm2#matcher='substrfuzzy'
 
         " Press enter key to trigger snippet expansion
         " The parameters are the same as `:help feedkeys()`
