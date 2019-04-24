@@ -105,6 +105,8 @@ bindkey "\033[4~" end-of-line
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias icat="kitty +kitten icat"
+
 # Overcoming muscle memory
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
