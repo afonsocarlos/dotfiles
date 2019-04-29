@@ -230,6 +230,10 @@ endif
 " ************* Auto Pairs *************
 let g:AutoPairsFlyMode = 1
 
+" ************* Custom Snippets *************
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "customsnippets"]
+
+
 " ======================================================
 " ==================== Key mappings ====================
 " ======================================================

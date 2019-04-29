@@ -1,0 +1,7 @@
+snippet echopre "echo preformatted text"
+echo '<pre>' . print_r(${2:[$1]}, 1) . '</pre>';${4: exit};
+endsnippet
+
+snippet ee "echo and exit"
+echo ${2:"$$1"};exit;
+endsnippet
