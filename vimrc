@@ -52,6 +52,8 @@ call plug#begin('~/.vim/plugged')
   " parentheses, brackets, quotes, html tags surrounding plugin
   Plug 'tpope/vim-surround'
 
+  Plug 'wellle/targets.vim'
+
   " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 
   " file fuzzy search
