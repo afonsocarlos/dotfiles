@@ -227,6 +227,8 @@ if has('nvim')
     call neomake#configure#automake('nrwi', 500)
 endif
 
+" ************* Auto Pairs *************
+let g:AutoPairsFlyMode = 1
 
 " ======================================================
 " ==================== Key mappings ====================
