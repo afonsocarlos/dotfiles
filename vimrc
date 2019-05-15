@@ -367,12 +367,22 @@ set fileencodings=utf-8,latin1
 set fileformat=unix
 set fileformats=unix,dos
 
+" Credits to @jamessan at https://stackoverflow.com/a/6496995/6634981
+" And vimcasts http://vimcasts.org/episodes/tidying-whitespace/
 fun! StripTrailingWhitespace()
     " Only strip if the b:noStripeWhitespace variable isn't set
     if exists('b:noStripWhitespace')
         return
     endif
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
     %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
 endfun
 
 " Show trailing white space as red
