@@ -255,7 +255,7 @@ nmap <leader>e :e#<CR>
 nmap <leader>n :enew<CR>
 nmap <leader>s :update<CR>
 " Write file without trailing whitespaces
-nmap <leader>w :noautocmd write<CR>
+nmap <leader>w :let b:noStripWhitespace=1 <BAR> :w<CR>
 nmap <leader>d :bdel<CR>
 nmap <leader>dd :bdel!<CR>
 " toggle spell check
@@ -367,6 +367,14 @@ set fileencodings=utf-8,latin1
 set fileformat=unix
 set fileformats=unix,dos
 
+fun! StripTrailingWhitespace()
+    " Only strip if the b:noStripeWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
 " Show trailing white space as red
 highlight ExtraWhitespace ctermbg=darkred guibg=#382424
 augroup treat_trailing_whitespace
@@ -376,7 +384,7 @@ augroup treat_trailing_whitespace
     autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 
     " automatically remove trailing white space
-    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre * call StripTrailingWhitespace()
 augroup end
 
 " autoreload file when edited out of vim
