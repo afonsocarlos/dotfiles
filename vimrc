@@ -254,6 +254,8 @@ nmap <C-p> :bprev<CR>
 nmap <leader>e :e#<CR>
 nmap <leader>n :enew<CR>
 nmap <leader>s :update<CR>
+" Write file without trailing whitespaces
+nmap <leader>w :noautocmd write<CR>
 nmap <leader>d :bdel<CR>
 nmap <leader>dd :bdel!<CR>
 " toggle spell check
