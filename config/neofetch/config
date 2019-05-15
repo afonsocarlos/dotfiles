@@ -21,11 +21,11 @@ print_info() {
     info "CPU" cpu
     info "GPU" gpu
     info "Memory" memory
+    info "Battery" battery
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
     # info "CPU Usage" cpu_usage
     # info "Disk" disk
-    # info "Battery" battery
     # info "Font" font
     # info "Song" song
     # info "Local IP" local_ip
@@ -579,8 +579,8 @@ bar_color_total="distro"
 # barinfo: '[---=======] info'
 # off:     'info'
 cpu_display="off"
-memory_display="off"
-battery_display="off"
+memory_display="infobar"
+battery_display="infobar"
 disk_display="off"
 
 
