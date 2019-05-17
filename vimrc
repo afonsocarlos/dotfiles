@@ -111,6 +111,8 @@ call plug#begin('~/.vim/plugged')
   " PHP refactoring plugin
   Plug 'vim-php/vim-php-refactoring'
 
+  Plug 'mtth/scratch.vim'
+
 " ######################## MARKDOWN CONFIG ########################
   " fold rules for markdown
   Plug 'nelstrom/vim-markdown-folding'
@@ -216,6 +218,10 @@ endif
 " ************* SuperTab settings *************
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
+" ************* Scratch settings *************
+let g:scratch_no_mappings = 1
+let g:scratch_persistence_file = '~/todo.txt'
+
 " NeoVim specific Plugins
 if has('nvim')
     " ************* gen_tags settings *************
@@ -271,6 +277,13 @@ vmap <leader>a= :Tab /=<CR>
 
 " toggle nerd tree
 nnoremap <leader>k :NERDTreeToggle<CR>
+" toggle Scratch
+nnoremap <leader>t :Scratch<CR>
+" remap Scratch mappings
+nmap <leader>gs <plug>(scratch-insert-reuse)
+nmap <leader>gS <plug>(scratch-insert-clear)
+xmap <leader>gs <plug>(scratch-selection-reuse)
+xmap <leader>gS <plug>(scratch-selection-clear)
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 " insert new line in normal mode
