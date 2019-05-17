@@ -18,8 +18,9 @@
 * tmux (`apt-get install tmux`, `pacman -S tmux`, etc.)
 * [neovim] and **Vim** may you wish
 * neofetch (`apt-get install neofetch`, `pacman -S neofetch`, etc.)
+* stylize neofetch with **cowsay** and **fortune** (`apt-get install cowsay fortune`, `pacman -S cowsay fortune`, etc.)
 * [Fira Code][fira-code]
-* qdbus, jq (`apt-get install package`, `pacman -S package`, etc.)
+* qdbus, jq (`apt-get install qdbus jq`, `pacman -S qdbus jq`, etc.)
 
 ### Optional (nice) software
 
