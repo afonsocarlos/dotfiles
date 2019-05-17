@@ -252,28 +252,28 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Add spelling correction
-imap <C-l> <Esc>[s1z=ea
+inoremap <C-l> <Esc>[s1z=ea
 
 " switch buffers
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
-nmap <leader>e :e#<CR>
-nmap <leader>n :enew<CR>
-nmap <leader>s :update<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+nnoremap <leader>e :e#<CR>
+nnoremap <leader>n :enew<CR>
+nnoremap <leader>s :update<CR>
 " Write file without trailing whitespaces
-nmap <leader>w :let b:noStripWhitespace=1 <BAR> :w<CR>
-nmap <leader>d :bdel<CR>
-nmap <leader>dd :bdel!<CR>
+nnoremap <leader>w :let b:noStripWhitespace=1 <BAR> :w<CR>
+nnoremap <leader>d :bdel<CR>
+nnoremap <leader>dd :bdel!<CR>
 " toggle spell check
-nmap <F6> :setlocal spell! spelllang=en_us<CR>
-nmap <F5> :setlocal spell! spelllang=pt_br<CR>
+nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
+nnoremap <F5> :setlocal spell! spelllang=pt_br<CR>
 " toggle Tagbar
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 " toggle Goyo (distraction free)
-nmap <S-F11> :Goyo<CR>
+nnoremap <F11> :Goyo<CR>
 " shortcut for vertically aligning elements
-nmap <leader>a= :Tab /=<CR>
-vmap <leader>a= :Tab /=<CR>
+nnoremap <leader>a= :Tab /=<CR>
+vnoremap <leader>a= :Tab /=<CR>
 
 " toggle nerd tree
 nnoremap <leader>k :NERDTreeToggle<CR>
