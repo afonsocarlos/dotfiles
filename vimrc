@@ -133,6 +133,10 @@ call plug#begin('~/.vim/plugged')
   " Plug 'suan/vim-instant-markdown'
   Plug 'shime/vim-livedown'
 
+  " Emoji in Vim
+  Plug 'junegunn/vim-emoji'
+
+
   " VIM specific Plugins
   if !has('nvim')
       " lint code like a charm
@@ -447,6 +451,8 @@ augroup markdown
     " Beautify Markdown Editing
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
+
+    autocmd filetype markdown,gitcommit set completefunc=emoji#complete
 
     " Make Livedown work properly
     if !has('nvim')
