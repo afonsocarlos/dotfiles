@@ -234,11 +234,13 @@ if has('nvim')
     call neomake#configure#automake('nrwi', 500)
 endif
 
-" ************* Auto Pairs *************
-let g:AutoPairsFlyMode = 1
-
 " ************* Custom Snippets *************
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "customsnippets"]
+
+" ************* Targets *************
+autocmd User targets#mappings#user call targets#mappings#extend({
+    \ 'b': {'pair': [{'o':'(', 'c':')'}]}
+    \ })
 
 
 " ======================================================
