@@ -433,15 +433,15 @@ augroup autorun
     " clear autocmds defined in this group (i.e. resource .vimrc)
     autocmd!
 
-    autocmd filetype c nnoremap <Leader>c :w <CR>:!gcc % -o %:r -lm && ./%:r<CR>
+    autocmd FileType c nnoremap <Leader>c :w <CR>:!gcc % -o %:r -lm && ./%:r<CR>
     " g++ compile C++ files
-    autocmd filetype cpp nnoremap <Leader>c :w <CR>:!g++ % -o %:r && ./%:r<CR>
+    autocmd FileType cpp nnoremap <Leader>c :w <CR>:!g++ % -o %:r && ./%:r<CR>
     " java compile files
-    autocmd filetype java nnoremap <Leader>c :w <CR>:!javac % && java %:r<CR>
+    autocmd FileType java nnoremap <Leader>c :w <CR>:!javac % && java %:r<CR>
     " node run files
-    autocmd filetype javascript nnoremap <Leader>c :w <CR>:!node %<CR>
+    autocmd FileType javascript nnoremap <Leader>c :w <CR>:!node %<CR>
     " python run files
-    autocmd filetype python nnoremap <Leader>c :w <CR>:!python3 %<CR>
+    autocmd FileType python nnoremap <Leader>c :w <CR>:!python3 %<CR>
 augroup end
 
 " enable free distraction mode
@@ -452,11 +452,11 @@ augroup markdown
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
 
-    autocmd filetype markdown,gitcommit set completefunc=emoji#complete
+    autocmd FileType markdown,gitcommit set completefunc=emoji#complete
 
     " Make Livedown work properly
     if !has('nvim')
-      autocmd filetype markdown
+      autocmd FileType markdown
           \ autocmd! BufWritePost <buffer> LivedownPreview
     endif
 augroup end
