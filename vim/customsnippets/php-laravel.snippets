@@ -1,9 +1,3 @@
-snippet ->join "join tables with Laravel Builder"
-->join('$1', ${2:'$1.$3', '${4:=}', '$5.${6:$3}'});
+snippet "(::|->)(\w*(?:j|J))oin" "join tables with Laravel Builder" r
+`!p snip.rv = match.group(1) + match.group(2)`oin('$1', ${2:'$1.$3', '${4:=}', '$5.${6:$3}'});
 endsnippet
-
-snippet ::join "join tables with Laravel Builder"
-::join('$1', ${2:'$1.$3', '${4:=}', '$5.${6:$3}'});
-endsnippet
-
-
