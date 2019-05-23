@@ -521,3 +521,7 @@ augroup php_customcommentstring
     autocmd FileType php setlocal commentstring=//%s
     autocmd FileType smarty setlocal commentstring={*%s*}
 augroup end
+augroup laravel_setup
+    " this one is which you're most likely to use?
+    autocmd FileType php UltiSnipsAddFiletypes php-laravel
+augroup end
