@@ -70,7 +70,9 @@ COMPLETION_WAITING_DOTS="true"
 source $ZSH/oh-my-zsh.sh
 
 # Sourcing icons
-source ~/.fonts/*.sh
+if [[ -d ~/.fonts ]]; then
+    source ~/.fonts/*.sh
+fi
 
 # User configuration
 
