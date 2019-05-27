@@ -1,0 +1,1 @@
+EXCLUDES="README* LICENSE* Screenshot*.png install.sh"
