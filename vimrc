@@ -87,6 +87,9 @@ call plug#begin('~/.vim/plugged')
   " tabular - vertically align elements
   Plug 'godlygeek/tabular'
 
+  " Easy Align - vertically align elements
+  Plug 'junegunn/vim-easy-align'
+
   " Vim snippets
   Plug 'SirVer/ultisnips'
   " Snippets are separated from the engine. Add this if you want them:
@@ -280,6 +283,10 @@ nnoremap <F11> :Goyo<CR>
 " shortcut for vertically aligning elements
 nnoremap <leader>a= :Tab /=<CR>
 vnoremap <leader>a= :Tab /=<CR>
+" shortcut for vertically aligning elements with Easy Align
+nnoremap gA ga
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " toggle nerd tree
 nnoremap <leader>k :NERDTreeToggle<CR>
