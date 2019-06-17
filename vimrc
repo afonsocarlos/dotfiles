@@ -381,7 +381,7 @@ set autoindent
 set smartindent
 
 " Folding options
-set foldmethod=syntax
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -411,6 +411,12 @@ fun! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfun
+
+" Set foldmethod to syntax, but enable to create manual foldings
+augroup twofoldings
+    au BufReadPre * setlocal foldmethod=indent
+    au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
 
 " Show trailing white space as red
 highlight ExtraWhitespace ctermbg=darkred guibg=#382424
