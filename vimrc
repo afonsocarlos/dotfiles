@@ -40,6 +40,9 @@ call plug#begin('~/.vim/plugged')
   " Ease html coding like a breeze
   Plug 'mattn/emmet-vim'
 
+  " Close html tags
+  Plug 'docunext/closetag.vim'
+
   " Git gutter for vim
   Plug 'airblade/vim-gitgutter'
 
