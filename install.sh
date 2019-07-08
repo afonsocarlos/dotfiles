@@ -15,3 +15,4 @@ rm ~/.README.md
 rm ~/.Screenshot-1.png
 rm ~/.Screenshot-2.png
 rm ~/.LICENSE
+rm ~/.install.sh
