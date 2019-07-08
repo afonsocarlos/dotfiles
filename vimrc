@@ -542,3 +542,9 @@ augroup laravel_setup
     " this one is which you're most likely to use?
     autocmd FileType php UltiSnipsAddFiletypes php-laravel
 augroup end
+augroup php_docs
+    autocmd!
+
+    " this one is which you're most likely to use?
+    autocmd FileType php setlocal keywordprg=~/.vim/docs/php
+augroup end
