@@ -315,7 +315,7 @@ nnoremap <leader>q :nohl<Esc>
 nnoremap <C-]> g<C-]>
 " open fzf for files
 nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>b :buffers<CR>:b<space>
 nnoremap <leader>a :Ag<CR>
 " go to next/prev item in location list
 nnoremap <silent> [l :lprev<CR>
