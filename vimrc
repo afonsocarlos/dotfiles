@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
   " NERDTree file explorer
   Plug 'scrooloose/nerdtree'
   " NERDTree git integration
-  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'Charliiee/nerdtree-git-plugin'
 
   " Ease html coding like a breeze
   Plug 'mattn/emmet-vim'
