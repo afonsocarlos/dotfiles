@@ -135,6 +135,7 @@ zplug "k4rthik/git-cal", as:command
 
 # Add GIF optimization script
 zplug "Charliiee/0143bc204a86be9d2a32abfe6900c930", from:gist, as:command, use:gif_optmize.sh
+zplug "Charliiee/87e0b6a1a3099fd7d1a253b2a48f886b", from:gist, as:command, use:whatismyip
 
 # Oh-my-zsh plugins
 zplug "plugins/battery", from:oh-my-zsh
