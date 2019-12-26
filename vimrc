@@ -172,6 +172,8 @@ call plug#begin('~/.vim/plugged')
 
   endif
 
+  Plug 'aserebryakov/vim-todo-lists'
+
 call plug#end()
 
 " load the version of matchit.vim that ships with vim
@@ -477,6 +479,11 @@ augroup markdown
           \ autocmd! BufWritePost <buffer> LivedownPreview
     endif
 augroup end
+
+augroup scratch_todo
+    autocmd!
+    autocmd BufRead,BufNewFile __Scratch__ call VimTodoListsInit()
+  augroup end
 
 " Use Silver Searcher if available
 if executable('ag')
