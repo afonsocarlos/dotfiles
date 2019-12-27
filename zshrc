@@ -114,6 +114,8 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# Alert on completion of shell commands
+alias tg='telegram-send "$([ $? = 0 ] && echo "" || echo "error: ") $(echo $history[$HISTCMD]|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*tg$//'\'')"'
 
 # Install zplug automatically, if not installed yet
 if [[ ! -d ~/.zplug ]]; then

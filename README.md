@@ -33,6 +33,9 @@
 * [screenkey]
 * [flameshot]
 
+##### For notification
+* telegram-send (`sudo pip3 install telegram-send`)
+
 Great site to get unicode characters!! [&what;](http://www.amp-what.com)
 
 
