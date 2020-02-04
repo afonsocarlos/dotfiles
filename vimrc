@@ -158,7 +158,7 @@ call plug#begin('~/.vim/plugged')
       " lint code like a charm for neovim
       Plug 'neomake/neomake'
 
-      Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+      Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
 
       Plug 'ncm2/ncm2'
       Plug 'roxma/nvim-yarp'
@@ -419,9 +419,18 @@ endfun
 
 " Set foldmethod to syntax, but enable to create manual foldings
 augroup twofoldings
+    autocmd!
+
     au BufReadPre * setlocal foldmethod=indent
     au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
+augroup end
+
+augroup numbertoggle
+    autocmd!
+
+    autocmd BufEnter,FocusGained * set relativenumber
+    autocmd BufLeave,FocusLost   * set norelativenumber
+augroup end
 
 " Show trailing white space as red
 highlight ExtraWhitespace ctermbg=darkred guibg=#382424
