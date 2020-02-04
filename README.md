@@ -21,6 +21,7 @@
 * stylize neofetch with **cowsay** and **fortune** (`apt-get install cowsay fortune`, `pacman -S cowsay fortune`, etc.)
 * [Fira Code][fira-code]
 * qdbus, jq (`apt-get install qdbus jq`, `pacman -S qdbus jq`, etc.)
+* vim-jedi (`apt-get install vim-python-jedi`, `pacman -S vim-jedi`, etc.)
 
 ### Optional (nice) software
 
