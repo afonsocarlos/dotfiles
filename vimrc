@@ -166,6 +166,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'phpactor/ncm2-phpactor'
       Plug 'ncm2/ncm2-jedi'
       Plug 'ncm2/ncm2-ultisnips'
+      Plug 'ncm2/float-preview.nvim'
 
       " nvim markdown preview
       Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
@@ -244,6 +245,9 @@ if has('nvim')
     " Full config: when writing or reading a buffer, and on changes in insert and
     " normal mode (after 1s; no delay when writing).
     call neomake#configure#automake('nrwi', 500)
+
+    " ************* Ncm2 float-preview settings *************
+    let g:float_preview#docked = 1
 endif
 
 " ************* Custom Snippets *************
@@ -510,7 +514,7 @@ if has('nvim')
         autocmd BufEnter * call ncm2#enable_for_buffer()
 
         " IMPORTANT: :help Ncm2PopupOpen for more information
-        set completeopt=noinsert,menuone,noselect,preview
+        set completeopt=noinsert,menuone,noselect
 
         let g:ncm2#matcher='substrfuzzy'
 
