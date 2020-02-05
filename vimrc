@@ -158,7 +158,7 @@ call plug#begin('~/.vim/plugged')
       " lint code like a charm for neovim
       Plug 'neomake/neomake'
 
-      Plug 'phpactor/phpactor',  {'do': 'composer install', 'for': 'php'}
+      Plug 'phpactor/phpactor',  {'do': 'composer install -d ~/.vim/plugged/phpactor', 'for': 'php'}
 
       Plug 'ncm2/ncm2'
       Plug 'roxma/nvim-yarp'
