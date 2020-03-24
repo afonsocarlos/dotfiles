@@ -1,6 +1,6 @@
 [user]
-	name = Carlos
-	email = carlos.braga@admcsc.com.br
+	name = Charliiee
+	email = carlin.afonso@gmail.com
 [alias]
     authors = shortlog -sne
     branch-author = "! fn() { git for-each-ref --format=\"%(color:green)%(committerdate) %09 %(color:yellow)%(refname) %09 %(color:cyan)%(authorname) %(authoremail)\" | sort -k5nr -k2Mr -k3nr -k4nr; }; echo \"$(tput bold)local:$(tput sgr0)\"; fn | grep heads; echo ; echo \"$(tput bold)$(tput setaf 1)remote:$(tput sgr0)\"; fn | grep remotes"
