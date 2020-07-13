@@ -236,7 +236,6 @@ endif
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " ************* Scratch settings *************
-let g:scratch_no_mappings = 1
 let g:scratch_persistence_file = '~/todo.txt'
 
 " NeoVim specific Plugins
@@ -306,11 +305,6 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <leader>k :NERDTreeToggle<CR>
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
-" remap Scratch mappings
-nmap <leader>gs <plug>(scratch-insert-reuse)
-nmap <leader>gS <plug>(scratch-insert-clear)
-xmap <leader>gs <plug>(scratch-selection-reuse)
-xmap <leader>gS <plug>(scratch-selection-clear)
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 " insert new line in normal mode
@@ -327,6 +321,8 @@ nnoremap <C-]> g<C-]>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :buffers<CR>:b<space>
 nnoremap <leader>a :Ag<CR>
+" fugitive shortcuts
+nnoremap <leader>gs :G<CR>
 " go to next/prev item in location list
 nnoremap <silent> [l :lprev<CR>
 nnoremap <silent> ]l :lnext<CR>
@@ -537,7 +533,7 @@ augroup end
 augroup scratch_todo
     autocmd!
     autocmd BufRead,BufNewFile __Scratch__ call VimTodoListsInit()
-  augroup end
+augroup end
 
 " Use Silver Searcher if available
 if executable('ag')
