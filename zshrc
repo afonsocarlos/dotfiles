@@ -12,7 +12,7 @@ export DEFAULT_USER="$USER"
 export MYSQL_PS1="\u@\h [\d] mysql> "
 
 # Android SDK Path exporting
-export PATH=$PATH:/home/carlos/android-sdk-linux/tools:/home/carlos/android-sdk-linux/platform-tools:/home/carlos/android-sdk-linux/build-tools
+export PATH=$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/build-tools:$HOME/.config/composer/vendor/bin:$HOME/.yarn/bin:/opt/flutter/bin
 
 # set xterm for appearance improvement
 export TERM="xterm-256color"
