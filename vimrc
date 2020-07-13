@@ -168,6 +168,10 @@ call plug#begin('~/.vim/plugged')
       Plug 'ncm2/ncm2-ultisnips'
       Plug 'ncm2/float-preview.nvim'
 
+      " Use release branch (recommend)
+      Plug 'neoclide/coc.nvim', {'branch': 'release'}
+      " Coc Extensions to install coc-marketplace
+
       " nvim markdown preview
       Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
@@ -333,6 +337,43 @@ nnoremap <silent> [q :cprev<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]Q :clast<CR>
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" coc shortcuts
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
+" =====================================================================
+" ==================== Functions for Coc shortcuts ====================
+" =====================================================================
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 
 " ================================================================
@@ -375,7 +416,7 @@ set wildmenu                               " Tab autocomplete in command mode
 set wildmode=list:longest,full
 set wrap                                   " this enables 'visual' wrapping
 set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
-set shortmess-=c                           " show completion suggestions (^X) in insert mode
+set shortmess+=c                           " show completion suggestions (^X) in insert mode
 set pastetoggle=<F2>
 
 " this turns off physical line wrapping
