@@ -50,3 +50,5 @@
 	whitespace = red reverse
 [rerere]
 	enabled = 1
+[pull]
+	ff = only
