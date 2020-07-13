@@ -4,7 +4,7 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 [Compositing]
 Backend=OpenGL
 Enabled=true
-GLCore=false
+GLCore=true
 GLPreferBufferSwap=a
 GLTextureFilter=2
 HiddenPreviews=5
@@ -26,9 +26,32 @@ Rows=2
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-Cube]
+BorderActivate=9
+BorderActivateCylinder=9
+BorderActivateSphere=9
+
+[Effect-DesktopGrid]
+BorderActivate=9
+
 [Effect-FlipSwitch]
 TabBox=false
 TabBoxAlternative=false
+
+[Effect-PresentWindows]
+BorderActivate=9
+BorderActivateAll=7
+BorderActivateClass=9
+
+[ElectricBorders]
+Bottom=None
+BottomLeft=ApplicationLauncher
+BottomRight=ShowDesktop
+Left=None
+Right=None
+Top=None
+TopLeft=None
+TopRight=None
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -57,7 +80,6 @@ magiclampEnabled=true
 minimizeallEnabled=false
 sheetEnabled=true
 slideEnabled=false
-slidebackEnabled=true
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false
 windowgeometryEnabled=false
@@ -70,6 +92,8 @@ TextOnly=true
 [TabBox]
 ActivitiesMode=1
 ApplicationsMode=0
+BorderActivate=6
+BorderAlternativeActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
@@ -101,6 +125,12 @@ BorderSnapZone=10
 CenterSnapZone=0
 ClickRaise=true
 DelayFocusInterval=300
+ElectricBorderCooldown=350
+ElectricBorderCornerRatio=0.25
+ElectricBorderDelay=150
+ElectricBorderMaximize=true
+ElectricBorderTiling=true
+ElectricBorders=0
 FocusPolicy=ClickToFocus
 FocusStealingPreventionLevel=1
 GeometryTip=false
