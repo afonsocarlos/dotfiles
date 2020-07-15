@@ -572,9 +572,9 @@ command! -range SQLFormat execute "<line1>,<line2>!python3 -m sqlparse --reinden
 command! -nargs=? -complete=file TodoList grep -R '\b(TODO\|FIXME)\b' <args>
 
 
-" ===============================================================
-" ==================== C Specific Settings ====================
-" ===============================================================
+" ================================================================
+" ===================== C Specific Settings ======================
+" ================================================================
 augroup c_customcommentstring
     autocmd!
 
@@ -583,9 +583,19 @@ augroup c_customcommentstring
 augroup end
 
 
-" ===============================================================
-" ==================== PHP Specific Settings ====================
-" ===============================================================
+" ================================================================
+" ============= Dart Specific Settings (for Flutter) =============
+" ================================================================
+augroup flutter_setup
+    autocmd!
+
+    autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
+augroup end
+
+
+" ================================================================
+" ==================== PHP Specific Settings =====================
+" ================================================================
 " let php_folding=1
 let php_sql_query=1
 let php_htmlInStrings=1
