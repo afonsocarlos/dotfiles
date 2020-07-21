@@ -68,6 +68,9 @@ call plug#begin('~/.vim/plugged')
   " display ctag description (when completing)
   Plug 'majutsushi/tagbar'
 
+  " View and search LSP symbols, tags in Vim/NeoVim
+  Plug 'liuchengxu/vista.vim'
+
   " automatically open/close quotes and brackets
   Plug 'jiangmiao/auto-pairs'
 
@@ -185,10 +188,10 @@ call plug#end()
 runtime macros/matchit.vim
 
 " ************* vim-airline settings *************
-let g:airline_theme='onedark'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " ************* onedark.vim settings *************
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -206,10 +209,21 @@ if (has("termguicolors"))
 endif
 
 " ************* PHP refactoring settings *************
-let g:php_refactor_command='php /usr/local/bin/refactor.phar'
+let g:php_refactor_command = 'php /usr/local/bin/refactor.phar'
 
 " ************* Golden Ratio settings *************
 let g:golden_ratio_autocommand = 0
+
+" ************* Vista settings *************
+let g:vista_default_executive = 'coc'
+let g:vista_cursor_delay = 100
+let g:vista_echo_cursor_strategy = 'scroll'
+let g:vista_update_on_text_changed = 1
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_executive_for = {
+    \ 'vim': 'ctags',
+    \ 'php': 'vim_lsp',
+\ }
 
 " VIM specific Plugins
 if !has('nvim')
@@ -219,15 +233,15 @@ if !has('nvim')
     set statusline+=%*
     let g:syntastic_error_symbol = "✗"
     let g:syntastic_warning_symbol = "⚠"
-    let g:syntastic_always_populate_loc_list=1  " Make syntastic work with :lnext and :lprev
-    let g:syntastic_auto_loc_list=1
-    let g:syntastic_check_on_open=1
-    let g:syntastic_check_on_wq=0
+    let g:syntastic_always_populate_loc_list = 1  " Make syntastic work with :lnext and :lprev
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
     let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 
     " ************* Youcompleteme settings *************
     " make YCM compatible with UltiSnips (using supertab)
-    let g:ycm_collect_identifiers_from_tags_files=0
+    let g:ycm_collect_identifiers_from_tags_files = 0
     let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
     let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 endif
@@ -254,7 +268,7 @@ if has('nvim')
 endif
 
 " ************* Custom Snippets *************
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "customsnippets"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "customsnippets"]
 
 " ************* Targets *************
 autocmd User targets#mappings#user call targets#mappings#extend({
@@ -291,6 +305,8 @@ nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F5> :setlocal spell! spelllang=pt_br<CR>
 " toggle Tagbar
 nnoremap <F8> :TagbarToggle<CR>
+" toggle Vista
+nnoremap <F9> :Vista!!<CR>
 " toggle Goyo (distraction free)
 nnoremap <F11> :Goyo<CR>
 " shortcut for vertically aligning elements
@@ -553,7 +569,7 @@ if has('nvim')
         " IMPORTANT: :help Ncm2PopupOpen for more information
         set completeopt=noinsert,menuone,noselect
 
-        let g:ncm2#matcher='substrfuzzy'
+        let g:ncm2#matcher = 'substrfuzzy'
 
         " Press enter key to trigger snippet expansion
         " The parameters are the same as `:help feedkeys()`
@@ -597,8 +613,8 @@ augroup end
 " ==================== PHP Specific Settings =====================
 " ================================================================
 " let php_folding=1
-let php_sql_query=1
-let php_htmlInStrings=1
+let php_sql_query = 1
+let php_htmlInStrings = 1
 augroup php_customcommentstring
     autocmd!
 
