@@ -222,7 +222,6 @@ let g:vista_update_on_text_changed = 1
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_executive_for = {
     \ 'vim': 'ctags',
-    \ 'php': 'vim_lsp',
 \ }
 
 " VIM specific Plugins
