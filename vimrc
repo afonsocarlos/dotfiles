@@ -219,6 +219,7 @@ let g:vista_default_executive = 'coc'
 let g:vista_cursor_delay = 100
 let g:vista_echo_cursor_strategy = 'scroll'
 let g:vista_update_on_text_changed = 1
+let g:vista_close_on_jump = 1
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_executive_for = {
     \ 'vim': 'ctags',
