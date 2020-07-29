@@ -292,7 +292,7 @@ inoremap <C-l> <Esc>[s1z=ea
 " switch buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
-nnoremap <leader>e :e<CR>
+nnoremap <silent> <leader>e :e<CR>:echo 'File reloaded!'<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>s :update<CR>
 " Write file without trailing whitespaces
