@@ -338,6 +338,8 @@ nnoremap <leader>b :buffers<CR>:b<space>
 nnoremap <leader>a :Ag<CR>
 " fugitive shortcuts
 nnoremap <leader>gs :G<CR>
+nnoremap <leader>gl :Gpull<CR>
+nnoremap <leader>gp :Gpush<CR>
 " go to next/prev item in location list
 nnoremap <silent> [l :lprev<CR>
 nnoremap <silent> ]l :lnext<CR>
