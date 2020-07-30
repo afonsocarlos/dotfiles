@@ -31,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   " Fancy status bar
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  " Fancy start screen
+  Plug 'mhinz/vim-startify'
 
   " NERDTree file explorer
   Plug 'scrooloose/nerdtree'
@@ -207,6 +209,18 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
+
+" ************* vim-airline settings *************
+let g:startify_change_to_vcs_root = 1
+let g:startify_fortune_use_unicode = 1
+let g:startify_session_persistence = 1
+let g:startify_lists = [
+    \ { 'header': ['   Files'],                        'type': 'files' },
+    \ { 'header': ['   Current Directory '. getcwd()], 'type': 'dir' },
+    \ { 'header': ['   Sessions'],                     'type': 'sessions' },
+    \ { 'header': ['   Bookmarks'],                    'type': 'bookmarks',       },
+    \ ]
+let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
 
 " ************* PHP refactoring settings *************
 let g:php_refactor_command = 'php /usr/local/bin/refactor.phar'
