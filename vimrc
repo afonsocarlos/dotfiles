@@ -222,6 +222,9 @@ let g:startify_lists = [
     \ ]
 let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
 
+" ************* Ememt settings *************
+let g:user_emmet_leader_key = '<C-z>'
+
 " ************* PHP refactoring settings *************
 let g:php_refactor_command = 'php /usr/local/bin/refactor.phar'
 
