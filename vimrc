@@ -350,7 +350,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " toggle nerd tree
-nnoremap <leader>k :NERDTreeToggle<CR>
+nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
 " yank from the cursor to the end of the line, to be consistent with C and D
