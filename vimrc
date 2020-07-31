@@ -218,12 +218,16 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_session_persistence = 1
 let g:startify_lists = [
+    \ { 'header': ['   Commands'],                     'type': 'commands',       },
     \ { 'header': ['   Files'],                        'type': 'files' },
     \ { 'header': ['   Current Directory '. getcwd()], 'type': 'dir' },
     \ { 'header': ['   Sessions'],                     'type': 'sessions' },
     \ { 'header': ['   Bookmarks'],                    'type': 'bookmarks',       },
     \ ]
 let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
+let g:startify_commands = [
+    \ {'o': ['Start saving session (Obsess)', ':Obsess']},
+    \ ]
 
 " ************* Ememt settings *************
 let g:user_emmet_leader_key = '<C-z>'
@@ -244,6 +248,9 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_executive_for = {
     \ 'vim': 'ctags',
 \ }
+
+" ************* Obsession settings *************
+set statusline+=%{ObsessionStatus()}
 
 " VIM specific Plugins
 if !has('nvim')
