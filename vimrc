@@ -476,6 +476,19 @@ set fileformats=unix,dos
 " ============================================================
 " ==================== Personal Functions ====================
 " ============================================================
+
+" support emoji concealing.
+" Credits to vim-emoji,
+" me,
+" @rhysd at https://github.com/rhysd/vim-gfm-syntax/commit/7cee65d73a7ff451b3cef8a48a9b2e032a471217
+" And @christian-brabandt at https://vi.stackexchange.com/a/5698
+function! Emoji_apply_conceal()
+    setlocal conceallevel=2
+    for e in emoji#list()
+        call matchadd('Conceal', ':'.e.':', 10, -1, {'conceal': ''.emoji#for(e)})
+    endfor
+endfunction
+
 " Credits to @jamessan at https://stackoverflow.com/a/6496995/6634981
 " And vimcasts http://vimcasts.org/episodes/tidying-whitespace/
 function! StripTrailingWhitespace()
@@ -575,7 +588,8 @@ augroup markdown
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
 
-    autocmd FileType markdown,gitcommit set completefunc=emoji#complete
+    autocmd FileType fugitive,git,gitcommit,markdown set completefunc=emoji#complete | call Emoji_apply_conceal()
+
 
     " Make Livedown work properly
     if !has('nvim')
