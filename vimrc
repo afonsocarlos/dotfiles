@@ -192,6 +192,10 @@ call plug#end()
 " load the version of matchit.vim that ships with vim
 runtime macros/matchit.vim
 
+" ==================================================
+" ==================== Settings ====================
+" ==================================================
+
 " ************* vim-airline settings *************
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
@@ -485,9 +489,12 @@ set fileencodings=utf-8,latin1
 set fileformat=unix
 set fileformats=unix,dos
 
+" ============================================================
+" ==================== Personal Functions ====================
+" ============================================================
 " Credits to @jamessan at https://stackoverflow.com/a/6496995/6634981
 " And vimcasts http://vimcasts.org/episodes/tidying-whitespace/
-fun! StripTrailingWhitespace()
+function! StripTrailingWhitespace()
     " Only strip if the b:noStripeWhitespace variable isn't set
     if exists('b:noStripWhitespace')
         return
@@ -501,8 +508,11 @@ fun! StripTrailingWhitespace()
     " Clean up: restore previous search history, and cursor position
     let @/=_s
     call cursor(l, c)
-endfun
+endfunction
 
+" ========================================================
+" ==================== Autocmd groups ====================
+" ========================================================
 " Set foldmethod to syntax, but enable to create manual foldings
 augroup twofoldings
     autocmd!
