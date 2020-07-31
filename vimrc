@@ -115,6 +115,9 @@ call plug#begin('~/.vim/plugged')
   " git integration for Vim
   Plug 'tpope/vim-fugitive'
 
+  " continuously updated session files
+  Plug 'tpope/vim-obsession'
+
   Plug 'sheerun/vim-polyglot'
 
   Plug 'ryanoasis/vim-devicons'
