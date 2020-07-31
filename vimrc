@@ -231,6 +231,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
 let g:startify_commands = [
     \ {'o': ['Start saving session (Obsess)', ':Obsess']},
+    \ {'u': ['Upgrade vim-plug and Install and Update plugins', ':PlugUpgrade | :PlugInstall | :PlugUpdate']},
     \ ]
 
 " ************* Ememt settings *************
