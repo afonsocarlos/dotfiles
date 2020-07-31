@@ -10,6 +10,8 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 ln -s /home/$USER/.vim /home/$USER/.config/nvim
 ln -s /home/$USER/.vimrc /home/$USER/.config/nvim/init.vim
 
+mkdir -p ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # delete unecessary dotfiles
 rm ~/.README.md
 rm ~/.Screenshot-1.png
