@@ -70,6 +70,10 @@ call plug#begin('~/.vim/plugged')
   " display ctag description (when completing)
   Plug 'majutsushi/tagbar'
 
+  " Use release branch (recommend)
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Coc Extensions to install coc-marketplace
+
   " View and search LSP symbols, tags in Vim/NeoVim
   Plug 'liuchengxu/vista.vim'
 
@@ -175,10 +179,6 @@ call plug#begin('~/.vim/plugged')
       Plug 'ncm2/ncm2-jedi'
       Plug 'ncm2/ncm2-ultisnips'
       Plug 'ncm2/float-preview.nvim'
-
-      " Use release branch (recommend)
-      Plug 'neoclide/coc.nvim', {'branch': 'release'}
-      " Coc Extensions to install coc-marketplace
 
       " nvim markdown preview
       Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
