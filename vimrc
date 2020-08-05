@@ -59,10 +59,9 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'wellle/targets.vim'
 
-  " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-
   " file fuzzy search
-  " Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   " count and index matches in a search
   Plug 'google/vim-searchindex'
@@ -216,6 +215,10 @@ endif
 if (has("termguicolors"))
   set termguicolors
 endif
+"
+" ************* FZF settings *************
+" Open fzf in a floating window
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Function' } }
 
 
 " ************* Startify settings *************
