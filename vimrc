@@ -444,7 +444,6 @@ set viewoptions=folds,options,cursor,unix  " improve Unix/Windows compatibility
 set visualbell                             " enable visual bell (disable audio bell)
 set wildignorecase                         " enable case-insensitive while completing file names
 set wildmenu                               " Tab autocomplete in command mode
-set wildmode=list:longest,full
 set wrap                                   " this enables 'visual' wrapping
 set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
 set shortmess+=c                           " show completion suggestions (^X) in insert mode
