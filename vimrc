@@ -217,7 +217,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" ************* vim-airline settings *************
+
+" ************* Startify settings *************
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_session_persistence = 1
@@ -432,6 +433,7 @@ set number                                 " display line number
 set path+=**                               " set find command to look for sub directories recursively
 set relativenumber                         " display line number relative to the current one
 set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
+set redrawtime=5000                        " Prevent huge files from breaking (and disabling) syntax highlighting
 set ttyfast                                " send more characters in fast terminals
 set showbreak=>>                           " virtual line indicator
 set showcmd                                " show incomplete cmds down the bottom
