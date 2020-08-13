@@ -64,8 +64,8 @@ wider_completion_menu = False
 # \s - Seconds of the current time
 # \t - Product type (Percona, MySQL, MariaDB)
 # \u - Username
-prompt = '\t \u@\h:\d> '
-prompt_continuation = '-> '
+prompt = "\t \u@\h:\d> "
+prompt_continuation = "-> "
 
 # Skip intro info on startup and outro info on exit
 less_chatty = False
@@ -85,26 +85,26 @@ enable_pager = False
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
-completion-menu.completion.current = 'bg:#ffffff #000000'
-completion-menu.completion = 'bg:#008888 #ffffff'
-completion-menu.meta.completion.current = 'bg:#44aaaa #000000'
-completion-menu.meta.completion = 'bg:#448888 #ffffff'
-completion-menu.multi-column-meta = 'bg:#aaffff #000000'
-scrollbar.arrow = 'bg:#003333'
-scrollbar = 'bg:#00aaaa'
-selected = '#ffffff bg:#6666aa'
-search = '#ffffff bg:#4444aa'
-search.current = '#ffffff bg:#44aa44'
-bottom-toolbar = 'bg:#222222 #aaaaaa'
-bottom-toolbar.off = 'bg:#222222 #888888'
-bottom-toolbar.on = 'bg:#222222 #ffffff'
-search-toolbar = 'noinherit bold'
-search-toolbar.text = 'nobold'
-system-toolbar = 'noinherit bold'
-arg-toolbar = 'noinherit bold'
-arg-toolbar.text = 'nobold'
-bottom-toolbar.transaction.valid = 'bg:#222222 #00ff5f bold'
-bottom-toolbar.transaction.failed = 'bg:#222222 #ff005f bold'
+completion-menu.completion.current = "bg:#ffffff #000000"
+completion-menu.completion = "bg:#008888 #ffffff"
+completion-menu.meta.completion.current = "bg:#44aaaa #000000"
+completion-menu.meta.completion = "bg:#448888 #ffffff"
+completion-menu.multi-column-meta = "bg:#aaffff #000000"
+scrollbar.arrow = "bg:#003333"
+scrollbar = "bg:#00aaaa"
+selected = "#ffffff bg:#6666aa"
+search = "#ffffff bg:#4444aa"
+search.current = "#ffffff bg:#44aa44"
+bottom-toolbar = "bg:#222222 #aaaaaa"
+bottom-toolbar.off = "bg:#222222 #888888"
+bottom-toolbar.on = "bg:#222222 #ffffff"
+search-toolbar = noinherit bold
+search-toolbar.text = nobold
+system-toolbar = noinherit bold
+arg-toolbar = noinherit bold
+arg-toolbar.text = nobold
+bottom-toolbar.transaction.valid = "bg:#222222 #00ff5f bold"
+bottom-toolbar.transaction.failed = "bg:#222222 #ff005f bold"
 
 # style classes for colored table output
 output.header = "#00ff5f bold"

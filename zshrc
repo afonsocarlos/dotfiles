@@ -171,5 +171,5 @@ PROMPT="%(1j.[%j] .)"$PROMPT
 
 if command -v neofetch >/dev/null 2>&1; then
     alias clear='clear; neofetch --ascii "$(fortune -e ~/.config/fortunes | cowsay -f ~/.config/cowsay/cows/yin-yang.cow -W 30)"'
-	clear; neofetch --ascii "$(fortune -e ~/.config/fortunes | cowsay -f ~/.config/cowsay/cows/yin-yang.cow -W 30)"
+    clear; neofetch --ascii "$(fortune -e ~/.config/fortunes | cowsay -f ~/.config/cowsay/cows/yin-yang.cow -W 30)"
 fi
