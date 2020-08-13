@@ -369,10 +369,11 @@ nnoremap <C-y> 3<C-y>
 nnoremap <leader>q :nohl<Esc>
 " select which tag to inspect when there's multiple
 nnoremap <C-]> g<C-]>
-" open fzf for files
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>b :buffers<CR>:b<space>
+" open fzf for files, buffers, and vim-help
 nnoremap <leader>a :Ag<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>h :Helptags<CR>
 " fugitive shortcuts
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gl :Gpull<CR>
