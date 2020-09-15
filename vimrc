@@ -638,6 +638,10 @@ augroup vimwikigroup
     " Automate diary organization
     autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
 
+    " Sync local vimwiki with Remote git server
+    autocmd VimEnter,BufRead ~/wiki/index.md execute 'Dispatch! cd <afile>:p:h; git pull'
+    autocmd BufLeave ~/wiki/* if expand('<afile>') !~ 'index.md' | execute 'Dispatch! cd <afile>:p:h; git add <afile>:t; git commit -m "Update <afile>:s?wiki/??"'
+    autocmd VimLeave * execute 'Dispatch! git push'
 augroup end
 
 " Use Silver Searcher if available
