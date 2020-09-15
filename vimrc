@@ -357,6 +357,8 @@ nnoremap <leader>de :bdel #<CR>
 " toggle spell check
 nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F5> :setlocal spell! spelllang=pt_br<CR>
+inoremap <F6> <C-o>:setlocal spell! spelllang=en_us<CR>
+inoremap <F5> <C-o>:setlocal spell! spelllang=pt_br<CR>
 " toggle Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 " toggle Vista
