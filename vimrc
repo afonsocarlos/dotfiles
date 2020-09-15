@@ -63,6 +63,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  Plug 'vimwiki/vimwiki'
+  Plug 'mattn/calendar-vim'
+  Plug 'mzlogin/vim-markdown-toc'
+  Plug 'vim-scripts/utl.vim'
+
   " count and index matches in a search
   Plug 'google/vim-searchindex'
 
@@ -120,6 +125,9 @@ call plug#begin('~/.vim/plugged')
 
   " continuously updated session files
   Plug 'tpope/vim-obsession'
+
+  " Asynchronous build and test dispatcher
+  Plug 'tpope/vim-dispatch'
 
   Plug 'sheerun/vim-polyglot'
 
@@ -219,6 +227,17 @@ endif
 " ************* FZF settings *************
 " Open fzf in a floating window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Function' } }
+
+" ************* VimWiki settings *************
+let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_listsyms = ' ○◐●x'
+let g:vimwiki_folding = 'list'
+let g:vimwiki_global_ext = 0
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_table_mappings = 0
+let g:vmt_auto_update_on_save = 1
+let g:vmt_dont_insert_fence = 1
+" let g:vimwiki_toc_link_format = 1
 
 
 " ************* Startify settings *************
