@@ -192,8 +192,6 @@ call plug#begin('~/.vim/plugged')
 
   endif
 
-  Plug 'aserebryakov/vim-todo-lists'
-
 call plug#end()
 
 " load the version of matchit.vim that ships with vim
@@ -305,7 +303,8 @@ endif
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " ************* Scratch settings *************
-let g:scratch_persistence_file = '~/todo.txt'
+let g:scratch_filetype = 'vimwiki'
+let g:scratch_persistence_file = '~/wiki/Scratchpad.md'
 
 " NeoVim specific Plugins
 if has('nvim')
@@ -620,11 +619,6 @@ augroup markdown
       autocmd FileType markdown
           \ autocmd! BufWritePost <buffer> LivedownPreview
     endif
-augroup end
-
-augroup scratch_todo
-    autocmd!
-    autocmd BufRead,BufNewFile __Scratch__ call VimTodoListsInit()
 augroup end
 
 " Use Silver Searcher if available
