@@ -624,6 +624,22 @@ augroup markdown
     endif
 augroup end
 
+augroup vimwikigroup
+    autocmd!
+
+    " Improve syntax
+    autocmd FileType vimwiki set syntax=markdown
+
+    " Remappings
+    autocmd FileType markdown nnoremap <buffer><leader>w/ :VWS //<Left>
+    autocmd FileType markdown inoremap <expr><buffer><C-n> vimwiki#tbl#kbd_tab()
+    autocmd FileType markdown inoremap <expr><buffer><C-p> vimwiki#tbl#kbd_shift_tab()
+
+    " Automate diary organization
+    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+
+augroup end
+
 " Use Silver Searcher if available
 if executable('ag')
     " Use ag over grep
