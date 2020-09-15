@@ -630,6 +630,14 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
+" Use Ripgrep if available
+" (Ag was preferred but it has an inconvenient problem of not respecting
+" .gitignore files from subdirectories which annoyed me)
+if executable('rg')
+    " Use rg over grep
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
 
 " NeoVim specific Plugins
 if has('nvim')
