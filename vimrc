@@ -471,7 +471,8 @@ set wildmenu                               " Tab autocomplete in command mode
 set wrap                                   " this enables 'visual' wrapping
 set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
 set shortmess+=c                           " show completion suggestions (^X) in insert mode
-set pastetoggle=<F2>
+set pastetoggle=<F2>                       " Toggle pastemode to avoid unexpected effects when pasting
+set inccommand=split                       " shows the effects of a command incrementally, as you type
 
 " this turns off physical line wrapping
 set textwidth=0
