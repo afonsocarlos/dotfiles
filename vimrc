@@ -341,7 +341,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Add spelling correction
-inoremap <C-l> <Esc>[s1z=ea
+inoremap <C-l> <Esc>[s1z=egi
 
 " switch buffers
 nnoremap <C-n> :bnext<CR>
@@ -417,6 +417,19 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>rn <Plug>(coc-rename)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Remap <C-j> and <C-k> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+  nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
+  inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+  vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
+endif
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
