@@ -627,8 +627,7 @@ augroup markdown
     autocmd User GoyoEnter Limelight
     autocmd User GoyoLeave Limelight!
 
-    autocmd FileType fugitive,git,gitcommit,markdown set completefunc=emoji#complete
-    autocmd BufReadPost *.md call Emoji_apply_conceal()
+    autocmd FileType fugitive,git,gitcommit,markdown set completefunc=emoji#complete | call Emoji_apply_conceal()
 
 
     " Make Livedown work properly
