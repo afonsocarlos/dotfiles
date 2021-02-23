@@ -67,6 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/calendar-vim'
   Plug 'mzlogin/vim-markdown-toc'
   Plug 'vim-scripts/utl.vim'
+  Plug 'jkramer/vim-checkbox'
 
   " count and index matches in a search
   Plug 'google/vim-searchindex'
@@ -237,6 +238,11 @@ let g:vmt_auto_update_on_save = 1
 let g:vmt_dont_insert_fence = 1
 " let g:vimwiki_toc_link_format = 1
 
+" ************* Vim-Checkbox settings *************
+let g:insert_checkbox_prefix = '- '
+" Remove default mapping
+silent! unmap <leader>tt
+
 
 " ************* Startify settings *************
 let g:startify_change_to_vcs_root = 1
@@ -377,6 +383,8 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
+" toggle checkbox
+noremap <silent>gt :call checkbox#ToggleCB()<CR>
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 " insert new line in normal mode
