@@ -466,13 +466,14 @@ set incsearch                              " search incrementally instead of aft
 set laststatus=2                           " turn on status line
 set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
 set linebreak                              " ensure the whole word is going to the next virtual line
-set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·          " Set icons to visually indicate special characters (i.e. eol, space, tab, trail)
 set noswapfile                             " disable swap files
 set number                                 " display line number
 set pastetoggle=<F2>                       " Toggle pastemode to avoid unexpected effects when pasting
 set path+=**                               " set find command to look for sub directories recursively
 set redrawtime=5000                        " Prevent huge files from breaking (and disabling) syntax highlighting
 set relativenumber                         " display line number relative to the current one
+set shell=/usr/bin/bash                    " Set bash as vim shell (it speeds up vim-fugitive A LOT)
 set shortmess+=c                           " show completion suggestions (^X) in insert mode
 set showbreak=>>                           " virtual line indicator
 set showcmd                                " show incomplete cmds down the bottom
