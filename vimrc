@@ -405,6 +405,7 @@ nnoremap <leader>fh :Helptags<CR>
 " fugitive shortcuts
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gl :G pull<CR>
+nnoremap <leader>gm :G checkout master<CR>
 nnoremap <leader>gp :G push<CR>
 " go to next/prev item in location list
 nnoremap <silent> [l :lprev<CR>
