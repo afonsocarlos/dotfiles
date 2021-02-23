@@ -461,31 +461,31 @@ set hidden                                 " allow buffer switching without savi
 set history=100                            " store more command history
 set hlsearch                               " highlight all matches
 set ignorecase                             " case insensitive search
+set inccommand=split                       " shows the effects of a command incrementally, as you type
 set incsearch                              " search incrementally instead of after pressing enter
 set laststatus=2                           " turn on status line
+set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
 set linebreak                              " ensure the whole word is going to the next virtual line
 set list listchars=tab:»·,trail:·
 set noswapfile                             " disable swap files
 set number                                 " display line number
+set pastetoggle=<F2>                       " Toggle pastemode to avoid unexpected effects when pasting
 set path+=**                               " set find command to look for sub directories recursively
-set relativenumber                         " display line number relative to the current one
-set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
 set redrawtime=5000                        " Prevent huge files from breaking (and disabling) syntax highlighting
-set ttyfast                                " send more characters in fast terminals
+set relativenumber                         " display line number relative to the current one
+set shortmess+=c                           " show completion suggestions (^X) in insert mode
 set showbreak=>>                           " virtual line indicator
 set showcmd                                " show incomplete cmds down the bottom
 set showmatch                              " show bracket matches
 set smartcase                              " case sensitive if we type an uppercase
+set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
+set ttyfast                                " send more characters in fast terminals
 set undolevels=400                         " store a bunch of undo history
 set viewoptions=folds,options,cursor,unix  " improve Unix/Windows compatibility
 set visualbell                             " enable visual bell (disable audio bell)
 set wildignorecase                         " enable case-insensitive while completing file names
 set wildmenu                               " Tab autocomplete in command mode
 set wrap                                   " this enables 'visual' wrapping
-set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
-set shortmess+=c                           " show completion suggestions (^X) in insert mode
-set pastetoggle=<F2>                       " Toggle pastemode to avoid unexpected effects when pasting
-set inccommand=split                       " shows the effects of a command incrementally, as you type
 
 " this turns off physical line wrapping
 set textwidth=0
