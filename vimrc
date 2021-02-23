@@ -255,7 +255,7 @@ let g:startify_lists = [
     \ { 'header': ['   Sessions'],                     'type': 'sessions' },
     \ { 'header': ['   Bookmarks'],                    'type': 'bookmarks',       },
     \ ]
-let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
+let g:startify_bookmarks = [ {'c': resolve(expand('~/.vimrc'))}, '~/.zshrc' ]
 let g:startify_commands = [
     \ {'o': ['Start saving session (Obsess)', ':Obsess']},
     \ {'u': ['Upgrade vim-plug and Install and Update plugins', ':PlugUpgrade | :PlugInstall | :PlugUpdate']},
