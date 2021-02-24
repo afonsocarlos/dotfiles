@@ -482,7 +482,7 @@ set incsearch                              " search incrementally instead of aft
 set laststatus=2                           " turn on status line
 set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
 set linebreak                              " ensure the whole word is going to the next virtual line
-set list listchars=tab:»·,trail:·          " Set icons to visually indicate special characters (i.e. eol, space, tab, trail)
+set list listchars=eol:↲,tab:»·,trail:·    " Set icons to visually indicate special characters (i.e. eol, space, tab, trail)
 set noswapfile                             " disable swap files
 set number                                 " display line number
 set pastetoggle=<F2>                       " Toggle pastemode to avoid unexpected effects when pasting
