@@ -54,3 +54,5 @@
 	ff = only
 [init]
 	defaultBranch = master
+[rebase]
+	autoStash = true
