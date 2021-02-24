@@ -141,6 +141,9 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'mtth/scratch.vim'
 
+  " Turn vim into a REPL editor
+  Plug 'jpalardy/vim-slime'
+
 " ######################## MARKDOWN CONFIG ########################
   " fold rules for markdown
   Plug 'nelstrom/vim-markdown-folding'
@@ -244,6 +247,10 @@ let g:vmt_dont_insert_fence = 1
 let g:insert_checkbox_prefix = '- '
 " Remove default mapping
 silent! unmap <leader>tt
+
+" ************* vim-slime settings *************
+let g:slime_target = 'tmux'
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 
 " ************* Startify settings *************
