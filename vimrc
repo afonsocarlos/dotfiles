@@ -54,9 +54,6 @@ call plug#begin('~/.vim/plugged')
   " cross text-editor config standards
   Plug 'editorconfig/editorconfig-vim'
 
-  " parentheses, brackets, quotes, html tags surrounding plugin
-  Plug 'tpope/vim-surround'
-
   Plug 'wellle/targets.vim'
 
   " file fuzzy search
@@ -89,9 +86,6 @@ call plug#begin('~/.vim/plugged')
   " Plug 'ludovicchabant/vim-gutentags'
   Plug 'jsfaint/gen_tags.vim'
 
-  " toggle comments
-  Plug 'tpope/vim-commentary'
-
   " resize windows neatly!
   Plug 'roman/golden-ratio'
 
@@ -118,8 +112,11 @@ call plug#begin('~/.vim/plugged')
   " intelligent substitution
   Plug 'tpope/vim-abolish'
 
-  " repeat last modification regarding to Plugin editions
-  Plug 'tpope/vim-repeat'
+  " toggle comments
+  Plug 'tpope/vim-commentary'
+
+  " Asynchronous build and test dispatcher
+  Plug 'tpope/vim-dispatch'
 
   " git integration for Vim
   Plug 'tpope/vim-fugitive'
@@ -127,8 +124,11 @@ call plug#begin('~/.vim/plugged')
   " continuously updated session files
   Plug 'tpope/vim-obsession'
 
-  " Asynchronous build and test dispatcher
-  Plug 'tpope/vim-dispatch'
+  " repeat last modification regarding to Plugin editions
+  Plug 'tpope/vim-repeat'
+
+  " parentheses, brackets, quotes, html tags surrounding plugin
+  Plug 'tpope/vim-surround'
 
   Plug 'sheerun/vim-polyglot'
 
@@ -238,7 +238,7 @@ let g:vmt_auto_update_on_save = 1
 let g:vmt_dont_insert_fence = 1
 " let g:vimwiki_toc_link_format = 1
 
-" ************* Vim-Checkbox settings *************
+" ************* vim-checkbox settings *************
 let g:insert_checkbox_prefix = '- '
 " Remove default mapping
 silent! unmap <leader>tt
