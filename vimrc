@@ -380,9 +380,6 @@ nnoremap <F8> :TagbarToggle<CR>
 nnoremap <F9> :Vista!!<CR>
 " toggle Goyo (distraction free)
 nnoremap <F11> :Goyo<CR>
-" shortcut for vertically aligning elements
-nnoremap <leader>a= :Tab /=<CR>
-vnoremap <leader>a= :Tab /=<CR>
 " shortcut for vertically aligning elements with Easy Align
 nnoremap gA ga
 xmap ga <Plug>(EasyAlign)
@@ -437,7 +434,8 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
 " Apply AutoFix to problem on the current line.
-nmap <leader>af  <Plug>(coc-fix-current)
+xmap <silent><leader>a  <Plug>(coc-codeaction-selected)
+nmap <silent><leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap <C-j> and <C-k> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
