@@ -134,6 +134,8 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'ryanoasis/vim-devicons'
 
+  Plug 'dart-lang/dart-vim-plugin'
+
   " PHP refactoring plugin
   Plug 'vim-php/vim-php-refactoring'
 
