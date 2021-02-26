@@ -529,6 +529,10 @@ set fileencodings=utf-8,latin1
 set fileformat=unix
 set fileformats=unix,dos
 
+" Special highlighting settings
+highlight ExtraWhitespace ctermbg=darkred guibg=#382424
+highlight Comment cterm=italic gui=italic
+
 " ============================================================
 " ==================== Personal Functions ====================
 " ============================================================
@@ -597,7 +601,6 @@ augroup numbertoggle
 augroup end
 
 " Show trailing white space as red
-highlight ExtraWhitespace ctermbg=darkred guibg=#382424
 augroup treat_trailing_whitespace
     autocmd!
 
