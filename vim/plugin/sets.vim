@@ -1,3 +1,6 @@
+" =========================================================
+" ==================== Option settings ====================
+" =========================================================
 set autoread                               " automatically reload files changed outside vim
 set autowriteall                           " automatically save files
 set backspace=indent,eol,start             " make backspace work properly
@@ -57,3 +60,20 @@ set fileencodings=utf-8,latin1
 " set file EOL
 set fileformat=unix
 set fileformats=unix,dos
+
+
+" Use Silver Searcher if available
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" Use Ripgrep if available
+" (Ag was preferred but it has an inconvenient problem of not respecting
+" .gitignore files from subdirectories which annoyed me)
+if executable('rg')
+    " Use rg over grep
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
+
