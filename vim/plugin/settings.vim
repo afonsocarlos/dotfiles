@@ -5,8 +5,6 @@
 " ************* vim-airline settings *************
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " ************* onedark.vim settings *************
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -106,8 +104,15 @@ if has('nvim')
     " ************* telescope settings *************
     lua require'carlos.telescope'
 
+    " ************* nvim-bufferline settings *************
+    lua require'carlos.bufferline'
+
 " VIM specific Plugins
 else
+    " ************* vim-airline settings *************
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
+"
     " ************* syntastic settings *************
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}

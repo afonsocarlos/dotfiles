@@ -12,8 +12,18 @@ map <C-l> <C-W>l
 inoremap <C-l> <Esc>[s1z=egi
 
 " switch buffers
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprev<CR>
+" Magic buffer-picking mode
+nnoremap <silent><leader>bb :BufferLinePick<CR>
+" Sort automatically by...
+nnoremap <silent> <leader>bd :lua require'bufferline'.sort_buffers_by('directory')<CR>
+nnoremap <silent> <leader>bl :lua require'bufferline'.sort_buffers_by('extension')<CR>
+" Move to previous/next
+nnoremap <silent><C-n> :BufferLineCycleNext<CR>
+nnoremap <silent><C-p> :BufferLineCyclePrev<CR>
+" Re-order to previous/next
+nnoremap <silent><M-C-N> :BufferLineMoveNext<CR>
+nnoremap <silent><M-C-P> :BufferLineMovePrev<CR>
+
 nnoremap <silent> <leader>e :e<CR>:echo 'File reloaded!'<CR>
 nnoremap <leader>n :enew<CR>
 nnoremap <leader>s :update<CR>

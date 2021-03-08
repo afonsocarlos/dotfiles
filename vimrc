@@ -204,6 +204,9 @@ call plug#begin('~/.vim/plugged')
       Plug 'nvim-telescope/telescope.nvim'
       Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+      Plug 'kyazdani42/nvim-web-devicons'
+      Plug 'akinsho/nvim-bufferline.lua'
+
   endif
 
 call plug#end()
