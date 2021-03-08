@@ -86,6 +86,10 @@ nnoremap <silent> ]Q :clast<CR>
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" vim-slime map
+xmap <m-cr> <Plug>SlimeRegionSend
+nmap <m-cr> <Plug>SlimeParagraphSend
+nmap <c-c>v <Plug>SlimeConfig
 " coc shortcuts
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)

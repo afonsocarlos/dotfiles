@@ -217,10 +217,6 @@ call plug#end()
 " load the version of matchit.vim that ships with vim
 runtime macros/matchit.vim
 
-" ************* vim-slime settings *************
-let g:slime_target = 'tmux'
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-
 
 
 

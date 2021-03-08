@@ -62,6 +62,11 @@ let g:php_refactor_command = 'php /usr/local/bin/refactor.phar'
 " ************* Golden Ratio settings *************
 let g:golden_ratio_autocommand = 0
 
+" ************* vim-slime settings *************
+let g:slime_target = 'tmux'
+let g:slime_no_mappings = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
 " ************* Vista settings *************
 let g:vista_default_executive = 'coc'
 let g:vista_cursor_delay = 100
