@@ -196,6 +196,9 @@ call plug#begin('~/.vim/plugged')
       " nvim markdown preview
       Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
+      " Nvim Treesitter
+      Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   endif
 
 call plug#end()
@@ -227,12 +230,6 @@ filetype plugin on
 " Special highlighting settings
 highlight ExtraWhitespace ctermbg=darkred guibg=#382424
 highlight Comment cterm=italic gui=italic
-
-
-
-
-
-
 
 " ================================================================
 " ===================== C Specific Settings ======================
