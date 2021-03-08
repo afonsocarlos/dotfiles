@@ -29,9 +29,10 @@ nnoremap <leader>n :enew<CR>
 nnoremap <leader>s :update<CR>
 " Write file without trailing whitespaces
 nnoremap <leader>w :let b:noStripWhitespace=1 <BAR> :w<CR>
-nnoremap <leader>d :bdel<CR>
-nnoremap <leader>dd :bdel!<CR>
-nnoremap <leader>de :bdel #<CR>
+" Close buffer
+nnoremap <leader>db :Bdel<CR>
+nnoremap <leader>dd :Bdel!<CR>
+nnoremap <leader>de :Bdel #<CR>
 " toggle spell check
 nnoremap <F6> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F5> :setlocal spell! spelllang=pt_br<CR>

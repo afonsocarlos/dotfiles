@@ -130,6 +130,9 @@ call plug#begin('~/.vim/plugged')
   " parentheses, brackets, quotes, html tags surrounding plugin
   Plug 'tpope/vim-surround'
 
+  " delete buffers without messing up layout
+  Plug 'moll/vim-bbye'
+
   Plug 'sheerun/vim-polyglot'
 
   Plug 'ryanoasis/vim-devicons'
