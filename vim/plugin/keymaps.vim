@@ -43,7 +43,7 @@ nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") 
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
 " toggle checkbox
-noremap <silent>gt :call checkbox#ToggleCB()<CR>
+noremap <silent><leader>gt :call checkbox#ToggleCB()<CR>
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 " insert new line in normal mode
