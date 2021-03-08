@@ -11,4 +11,8 @@ if executable('rg')
     command! -nargs=? -complete=file TodoList grep '\b(TODO\|FIXME)\b' <args>
 endif
 
-
+command! -nargs=? -bar -bang -complete=customlist,startify#session_list SSave
+  \ call startify#session_save(<bang>0, <f-args>) |
+  \ if !empty(v:this_session) |
+  \   execute "Obsession " . v:this_session |
+  \ endif

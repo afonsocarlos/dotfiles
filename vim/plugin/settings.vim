@@ -49,7 +49,7 @@ let g:startify_lists = [
     \ ]
 let g:startify_bookmarks = [ {'c': resolve(expand('~/.vimrc'))}, '~/.zshrc' ]
 let g:startify_commands = [
-    \ {'o': ['Start saving session (Obsess)', ':Obsess']},
+    \ {'o': ['Start saving session (Obsess)', ':SSave']},
     \ {'u': ['Upgrade vim-plug and Install and Update plugins', ':PlugUpgrade | :PlugInstall | :PlugUpdate']},
     \ ]
 
