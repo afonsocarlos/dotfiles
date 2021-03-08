@@ -102,6 +102,10 @@ if has('nvim')
 
     " ************* Ncm2 float-preview settings *************
     let g:float_preview#docked = 1
+
+    " ************* telescope settings *************
+    lua require'carlos.telescope'
+
 " VIM specific Plugins
 else
     " ************* syntastic settings *************

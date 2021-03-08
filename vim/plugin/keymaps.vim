@@ -56,11 +56,6 @@ nnoremap <C-y> 3<C-y>
 nnoremap <leader>q :nohl<Esc>
 " select which tag to inspect when there's multiple
 nnoremap <C-]> g<C-]>
-" open fzf for files, buffers, and vim-help
-nnoremap <leader>fa :Ag<CR>
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fh :Helptags<CR>
 " fugitive shortcuts
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gl :G pull<CR>
@@ -110,3 +105,19 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
+if has('nvim')
+  nnoremap <leader>fa <cmd>Telescope grep_string<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+  nnoremap <leader>fl <cmd>Telescope current_buffer_fuzzy_find<cr>
+else
+  " open fzf for files, buffers, and vim-help
+  nnoremap <leader>fa :Ag<CR>
+  nnoremap <leader>ff :Files<CR>
+  nnoremap <leader>fb :Buffers<CR>
+  nnoremap <leader>fh :Helptags<CR>
+endif
