@@ -215,12 +215,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " load the version of matchit.vim that ships with vim
-runtime macros/matchit.vim
-
-
-
-
-
+packadd! cfilter
+packadd! matchit
 
 
 " ================================================================
