@@ -31,7 +31,7 @@ augroup end
 augroup refresh_screen
     autocmd!
 
-    autocmd CursorHold,CursorHoldI * checktime
+    autocmd CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime | endif
     autocmd FocusGained,BufEnter * :checktime
 augroup end
 
