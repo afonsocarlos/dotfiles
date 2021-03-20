@@ -49,8 +49,6 @@ nnoremap gA ga
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" toggle nerd tree
-nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
 " toggle checkbox
@@ -130,7 +128,10 @@ if has('nvim')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
   nnoremap <leader>fl <cmd>Telescope current_buffer_fuzzy_find<cr>
 else
-  " open fzf for files, buffers, and vim-help
+  " ************* NERDTree *************
+  nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
+
+  " ************* FZF.vim *************
   nnoremap <leader>fa :Ag<CR>
   nnoremap <leader>ff :Files<CR>
   nnoremap <leader>fb :Buffers<CR>

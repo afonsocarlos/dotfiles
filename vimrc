@@ -34,11 +34,6 @@ call plug#begin('~/.vim/plugged')
   " Fancy start screen
   Plug 'mhinz/vim-startify'
 
-  " NERDTree file explorer
-  Plug 'scrooloose/nerdtree'
-  " NERDTree git integration
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-
   " Ease html coding like a breeze
   Plug 'mattn/emmet-vim'
 
@@ -173,6 +168,11 @@ call plug#begin('~/.vim/plugged')
 
   " VIM specific Plugins
   if !has('nvim')
+      " NERDTree file explorer
+      Plug 'scrooloose/nerdtree'
+      " NERDTree git integration
+      Plug 'Xuyuanp/nerdtree-git-plugin'
+
       " lint code like a charm
       Plug 'scrooloose/syntastic'
 
