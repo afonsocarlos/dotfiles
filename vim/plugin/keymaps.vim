@@ -55,6 +55,8 @@ nnoremap <leader>t :Scratch<CR>
 noremap <silent><leader>gt :call checkbox#ToggleCB()<CR>
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
+" Quit All windows without checking for changes
+nnoremap <silent>ZQ :qa!<CR>
 " insert new line in normal mode
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
