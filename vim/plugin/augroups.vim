@@ -31,8 +31,8 @@ augroup end
 augroup refresh_screen
     autocmd!
 
-    autocmd CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime | endif
-    autocmd FocusGained,BufEnter * :checktime
+    autocmd CursorHold,CursorHoldI * silent! checktime
+    autocmd FocusGained,BufEnter * silent! checktime
 augroup end
 
 " guten tags already does this, but leave it here just for precaution
