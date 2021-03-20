@@ -16,7 +16,7 @@ inoremap <C-l> <Esc>[s1z=egi
 nnoremap <silent><leader>bb :BufferLinePick<CR>
 " Sort automatically by...
 nnoremap <silent> <leader>bd :lua require'bufferline'.sort_buffers_by('directory')<CR>
-nnoremap <silent> <leader>bl :lua require'bufferline'.sort_buffers_by('extension')<CR>
+nnoremap <silent> <leader>be :lua require'bufferline'.sort_buffers_by('extension')<CR>
 " Move to previous/next
 nnoremap <silent><C-n> :BufferLineCycleNext<CR>
 nnoremap <silent><C-p> :BufferLineCyclePrev<CR>
