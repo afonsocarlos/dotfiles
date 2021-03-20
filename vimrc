@@ -165,22 +165,6 @@ call plug#begin('~/.vim/plugged')
   " Emoji in Vim
   Plug 'junegunn/vim-emoji'
 
-
-  " VIM specific Plugins
-  if !has('nvim')
-      " NERDTree file explorer
-      Plug 'scrooloose/nerdtree'
-      " NERDTree git integration
-      Plug 'Xuyuanp/nerdtree-git-plugin'
-
-      " lint code like a charm
-      Plug 'scrooloose/syntastic'
-
-      " languages auto completion
-      Plug 'valloric/youcompleteme'
-  endif
-
-
   " NeoVim specific Plugins
   if has('nvim')
       " lint code like a charm for neovim
@@ -210,6 +194,18 @@ call plug#begin('~/.vim/plugged')
       Plug 'kyazdani42/nvim-web-devicons'
       Plug 'akinsho/nvim-bufferline.lua'
 
+  " VIM specific Plugins
+  else
+      " NERDTree file explorer
+      Plug 'scrooloose/nerdtree'
+      " NERDTree git integration
+      Plug 'Xuyuanp/nerdtree-git-plugin'
+
+      " lint code like a charm
+      Plug 'scrooloose/syntastic'
+
+      " languages auto completion
+      Plug 'valloric/youcompleteme'
   endif
 
 call plug#end()
