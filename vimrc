@@ -81,17 +81,11 @@ call plug#begin('~/.vim/plugged')
   " Plug 'ludovicchabant/vim-gutentags'
   Plug 'jsfaint/gen_tags.vim'
 
-  " resize windows neatly!
-  Plug 'roman/golden-ratio'
-
   " highlight hex, rgb and colornames
   Plug 'chrisbra/colorizer'
 
   " php completion
   Plug 'shawncplus/phpcomplete.vim'
-
-  " tabular - vertically align elements
-  Plug 'godlygeek/tabular'
 
   " Easy Align - vertically align elements
   Plug 'junegunn/vim-easy-align'
@@ -127,8 +121,6 @@ call plug#begin('~/.vim/plugged')
 
   " delete buffers without messing up layout
   Plug 'moll/vim-bbye'
-
-  Plug 'sheerun/vim-polyglot'
 
   Plug 'ryanoasis/vim-devicons'
 
@@ -200,6 +192,8 @@ call plug#begin('~/.vim/plugged')
       Plug 'scrooloose/nerdtree'
       " NERDTree git integration
       Plug 'Xuyuanp/nerdtree-git-plugin'
+
+      Plug 'sheerun/vim-polyglot'
 
       " lint code like a charm
       Plug 'scrooloose/syntastic'
