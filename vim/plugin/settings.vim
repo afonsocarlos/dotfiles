@@ -41,13 +41,16 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_session_persistence = 1
 let g:startify_lists = [
-    \ { 'header': ['   Commands'],                     'type': 'commands',       },
-    \ { 'header': ['   Files'],                        'type': 'files' },
-    \ { 'header': ['   Current Directory '. getcwd()], 'type': 'dir' },
-    \ { 'header': ['   Sessions'],                     'type': 'sessions' },
-    \ { 'header': ['   Bookmarks'],                    'type': 'bookmarks',       },
+    \ { 'header': ['   Commands'],                                     'type': 'commands',       },
+    \ { 'header': ['   Current Directory MRU ('. fnamemodify(getcwd(), ':t') . ')'], 'type': 'dir' },
+    \ { 'header': ['   Most Recent Files'],                            'type': 'files' },
+    \ { 'header': ['   Sessions'],                                     'type': 'sessions' },
+    \ { 'header': ['   Bookmarks'],                                    'type': 'bookmarks',       },
     \ ]
-let g:startify_bookmarks = [ {'c': resolve(expand('~/.vimrc'))}, '~/.zshrc' ]
+let g:startify_bookmarks = [
+    \ { 'c': resolve(expand('~/.vimrc')) },
+    \ { 'z': resolve(expand('~/.zshrc')) }
+    \ ]
 let g:startify_commands = [
     \ {'o': ['Start saving session (Obsess)', ':SSave']},
     \ {'u': ['Upgrade vim-plug and Install and Update plugins', ':PlugUpgrade | :PlugInstall | :PlugUpdate']},
