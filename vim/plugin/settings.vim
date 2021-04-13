@@ -104,11 +104,24 @@ if has('nvim')
     " ************* Ncm2 float-preview settings *************
     let g:float_preview#docked = 1
 
+    " ************* NvimTree settings *************
+    let g:nvim_tree_ignore = [ '__pycache__', 'env', '.cache' ]
+    let g:nvim_tree_follow = 1
+    let g:nvim_tree_hide_dotfiles = 1
+    let g:nvim_tree_add_trailing = 1
+    let g:nvim_tree_read_gitignore = 1
+    let g:nvim_tree_highlight_opened_files = 1
+
+    highlight NvimTreeEmptyFolderName guifg=#8094b4
+
     " ************* telescope settings *************
     lua require'carlos.telescope'
 
     " ************* nvim-bufferline settings *************
     lua require'carlos.bufferline'
+
+    " ************* nvim-tree settings *************
+    lua require'carlos.nvim-tree'
 
 " VIM specific Plugins
 else

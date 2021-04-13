@@ -186,6 +186,9 @@ call plug#begin('~/.vim/plugged')
       Plug 'kyazdani42/nvim-web-devicons'
       Plug 'akinsho/nvim-bufferline.lua'
 
+      " A File Explorer for neovim written in lua
+      Plug 'kyazdani42/nvim-tree.lua'
+
   " VIM specific Plugins
   else
       " NERDTree file explorer

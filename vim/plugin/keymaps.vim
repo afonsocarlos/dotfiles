@@ -123,6 +123,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 
 if has('nvim')
+  " ************* NvimTree *************
+  nnoremap <silent> <expr> <leader>k bufwinnr("NvimTree") != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'
+
+  " ************* Telescope *************
   nnoremap <leader>fa <cmd>Telescope grep_string<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
   nnoremap <leader>ff <cmd>Telescope find_files<cr>
