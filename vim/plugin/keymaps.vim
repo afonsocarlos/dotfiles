@@ -119,7 +119,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "       \ coc#refresh()
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call functions#show_documentation()<CR>
 
 
 if has('nvim')
