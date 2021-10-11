@@ -1,11 +1,14 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-42fbb09b-2bf3-4317-ba7e-a57c41ae2328=none,none,Switch to activity "Default"
 switch-to-activity-733a9a0c-e05e-48bb-a0fa-8f66970b55b2=none,none,Switch to activity "Default"
 switch-to-activity-977584ee-43ea-4e43-a31a-643fa1234d7a=none,none,Switch to activity "test"
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Portuguese (Brazil)=none,none,Switch keyboard layout to Portuguese (Brazil)
+Switch keyboard layout to Portuguese (Brazil, Nativo for US keyboards)=none,none,Switch keyboard layout to Portuguese (Brazil\\, Nativo for US keyboards)
+Switch keyboard layout to Portuguese (Brazil, Nativo)=none,none,Switch keyboard layout to Portuguese (Brazil\\, Nativo)
 Switch keyboard layout to Portuguese (Brazil, no dead keys)=none,none,Switch keyboard layout to Portuguese (Brazil\\, no dead keys)
 Switch to Next Keyboard Layout=Meta+Space,none,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
@@ -50,6 +53,10 @@ _launch=none,none,Launch Settings
 _k_friendly_name=WebView Shell
 _launch=none,none,Launch WebView Shell
 
+[brave-browser.desktop]
+_k_friendly_name=Brave
+_launch=Meta+B,,Brave
+
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
@@ -72,7 +79,7 @@ _k_friendly_name=Custom Shortcuts Service
 {551bb973-b99d-4a20-b6da-a31d5d24c4a1}=Meta+V,none,VimWiki
 {9f355e69-1de9-40ae-a036-6b34c3778497}=Ctrl+Print,none,Flameshot
 {a82e4520-1fe9-4ad0-aed3-bc6fc6096104}=Ctrl+Shift+Print,none,Peek
-{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 {d11d3856-d4c5-4662-b917-dc8d8318ea97}=Meta+F,none,Dolphin
 {f8641780-6bb5-4267-be2d-cdca0e1de28a}=Ctrl+Alt+T,none,Launch Konsole
 
@@ -82,7 +89,7 @@ decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Decreas
 decrease_volume=Volume Down,Volume Down,Decrease Volume
 increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume
 increase_volume=Volume Up,Volume Up,Increase Volume
-mic_mute=Microphone Mute,Microphone Mute,Mute Microphone
+mic_mute=Microphone Mute,Microphone Mute\tMeta+Volume Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
 
 [konversation]
@@ -90,17 +97,12 @@ _k_friendly_name=Konversation
 next_active_tab=none,none,Next Active Tab
 toggle_mainwindow_visibility=none,none,Show/Hide Konversation
 
-[krunner.desktop]
-RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
-_k_friendly_name=KRunner
-_launch=Alt+Space\tAlt+F2\tSearch,none,KRunner
-
 [ksmserver]
-Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Halt Without Confirmation
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
 Lock Session=Ctrl+Alt+L\tScreensaver,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Log Out
-Log Out Without Confirmation=Ctrl+Alt+Shift+Del,Ctrl+Alt+Shift+Del,Log Out Without Confirmation
-Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,Ctrl+Alt+Shift+PgUp,Reboot Without Confirmation
+Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
 _k_friendly_name=Session Management
 
 [kwin]
@@ -233,10 +235,10 @@ Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
 Window Move=none,none,Move Window
 Window No Border=none,none,Hide Window Border
 Window On All Desktops=none,none,Keep Window on All Desktops
-Window One Desktop Down=Ctrl+Alt+Shift+Down,none,Window One Desktop Down
-Window One Desktop Up=Ctrl+Alt+Shift+Up,none,Window One Desktop Up
-Window One Desktop to the Left=Ctrl+Alt+Shift+Left,none,Window One Desktop to the Left
-Window One Desktop to the Right=Ctrl+Alt+Shift+Right,none,Window One Desktop to the Right
+Window One Desktop Down=Ctrl+Alt+Shift+Down,Meta+Ctrl+Shift+Down,Window One Desktop Down
+Window One Desktop Up=Ctrl+Alt+Shift+Up,Meta+Ctrl+Shift+Up,Window One Desktop Up
+Window One Desktop to the Left=Ctrl+Alt+Shift+Left,Meta+Ctrl+Shift+Left,Window One Desktop to the Left
+Window One Desktop to the Right=Ctrl+Alt+Shift+Right,Meta+Ctrl+Shift+Right,Window One Desktop to the Right
 Window Operations Menu=Alt+F3,Alt+F3,Window Operations Menu
 Window Pack Down=none,none,Pack Window Down
 Window Pack Left=none,none,Pack Window to the Left
@@ -276,9 +278,9 @@ Window to Desktop 7=none,none,Window to Desktop 7
 Window to Desktop 8=none,none,Window to Desktop 8
 Window to Desktop 9=none,none,Window to Desktop 9
 Window to Next Desktop=none,none,Window to Next Desktop
-Window to Next Screen=Meta+],none,Window to Next Screen
+Window to Next Screen=Meta+],Meta+Shift+Right,Window to Next Screen
 Window to Previous Desktop=none,none,Window to Previous Desktop
-Window to Previous Screen=Meta+[,none,Window to Previous Screen
+Window to Previous Screen=Meta+[,Meta+Shift+Left,Window to Previous Screen
 Window to Screen 0=none,none,Window to Screen 0
 Window to Screen 1=none,none,Window to Screen 1
 Window to Screen 2=none,none,Window to Screen 2
@@ -297,6 +299,8 @@ _k_friendly_name=Media Controller
 mediavolumedown=none,none,Media volume down
 mediavolumeup=none,none,Media volume up
 nextmedia=Media Next,Media Next,Media playback next
+pausemedia=Media Pause,Media Pause,Pause media playback
+playmedia=none,none,Play media playback
 playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
@@ -304,6 +308,11 @@ stopmedia=Media Stop,Media Stop,Stop media playback
 [org.kde.dolphin.desktop]
 _k_friendly_name=Dolphin
 _launch=Meta+E,Meta+E,Dolphin
+
+[org.kde.krunner.desktop]
+RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
+_k_friendly_name=KRunner
+_launch=Alt+Space\tAlt+F2\tSearch,none,KRunner
 
 [org.kde.plasma.emojier.desktop]
 _k_friendly_name=Emoji Selector
@@ -342,7 +351,10 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
-activate widget 76=Alt+F1,none,Activate Application Dashboard Widget
+activate widget 101=none,none,Activate Color Picker Widget
+activate widget 130=Alt+F1,none,Activate Application Dashboard Widget
+activate widget 76=,none,Activate Application Dashboard Widget
+activate widget 94=none,none,Activate Application Dashboard Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -354,7 +366,7 @@ previous activity=Meta+Shift+Tab,Meta+Shift+Tab,Walk through activities (Reverse
 repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
-show-on-mouse-pos=none,none,Open Klipper at Mouse Position
+show-on-mouse-pos=none,Meta+V,Open Klipper at Mouse Position
 stop current activity=Meta+S,Meta+S,Stop Current Activity
 switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity

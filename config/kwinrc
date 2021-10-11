@@ -1,12 +1,11 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
 
 [Compositing]
 Backend=OpenGL
-Enabled=true
 GLCore=true
 GLPreferBufferSwap=a
-GLTextureFilter=2
+GLTextureFilter=1
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
@@ -14,11 +13,11 @@ XRenderSmoothScale=false
 
 [Desktops]
 Id_1=f2a9bb97-bbe3-4b3a-bb96-7cff6c0329a4
-Id_2=b101efc6-5013-4552-81ca-b242bc34fcf0
-Id_3=72d4b826-5a65-4843-a216-0f630bc4b63a
+Id_2=d0489402-f0fd-4cb8-af2b-59e4b4fb559a
+Id_3=2b3a60ec-4306-4967-b40f-4c4ffdc4c552
 Name_1=Desktop Home
 Name_2=Desktop Work
-Name_3=Desktop 1
+Name_3=Desktop Streaming
 Number=3
 Rows=2
 
@@ -27,8 +26,6 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-Cube]
-BorderActivate=9
-BorderActivateCylinder=9
 BorderActivateSphere=9
 
 [Effect-DesktopGrid]
@@ -39,9 +36,11 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
-BorderActivate=9
-BorderActivateAll=7
+BorderActivate=1,7
+BorderActivateAll=9
 BorderActivateClass=9
+LayoutMode=1
+MiddleButtonWindow=6
 
 [ElectricBorders]
 Bottom=None
@@ -71,9 +70,15 @@ CommandWindow2=Activate and pass click
 CommandWindow3=Activate and pass click
 CommandWindowWheel=Scroll
 
+[NightColor]
+Active=true
+LatitudeAuto=-23.6116
+LongitudeAuto=-46.7827
+
 [Plugins]
 desktopchangeosdEnabled=true
 highlightwindowEnabled=true
+krohnkiteEnabled=false
 kwin4_effect_fadedesktopEnabled=true
 kwin4_effect_squashEnabled=false
 magiclampEnabled=true
@@ -89,10 +94,39 @@ wobblywindowsEnabled=true
 PopupHideDelay=1000
 TextOnly=true
 
+[SubSession: 977584ee-43ea-4e43-a31a-643fa1234d7a]
+active=-1
+activities1=977584ee-43ea-4e43-a31a-643fa1234d7a
+count=1
+desktop1=1
+fsrestore1=801,801,0,0
+fullscreen1=0
+geometry1=1982,158,1173,730
+iconified1=false
+keepBelow1=false
+maximize1=0
+opacity1=1
+resourceClass1=obs
+resourceName1=obs
+restore1=1982,129,1173,759
+sessionId1=10171135136114000161791246200004335450033
+shaded1=false
+shortcut1=
+skipPager1=false
+skipSwitcher1=false
+skipTaskbar1=false
+stackingOrder1=2
+staysOnTop1=false
+sticky1=false
+userNoBorder1=false
+windowRole1=
+windowType1=Normal
+wmCommand1=
+
 [TabBox]
 ActivitiesMode=1
 ApplicationsMode=0
-BorderActivate=6
+BorderActivate=9
 BorderAlternativeActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
@@ -150,4 +184,4 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 library=org.kde.breeze
-theme=
+theme=Breeze
