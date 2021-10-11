@@ -4,12 +4,12 @@
 set autoread                               " automatically reload files changed outside vim
 set autowriteall                           " automatically save files
 set backspace=indent,eol,start             " make backspace work properly
+set conceallevel=2                         " Replace or hide text with conceal syntax
 set cursorline                             " highlight current line
 set hidden                                 " allow buffer switching without saving
 set history=100                            " store more command history
 set hlsearch                               " highlight all matches
 set ignorecase                             " case insensitive search
-set inccommand=split                       " shows the effects of a command incrementally, as you type
 set incsearch                              " search incrementally instead of after pressing enter
 set laststatus=2                           " turn on status line
 set lazyredraw                             " reduce the redraw frequency - make macros render faster (lazy draw)
@@ -26,6 +26,7 @@ set shortmess+=c                           " show completion suggestions (^X) in
 set showbreak=>>                           " virtual line indicator
 set showcmd                                " show incomplete cmds down the bottom
 set showmatch                              " show bracket matches
+set matchtime=1
 set smartcase                              " case sensitive if we type an uppercase
 set timeoutlen=1000 ttimeoutlen=0          " remove timeout when hitting escape
 set ttyfast                                " send more characters in fast terminals
@@ -77,3 +78,6 @@ if executable('rg')
 endif
 
 
+if has('nvim')
+    set inccommand=split
+endif

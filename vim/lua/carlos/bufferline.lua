@@ -3,7 +3,7 @@ require('bufferline').setup{
     view = 'default',
     numbers = 'ordinal',
     number_style = "",
-    mappings = true,  -- true
+    mappings = true,
     buffer_close_icon= '',
     modified_icon = '●',
     close_icon = '',
@@ -12,9 +12,14 @@ require('bufferline').setup{
     max_name_length = 18,
     max_prefix_length = 15,
     tab_size = 18,
-    diagnostics = false,  -- | "nvim_lsp",
-    diagnostics_indicator = function(count, level)
-      return '(' .. count .. ')'
+    diagnostics = 'nvim_lsp',
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      if context.buffer:current() then
+        return ''
+      end
+
+      local icon = level:match('error') and ' ' or ' '
+      return ' ' .. icon .. count
     end,
     show_buffer_close_icons = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
