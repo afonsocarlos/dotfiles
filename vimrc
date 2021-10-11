@@ -28,17 +28,14 @@ call plug#begin('~/.vim/plugged')
 
   " Colorscheme/theme
   Plug 'joshdick/onedark.vim'
-  " Fancy status bar
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   " Fancy start screen
   Plug 'mhinz/vim-startify'
 
   " Ease html coding like a breeze
-  Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
   " Close html tags
-  Plug 'docunext/closetag.vim'
+" Plug 'docunext/closetag.vim'
 
   " Git gutter for vim
   Plug 'airblade/vim-gitgutter'
@@ -47,45 +44,37 @@ call plug#begin('~/.vim/plugged')
   " Plug 'wikitopian/hardmode'
 
   " cross text-editor config standards
-  Plug 'editorconfig/editorconfig-vim'
+ Plug 'editorconfig/editorconfig-vim'
 
-  Plug 'wellle/targets.vim'
+ Plug 'wellle/targets.vim', {'tag': 'tags/v0.2.6'}
 
-  " file fuzzy search
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+ " file fuzzy search
+ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+ Plug 'junegunn/fzf.vim'
 
-  Plug 'vimwiki/vimwiki'
-  Plug 'mattn/calendar-vim'
-  Plug 'mzlogin/vim-markdown-toc'
-  Plug 'vim-scripts/utl.vim'
-  Plug 'jkramer/vim-checkbox'
+ " Plug 'vimwiki/vimwiki'
+ " Plug 'mattn/calendar-vim'
+ " Plug 'mzlogin/vim-markdown-toc'
+ " Plug 'vim-scripts/utl.vim'
 
   " count and index matches in a search
   Plug 'google/vim-searchindex'
 
   " display ctag description (when completing)
-  Plug 'majutsushi/tagbar'
-
-  " Use release branch (recommend)
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Coc Extensions to install coc-marketplace
+  " Plug 'majutsushi/tagbar'
 
   " View and search LSP symbols, tags in Vim/NeoVim
-  Plug 'liuchengxu/vista.vim'
+  " Plug 'liuchengxu/vista.vim'
 
   " automatically open/close quotes and brackets
-  Plug 'jiangmiao/auto-pairs'
+  " Plug 'jiangmiao/auto-pairs'
 
   " generate tags automatically
   " Plug 'ludovicchabant/vim-gutentags'
-  Plug 'jsfaint/gen_tags.vim'
-
-  " highlight hex, rgb and colornames
-  Plug 'chrisbra/colorizer'
+  " Plug 'jsfaint/gen_tags.vim'
 
   " php completion
-  Plug 'shawncplus/phpcomplete.vim'
+  " Plug 'shawncplus/phpcomplete.vim'
 
   " Easy Align - vertically align elements
   Plug 'junegunn/vim-easy-align'
@@ -105,13 +94,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
 
   " Asynchronous build and test dispatcher
-  Plug 'tpope/vim-dispatch'
+  " Plug 'tpope/vim-dispatch'
 
   " git integration for Vim
-  Plug 'tpope/vim-fugitive'
+  " Plug 'tpope/vim-fugitive'
 
   " continuously updated session files
-  Plug 'tpope/vim-obsession'
+  " Plug 'tpope/vim-obsession'
 
   " repeat last modification regarding to Plugin editions
   Plug 'tpope/vim-repeat'
@@ -119,40 +108,41 @@ call plug#begin('~/.vim/plugged')
   " parentheses, brackets, quotes, html tags surrounding plugin
   Plug 'tpope/vim-surround'
 
+  " Heuristically set buffer options
+  " Plug 'tpope/vim-sleuth'
+
   " delete buffers without messing up layout
   Plug 'moll/vim-bbye'
 
-  Plug 'ryanoasis/vim-devicons'
-
-  Plug 'dart-lang/dart-vim-plugin'
+  " Plug 'ryanoasis/vim-devicons'
 
   " PHP refactoring plugin
-  Plug 'vim-php/vim-php-refactoring'
+  " Plug 'vim-php/vim-php-refactoring'
 
-  Plug 'mtth/scratch.vim'
+  " Plug 'mtth/scratch.vim'
 
   " Turn vim into a REPL editor
   Plug 'jpalardy/vim-slime'
 
-" ######################## MARKDOWN CONFIG ########################
+  " ######################## MARKDOWN CONFIG ########################
   " fold rules for markdown
-  Plug 'nelstrom/vim-markdown-folding'
+  " Plug 'nelstrom/vim-markdown-folding'
 
   " plugin for 'writing in prose' mode
-  Plug 'reedes/vim-pencil'
+  " Plug 'reedes/vim-pencil'
 
   " plugin for identifying words and phrases misuse, abuse, and overuse
-  Plug 'reedes/vim-wordy'
+  " Plug 'reedes/vim-wordy'
 
   " Distraction free plugin
-  Plug 'junegunn/goyo.vim'
+  " Plug 'junegunn/goyo.vim'
 
   " dim paragraphs, but current one, to enhance focus
-  Plug 'junegunn/limelight.vim'
+  " Plug 'junegunn/limelight.vim'
 
   " markdown preview
   " Plug 'suan/vim-instant-markdown'
-  Plug 'shime/vim-livedown'
+  " Plug 'shime/vim-livedown'
 
   " Emoji in Vim
   Plug 'junegunn/vim-emoji'
@@ -160,43 +150,85 @@ call plug#begin('~/.vim/plugged')
   " NeoVim specific Plugins
   if has('nvim')
       " lint code like a charm for neovim
-      Plug 'neomake/neomake'
+      " Plug 'neomake/neomake'
 
-      Plug 'phpactor/phpactor',  {'do': 'composer install -d ~/.vim/plugged/phpactor', 'for': 'php'}
+      " Plug 'phpactor/phpactor',  {'do': 'composer install -d ~/.vim/plugged/phpactor', 'for': 'php'}
 
-      Plug 'ncm2/ncm2'
-      Plug 'roxma/nvim-yarp'
-      Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-      Plug 'phpactor/ncm2-phpactor'
-      Plug 'ncm2/ncm2-jedi'
-      Plug 'ncm2/ncm2-ultisnips'
-      Plug 'ncm2/float-preview.nvim'
+      " Plug 'ncm2/ncm2'
+      " Plug 'roxma/nvim-yarp'
+      " Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+      " Plug 'phpactor/ncm2-phpactor'
+      " Plug 'ncm2/ncm2-jedi'
+      " Plug 'ncm2/ncm2-ultisnips'
+      " Plug 'ncm2/float-preview.nvim'
 
       " nvim markdown preview
-      Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+      " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
       " Nvim Treesitter
       Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+      Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
+      " Intellisense
+      Plug 'neovim/nvim-lspconfig'
+      Plug 'kabouzeid/nvim-lspinstall'
+      Plug 'hrsh7th/nvim-compe'
+      Plug 'ray-x/lsp_signature.nvim'
+      Plug 'glepnir/lspsaga.nvim'
+      Plug 'onsails/lspkind-nvim'
+
+      " Telescope finder
       Plug 'nvim-lua/popup.nvim'
       Plug 'nvim-lua/plenary.nvim'
       Plug 'nvim-telescope/telescope.nvim'
-      Plug 'nvim-telescope/telescope-fzy-native.nvim'
+      Plug 'nvim-telescope/telescope-fzf-writer.nvim'
+      Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+      Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'git submodule update --init --recursive' }
+
+      " Plugin that creates missing LSP diagnostics highlight groups
+      Plug 'folke/lsp-colors.nvim'
+
+      " highlight hex, rgb and colornames
+      " Plug 'norcalli/nvim-colorizer.lua'
+
+      " Display the indention levels with thin vertical lines
+      " Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 
       Plug 'kyazdani42/nvim-web-devicons'
       Plug 'akinsho/nvim-bufferline.lua'
 
+      " Tools to help create flutter apps in neovim using the native lsp
+      Plug 'akinsho/flutter-tools.nvim'
+
       " A File Explorer for neovim written in lua
       Plug 'kyazdani42/nvim-tree.lua'
 
+      " Neovim statusline plugin written in lua
+      " Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
+
+      " Plug 'ThePrimeagen/git-worktree.nvim'
+
   " VIM specific Plugins
   else
+      " Fancy status bar
+      Plug 'vim-airline/vim-airline'
+      Plug 'vim-airline/vim-airline-themes'
+
       " NERDTree file explorer
       Plug 'scrooloose/nerdtree'
       " NERDTree git integration
       Plug 'Xuyuanp/nerdtree-git-plugin'
 
+      " highlight hex, rgb and colornames
+      " Plug 'chrisbra/colorizer'
+
       Plug 'sheerun/vim-polyglot'
+
+      " Use release branch (recommend)
+      Plug 'neoclide/coc.nvim', {'branch': 'release'}
+      " Coc Extensions to install coc-marketplace
+
+      Plug 'dart-lang/dart-vim-plugin'
 
       " lint code like a charm
       Plug 'scrooloose/syntastic'
@@ -245,6 +277,16 @@ augroup flutter_setup
     autocmd!
 
     autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
+    if has('nvim')
+        autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync(nil, 1000)
+    else
+        autocmd BufWritePre *.dart DartFmt
+    endif
+augroup end
+augroup dart_customcommentstring
+    autocmd!
+
+    autocmd FileType dart setlocal commentstring=//%s
 augroup end
 
 
