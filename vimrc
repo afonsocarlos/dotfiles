@@ -171,8 +171,8 @@ call plug#begin('~/.vim/plugged')
 
       " Intellisense
       Plug 'neovim/nvim-lspconfig'
+      Plug 'williamboman/nvim-lsp-installer'
       Plug 'hrsh7th/cmp-nvim-lsp'
-      Plug 'kabouzeid/nvim-lspinstall'
       Plug 'hrsh7th/nvim-cmp'
       Plug 'hrsh7th/cmp-buffer'
       Plug 'hrsh7th/cmp-path'
