@@ -104,6 +104,11 @@ if has('nvim')
     " ************* Ncm2 float-preview settings *************
     let g:float_preview#docked = 1
 
+    let g:gitgutter_sign_added = '│'
+    let g:gitgutter_sign_modified = '│'
+    let g:gitgutter_sign_removed = '│'
+    let g:gitgutter_sign_modified_removed = '~'
+
     " ************* NvimTree settings *************
     let g:nvim_tree_ignore = [ '__pycache__', 'env', '.cache' ]
     let g:nvim_tree_follow = 1
