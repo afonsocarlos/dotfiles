@@ -171,6 +171,7 @@ call plug#begin('~/.vim/plugged')
 
       " Intellisense
       Plug 'neovim/nvim-lspconfig'
+      Plug 'hrsh7th/cmp-nvim-lsp'
       Plug 'kabouzeid/nvim-lspinstall'
       Plug 'hrsh7th/nvim-cmp'
       Plug 'hrsh7th/cmp-buffer'
@@ -178,7 +179,6 @@ call plug#begin('~/.vim/plugged')
       Plug 'hrsh7th/cmp-nvim-lua'
       Plug 'hrsh7th/cmp-nvim-lsp'
       Plug 'ray-x/lsp_signature.nvim'
-      Plug 'glepnir/lspsaga.nvim'
       Plug 'onsails/lspkind-nvim'
 
       " Telescope finder

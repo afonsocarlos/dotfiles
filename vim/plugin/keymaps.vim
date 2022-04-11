@@ -102,26 +102,26 @@ if has('nvim')
     nnoremap <silent> <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
     nnoremap <silent> <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
     nnoremap <silent> <leader>gs <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
+    nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
 
     " ************* Nvim lspsaga *************
-    nnoremap <silent> [g <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
-    nnoremap <silent> ]g <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
-    nnoremap <silent> <leader>gp <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-    nnoremap <silent> <leader>rn <cmd>lua require'lspsaga.rename'.rename()<CR>
-    nnoremap <silent><leader>ca <cmd>lua require'lspsaga.codeaction'.code_action()<CR>
-    vnoremap <silent><leader>ca :<C-U>lua require'lspsaga.codeaction'.range_code_action()<CR>
+    " nnoremap <silent> <leader>gp <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+    nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+    nnoremap <silent><leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
+    vnoremap <silent><leader>ca :<C-U>lua vim.lsp.buf.range_code_action()<CR>
 
-    nnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
-    nnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
-    inoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(1)\<cr>" : "\<C-j>"
-    inoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(-1)\<cr>" : "\<C-k>"
-    vnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
-    vnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
+    " nnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
+    " nnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
+    " inoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(1)\<cr>" : "\<C-j>"
+    " inoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(-1)\<cr>" : "\<C-k>"
+    " vnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
+    " vnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
 
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> compe#complete()
 
-    nnoremap <silent> K <cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>
+    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 
     " ************* NvimTree *************
     nnoremap <silent> <expr> <leader>k bufwinnr("NvimTree") != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'
