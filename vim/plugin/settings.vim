@@ -114,14 +114,20 @@ if has('nvim')
 
     highlight NvimTreeEmptyFolderName guifg=#8094b4
 
-    " ************* telescope settings *************
-    lua require'carlos.telescope'
-
     " ************* nvim-bufferline settings *************
     lua require'carlos.bufferline'
 
+    " ************* nvim-cmp settings *************
+    lua require'carlos.nvim-cmp'
+
+    " ************* lspconfig settings *************
+    lua require'carlos.lspconfig'
+
     " ************* nvim-tree settings *************
     lua require'carlos.nvim-tree'
+
+    " ************* telescope settings *************
+    lua require'carlos.telescope'
 
 " VIM specific Plugins
 else
