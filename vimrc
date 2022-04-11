@@ -32,10 +32,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-startify'
 
   " Ease html coding like a breeze
-" Plug 'mattn/emmet-vim'
+  " Plug 'mattn/emmet-vim'
 
   " Close html tags
-" Plug 'docunext/closetag.vim'
+  " Plug 'docunext/closetag.vim'
 
   " Git gutter for vim
   Plug 'airblade/vim-gitgutter'
@@ -44,13 +44,13 @@ call plug#begin('~/.vim/plugged')
   " Plug 'wikitopian/hardmode'
 
   " cross text-editor config standards
- Plug 'editorconfig/editorconfig-vim'
+  Plug 'editorconfig/editorconfig-vim'
 
- Plug 'wellle/targets.vim', {'tag': 'tags/v0.2.6'}
+  Plug 'wellle/targets.vim'
 
- " file fuzzy search
- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
- Plug 'junegunn/fzf.vim'
+  " file fuzzy search
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
  " Plug 'vimwiki/vimwiki'
  " Plug 'mattn/calendar-vim'
