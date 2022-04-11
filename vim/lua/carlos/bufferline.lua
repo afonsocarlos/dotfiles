@@ -1,9 +1,9 @@
 require('bufferline').setup{
   options = {
     view = 'default',
-    numbers = 'ordinal',
-    number_style = "",
-    mappings = true,
+    numbers = function(opts)
+      return string.format('%s)', opts.ordinal)
+    end,
     buffer_close_icon= '',
     modified_icon = '●',
     close_icon = '',
@@ -32,15 +32,24 @@ require('bufferline').setup{
     -- end
   },
   highlights = {
-      buffer_selected = {
-        guifg = '#f0f0f0',
-        gui = 'italic'
-      },
-      modified_selected = {
-        guifg = '#e5c07b'
-      },
-      pick = {
-        gui = 'italic'
-      }
+    buffer_selected = {
+      guifg = '#f0f0f0',
+      gui = 'italic'
+    },
+    modified_selected = {
+      guifg = '#e5c07b'
+    },
+    pick = {
+      gui = 'italic'
+    }
   }
 }
+
+for i = 1, 9 do
+  vim.api.nvim_set_keymap(
+    'n',
+    '<leader>' .. i,
+    ':lua require"bufferline".go_to(' .. i .. ', true)<CR>',
+    { silent = true, nowait = true, noremap = true }
+  )
+end
