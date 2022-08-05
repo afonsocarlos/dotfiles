@@ -216,6 +216,9 @@ call plug#begin('~/.vim/plugged')
 
       " Plug 'ThePrimeagen/git-worktree.nvim'
 
+      " Github Copilot
+      Plug 'github/copilot.vim'
+
   " VIM specific Plugins
   else
       " Fancy status bar
