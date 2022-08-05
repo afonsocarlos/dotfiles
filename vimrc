@@ -172,12 +172,13 @@ call plug#begin('~/.vim/plugged')
       " Intellisense
       Plug 'neovim/nvim-lspconfig'
       Plug 'williamboman/nvim-lsp-installer'
-      Plug 'hrsh7th/cmp-nvim-lsp'
       Plug 'hrsh7th/nvim-cmp'
       Plug 'hrsh7th/cmp-buffer'
       Plug 'hrsh7th/cmp-path'
       Plug 'hrsh7th/cmp-nvim-lua'
       Plug 'hrsh7th/cmp-nvim-lsp'
+      Plug 'petertriho/cmp-git'
+      Plug 'saadparwaiz1/cmp_luasnip'
       Plug 'ray-x/lsp_signature.nvim'
       Plug 'onsails/lspkind-nvim'
 
@@ -193,10 +194,13 @@ call plug#begin('~/.vim/plugged')
       Plug 'folke/lsp-colors.nvim'
 
       " highlight hex, rgb and colornames
-      " Plug 'norcalli/nvim-colorizer.lua'
+      Plug 'norcalli/nvim-colorizer.lua'
 
       " Display the indention levels with thin vertical lines
       " Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+
+      " Git signs for vim
+      Plug 'lewis6991/gitsigns.nvim'
 
       Plug 'kyazdani42/nvim-web-devicons'
       Plug 'akinsho/nvim-bufferline.lua'
