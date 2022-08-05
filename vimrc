@@ -257,6 +257,7 @@ syntax on
 colorscheme onedark
 " enable plugin TODO: edit this comment to a better explanation
 filetype plugin on
+let g:do_filetype_lua = 1
 
 
 " Special highlighting settings
