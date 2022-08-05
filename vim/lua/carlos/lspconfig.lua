@@ -1,40 +1,26 @@
-local lsp_installer_servers = require('nvim-lsp-installer.servers')
+local lsp_installer_servers = require('nvim-lsp-installer')
+local lspconfig = require('lspconfig')
 
-local servers = {
-    intelephense = 1,
-    pyright = 1,
-    lua = 1,
-}
+lsp_installer_servers.setup({
+    ensure_installed = { 'intelephense', 'pyright', 'sumneko_lua' },
+})
+local installed_servers = lsp_installer_servers.get_installed_servers()
 
--- Get list of installed servers
-local installed_servers = lsp_installer_servers.get_installed_server_names()
-vim.tbl_add_reverse_lookup(installed_servers)
-
--- Then merge it into the list of predefined servers
-servers = vim.tbl_extend('keep', servers, installed_servers)
-servers = vim.tbl_keys(servers)
-servers = vim.tbl_filter(function (item)
-    return not tonumber(item)
-end, servers)
-
--- Loop through the servers listed above and set them up. If a server is
--- not already installed, install it.
-for _, server_name in pairs(servers) do
-    local server_available, server = lsp_installer_servers.get_server(server_name)
-    if server_available then
-        server:on_ready(function ()
-            -- When this particular server is ready (i.e. when installation is finished or the server is already installed),
-            -- this function will be invoked. Make sure not to also use the "catch-all" lsp_installer.on_server_ready()
-            -- function to set up your servers, because by doing so you'd be setting up the same server twice.
-            local opts = {}
-            server:setup(opts)
-        end)
-        if not server:is_installed() then
-            -- Queue the server to be installed.
-            server:install()
-        end
-    end
+-- Loop through the installed servers and set them up
+for _, server in ipairs(installed_servers) do
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    lspconfig[server.name].setup({
+        capabilities = capabilities,
+    })
 end
+
+require 'lsp_signature'.setup({
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+        border = 'none'
+    }
+})
+
 
 -- vscode-like pictograms for neovim lsp completion items
 require('lspkind').init({
@@ -86,4 +72,3 @@ require('lspkind').init({
 --     virtual_text = true,
 --   }
 -- }
-
