@@ -52,8 +52,8 @@ nmap ga <Plug>(EasyAlign)
 " toggle Scratch
 nnoremap <leader>t :Scratch<CR>
 " toggle checkbox
-" nnoremap <silent><leader><cr> mu0t]hrx`u
-nnoremap <silent><leader><cr> :lua require'carlos.toggle_checkbox'.toggle_checkbox()<CR>
+nnoremap <silent><leader><cr> :keeppatterns s/^\s*- \[\zs.\ze\]/\=submatch(0) == 'x' ? ' ' : 'x'/<cr>
+" nnoremap <silent><leader><cr> :lua require'carlos.toggle_checkbox'.toggle_checkbox()<CR>
 " yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 " Quit All windows without checking for changes
@@ -101,7 +101,7 @@ if has('nvim')
     nnoremap <silent> <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
     nnoremap <silent> <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
     nnoremap <silent> <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <leader>gs <cmd>lua vim.lsp.buf.signature_help()<CR>
+    nnoremap <silent> <leader>gh <cmd>lua vim.lsp.buf.signature_help()<CR>
     nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
     nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
 
@@ -124,15 +124,18 @@ if has('nvim')
     nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 
     " ************* NvimTree *************
-    nnoremap <silent> <expr> <leader>k bufwinnr("NvimTree") != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'
+    nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NvimTree") != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'
 
     " ************* Telescope *************
-    nnoremap <leader>fa <cmd>Telescope grep_string<cr>
-    nnoremap <leader>fb <cmd>Telescope buffers<cr>
-    nnoremap <leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    nnoremap <leader>fl <cmd>Telescope current_buffer_fuzzy_find<cr>
+    nnoremap <leader>fa <cmd>lua require'telescope.builtin'.grep_string()<cr>
+    nnoremap <leader>fb <cmd>lua require'telescope.builtin'.buffers()<cr>
+    nnoremap <leader>fc <cmd>lua require'telescope.builtin'.commands()<cr>
+    " nnoremap <leader>ff <cmd>lua require'telescope'.extensions.fzf_writer.files()<cr>
+    " nnoremap <leader>fg <cmd>lua require'telescope'.extensions.fzf_writer.staged_grep()<cr>
+    nnoremap <leader>ff <cmd>lua require'telescope.builtin'.find_files()<cr>
+    nnoremap <leader>fg <cmd>lua require'telescope.builtin'.live_grep()<cr>
+    nnoremap <leader>fh <cmd>lua require'telescope.builtin'.help_tags()<cr>
+    nnoremap <leader>fl <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>
 else
     " Use `[g` and `]g` to navigate diagnostics
     " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
