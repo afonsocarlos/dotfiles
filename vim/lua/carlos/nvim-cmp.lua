@@ -1,28 +1,33 @@
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
   mapping = {
-    -- ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    -- ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-y>'] = cmp.mapping.confirm({
+        -- behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+    }),
   },
 
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'nvim_lua' },
+    { name = 'path' },
+    { name = "cmp_git" },
     -- { name = 'luasnip' }, -- For luasnip users.
     { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  }, {
-    { name = 'buffer' },
+    { name = 'buffer', keyword_length = 5 },
   }),
 
   snippet = {
@@ -32,6 +37,7 @@ cmp.setup({
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- require("luasnip").lsp_expand(args.body)
     end,
   },
 
@@ -43,6 +49,7 @@ cmp.setup({
       menu = {
         buffer = "[buf]",
         nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
         path = "[path]",
         ultisnips = "[snip]",
       },
@@ -57,8 +64,6 @@ cmp.setup({
   },
 
   experimental = {
-    native_menu = false,
-
     ghost_text = true,
   },
 })
@@ -79,3 +84,4 @@ cmp.setup({
 --   })
 -- })
 
+require("cmp_git").setup()
