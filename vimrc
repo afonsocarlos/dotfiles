@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'docunext/closetag.vim'
 
   " Git gutter for vim
-  Plug 'airblade/vim-gitgutter'
+  " Plug 'airblade/vim-gitgutter'
 
   " for learning to master vim the hard way...
   " Plug 'wikitopian/hardmode'

@@ -115,12 +115,16 @@ if has('nvim')
     let g:nvim_tree_highlight_opened_files = 1
 
     highlight NvimTreeEmptyFolderName guifg=#8094b4
+    highlight default link GitSignsCurrentLineBlame Comment
 
     " ************* nvim-bufferline settings *************
     lua require'carlos.bufferline'
 
     " ************* nvim-cmp settings *************
     lua require'carlos.nvim-cmp'
+
+    " ************* gitsigns settings *************
+    lua require'carlos.gitsigns'
 
     " ************* lspconfig settings *************
     lua require'carlos.lspconfig'
