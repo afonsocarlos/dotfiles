@@ -10,7 +10,6 @@ return require("packer").startup {
     -- Tpope plugins
     use "tpope/vim-abolish"
     use "tpope/vim-repeat"
-    use "tpope/vim-surround"
 
 
     -- TJ plugins
@@ -56,6 +55,14 @@ return require("packer").startup {
       "numToStr/Comment.nvim",
       config = function()
         require("Comment").setup()
+      end
+    }
+    -- Add/change/delete surrounding delimiter pairs with ease
+    use {
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = function()
+        require("nvim-surround").setup()
       end
     }
     -- highlight hex, rgb and colornames
