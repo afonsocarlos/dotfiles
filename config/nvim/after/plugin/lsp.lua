@@ -10,7 +10,7 @@ local installed_servers = lsp_installer_servers.get_installed_servers()
 
 -- Loop through the installed servers and set them up
 for _, server in ipairs(installed_servers) do
-  local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
   lspconfig[server.name].setup({
     capabilities = capabilities,
     on_attach = function(client, bufnr)
