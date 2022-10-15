@@ -28,10 +28,6 @@ return require("packer").startup {
       "nvim-lualine/lualine.nvim",
       "yamatsum/nvim-web-nonicons",
       {
-        "akinsho/bufferline.nvim",
-        tag = "v2.*"
-      },
-      {
         -- A file explorer tree
         "kyazdani42/nvim-tree.lua",
 
