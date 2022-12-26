@@ -99,7 +99,7 @@ if has('nvim')
     " ************* Neomake settings *************
     " Full config: when writing or reading a buffer, and on changes in insert and
     " normal mode (after 1s; no delay when writing).
-    call neomake#configure#automake('nrwi', 500)
+    " call neomake#configure#automake('nrwi', 500)
 
     " ************* Ncm2 float-preview settings *************
     let g:float_preview#docked = 1
@@ -108,11 +108,6 @@ if has('nvim')
     let g:gitgutter_sign_modified = '│'
     let g:gitgutter_sign_removed = '│'
     let g:gitgutter_sign_modified_removed = '~'
-
-    " ************* NvimTree settings *************
-    let g:nvim_tree_add_trailing = 1
-    let g:nvim_tree_read_gitignore = 1
-    let g:nvim_tree_highlight_opened_files = 1
 
     highlight NvimTreeEmptyFolderName guifg=#8094b4
     highlight default link GitSignsCurrentLineBlame Comment
