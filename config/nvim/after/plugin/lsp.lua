@@ -1,4 +1,4 @@
-local folding = require "folding"
+-- local folding = require "folding"
 local mason_lspconfig = require "mason-lspconfig"
 local lspconfig = require "lspconfig"
 local navic = require "nvim-navic"
@@ -20,24 +20,19 @@ for _, server in ipairs(installed_servers) do
         navic.attach(client, bufnr)
       end
 
-      folding.on_attach()
+      -- folding.on_attach()
 
       -- Add some fancy integration
       local setup_lsp = vim.api.nvim_create_augroup("setup_lsp", { clear = true })
       vim.api.nvim_create_autocmd("CursorHold", {
         group = setup_lsp,
         pattern = "<buffer>",
-        callback = function()
-          vim.lsp.buf.document_highlight()
-          vim.diagnostic.open_float()
-        end
+        callback = vim.lsp.buf.document_highlight
       })
       vim.api.nvim_create_autocmd("CursorMoved", {
         group = setup_lsp,
         pattern = "<buffer>",
-        callback = function()
-          vim.lsp.buf.clear_references()
-        end
+        callback = vim.lsp.buf.clear_references
       })
 
     end
