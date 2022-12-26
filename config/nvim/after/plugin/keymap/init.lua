@@ -73,3 +73,6 @@ nnoremap("]Q", ":clast<CR>", { silent = true })
 -- ************* NvimTree *************
 nnoremap("<leader>k", ":NvimTreeFindFile<CR>", { silent = true })
 
+-- ************* Undotree *************
+nnoremap("<leader>u", ":UndotreeShow | UndotreeFocus<CR>", { silent = true })
+

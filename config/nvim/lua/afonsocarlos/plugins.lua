@@ -46,6 +46,8 @@ return require("packer").startup {
     use "lewis6991/gitsigns.nvim"
     -- Provides additional text objects
     use "wellle/targets.vim"
+    -- The undo history visualizer for VIM
+    use "mbbill/undotree"
     -- Smart and powerful comments plugin for Neovim
     use {
       "numToStr/Comment.nvim",
