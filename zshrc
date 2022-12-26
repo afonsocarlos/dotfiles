@@ -108,6 +108,7 @@ bindkey "\033[4~" end-of-line
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias icat="kitty +kitten icat"
+alias rg="rg --smart-case"
 
 # Overcoming muscle memory
 if type nvim > /dev/null 2>&1; then
