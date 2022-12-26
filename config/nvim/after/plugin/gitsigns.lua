@@ -1,4 +1,5 @@
-local nnoremap = require("afonsocarlos.keymap").nnoremap
+local noremap = require("afonsocarlos.keymap").noremap
+local default_opts = require("afonsocarlos.keymap").default_opts
 
 require("gitsigns").setup {
   current_line_blame = true,
@@ -14,27 +15,27 @@ require("gitsigns").setup {
     local gs = package.loaded.gitsigns
 
     -- Navigation
-    nnoremap("]c", function()
+    vim.keymap.set("n", "]c", function()
       if vim.wo.diff then return "]c" end
       vim.schedule(function() gs.next_hunk() end)
       return "<Ignore>"
-    end, { expr=true })
+    end, { expr=true, noremap = true })
 
-    nnoremap("[c", function()
+    vim.keymap.set("n", "[c", function()
       if vim.wo.diff then return "[c" end
       vim.schedule(function() gs.prev_hunk() end)
       return "<Ignore>"
-    end, { expr=true })
+    end, { expr=true, noremap = true })
 
     -- Actions
-    vim.keymap.set({ "n", "v" },"<leader>hs", ":Gitsigns stage_hunk<CR>", { noremap = true, silent = true })
-    vim.keymap.set({ "n", "v" }, "<leader>hu", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
-    nnoremap("<leader>hS", gs.stage_buffer)
-    nnoremap("<leader>hr", gs.undo_stage_hunk)
-    nnoremap("<leader>hU", gs.reset_buffer)
-    nnoremap("<leader>hp", gs.preview_hunk)
-    nnoremap('<leader>hd', gs.diffthis)
-    nnoremap("<leader>hb", function() gs.blame_line { full=true } end)
-    nnoremap("<leader>tb", gs.toggle_current_line_blame)
+    vim.keymap.set({ "n", "v" },"<leader>hs", ":Gitsigns stage_hunk<CR>", default_opts)
+    vim.keymap.set({ "n", "v" }, "<leader>hu", ":Gitsigns reset_hunk<CR>", default_opts)
+    vim.keymap.set("n", "<leader>hS", gs.stage_buffer, noremap)
+    vim.keymap.set("n", "<leader>hr", gs.undo_stage_hunk, noremap)
+    vim.keymap.set("n", "<leader>hU", gs.reset_buffer, noremap)
+    vim.keymap.set("n", "<leader>hp", gs.preview_hunk, noremap)
+    vim.keymap.set("n", '<leader>hd', gs.diffthis, noremap)
+    vim.keymap.set("n", "<leader>hb", function() gs.blame_line { full=true } end, noremap)
+    vim.keymap.set("n", "<leader>tb", gs.toggle_current_line_blame, noremap)
   end
 }

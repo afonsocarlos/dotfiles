@@ -1,12 +1,12 @@
 local builtin = require "telescope.builtin"
-local nnoremap = require("afonsocarlos.keymap").nnoremap
+local noremap = require("afonsocarlos.keymap").noremap
 
 -- ************* Telescope *************
-nnoremap("<leader>fa", builtin.grep_string)
-nnoremap("<leader>fb", builtin.buffers)
-nnoremap("<leader>fc", builtin.commands)
-nnoremap("<leader>fd", builtin.diagnostics)
-nnoremap("<leader>ff", builtin.find_files)
-nnoremap("<leader>fg", builtin.live_grep)
-nnoremap("<leader>fh", builtin.help_tags)
-nnoremap("<leader>fl", builtin.current_buffer_fuzzy_find)
+vim.keymap.set("n", "<leader>fa", builtin.grep_string, noremap)
+vim.keymap.set("n", "<leader>fb", builtin.buffers, noremap)
+vim.keymap.set("n", "<leader>fc", builtin.commands, noremap)
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, noremap)
+vim.keymap.set("n", "<leader>ff", builtin.find_files, noremap)
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, noremap)
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, noremap)
+vim.keymap.set("n", "<leader>fl", builtin.current_buffer_fuzzy_find, noremap)
