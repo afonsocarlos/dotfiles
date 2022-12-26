@@ -1,26 +1,19 @@
 local neogen = require("neogen")
-local telescope_themes = require "telescope.themes"
+local telescope_builtin = require "telescope.builtin"
 local nnoremap = require("afonsocarlos.keymap").nnoremap
 local vnoremap = require("afonsocarlos.keymap").vnoremap
-local telescope_nmap = require("afonsocarlos.keymap").telescope_nmap
-
-local cursor_theme = telescope_themes.get_cursor {
-  path_display = { "tail" },
-  layout_config = {
-    width = 0.8,
-    height = 12,
-  }
-}
 
 -- LSP config (the mappings used in the default file don't quite work right)
 nnoremap("K", vim.lsp.buf.hover, { silent = true })
-nnoremap("<Leader>gc", neogen.generate, { silent = true })
+nnoremap("<leader>gc", neogen.generate, { silent = true })
 nnoremap("<leader>gf", vim.lsp.buf.format, { silent = true })
 nnoremap("<leader>gD", vim.lsp.buf.declaration, { silent = true })
-telescope_nmap("<leader>gd", "lsp_definitions", cursor_theme)
-telescope_nmap("<leader>gr", "lsp_references", vim.tbl_extend("force", cursor_theme, { include_current_line = true }))
-telescope_nmap("<leader>gi", "lsp_implementations", cursor_theme)
+nnoremap("<leader>gd", telescope_builtin.lsp_definitions, { silent = true })
+nnoremap("<leader>gr", telescope_builtin.lsp_references, { silent = true })
+nnoremap("<leader>gi", telescope_builtin.lsp_implementations, { silent = true })
 nnoremap("<leader>gh", vim.lsp.buf.signature_help, { silent = true })
+nnoremap("<leader>gt", vim.lsp.buf.type_definition, { silent = true })
+nnoremap("<leader>ge", vim.diagnostic.open_float, { silent = true })
 nnoremap("[g", vim.diagnostic.goto_prev, { silent = true })
 nnoremap("]g", vim.diagnostic.goto_next, { silent = true })
 nnoremap("[e", ":lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }<CR>", { silent = true })
