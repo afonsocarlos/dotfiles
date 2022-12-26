@@ -20,7 +20,7 @@ return require("packer").startup {
 
 
     -- Colorscheme section
-    use "navarasu/onedark.nvim"    -- OneDark colorscheme for NeoVim
+    use "navarasu/onedark.nvim" -- OneDark colorscheme for NeoVim
 
     -- Neovim frame setup
     use {
@@ -61,6 +61,7 @@ return require("packer").startup {
         require("nvim-surround").setup()
       end
     }
+    use "jiangmiao/auto-pairs"
     -- highlight hex, rgb and colornames
     use "norcalli/nvim-colorizer.lua"
 
