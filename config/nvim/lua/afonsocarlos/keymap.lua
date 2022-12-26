@@ -22,6 +22,8 @@ vim.keymap.set("n", "<leader>n", ":enew<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>s", ":update<CR>", M.noremap)
 -- Write file without trailing whitespaces
 vim.keymap.set("n", "<leader>w", ":noa w<CR>", M.noremap)
+-- Make file executable
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>echo 'File is now executable!'<CR>", M.default_opts)
 -- Close buffer
 vim.keymap.set("n", "<leader>db", ":Bdel<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", M.default_opts)
@@ -57,21 +59,39 @@ vim.keymap.set("n", "<C-y>", "3<C-y>", M.noremap)
 -- Hide hightlights on Esc
 vim.keymap.set("n", "<Esc>", ":nohl<Esc>", M.default_opts)
 
+-- Thanks to @theprimeagen
+-- Move lines around
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Delete without adding deleted text into the register
+vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>d", "\"_d")
+
+-- Simple way to copy to clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
 -- Go to next/prev buffer in buffer list
 vim.keymap.set("n", "[b", ":bp<CR>", M.default_opts)
 vim.keymap.set("n", "]b", ":bn<CR>", M.default_opts)
 vim.keymap.set("n", "[B", ":bfirst<CR>", M.default_opts)
 vim.keymap.set("n", "]B", ":blast<CR>", M.default_opts)
 -- Go to next/prev item in location list
-vim.keymap.set("n", "[l", ":lprev<CR>", M.default_opts)
-vim.keymap.set("n", "]l", ":lnext<CR>", M.default_opts)
-vim.keymap.set("n", "[L", ":lfirst<CR>", M.default_opts)
-vim.keymap.set("n", "]L", ":llast<CR>", M.default_opts)
+vim.keymap.set("n", "[l", ":lprev<CR>zz", M.default_opts)
+vim.keymap.set("n", "]l", ":lnext<CR>zz", M.default_opts)
+vim.keymap.set("n", "[L", ":lfirst<CR>zz", M.default_opts)
+vim.keymap.set("n", "]L", ":llast<CR>zz", M.default_opts)
 -- Go to next/prev item in quick list
-vim.keymap.set("n", "[q", ":cprev<CR>", M.default_opts)
-vim.keymap.set("n", "]q", ":cnext<CR>", M.default_opts)
-vim.keymap.set("n", "[Q", ":cfirst<CR>", M.default_opts)
-vim.keymap.set("n", "]Q", ":clast<CR>", M.default_opts)
+vim.keymap.set("n", "[q", ":cprev<CR>zz", M.default_opts)
+vim.keymap.set("n", "]q", ":cnext<CR>zz", M.default_opts)
+vim.keymap.set("n", "[Q", ":cfirst<CR>zz", M.default_opts)
+vim.keymap.set("n", "]Q", ":clast<CR>zz", M.default_opts)
 
 -- ************* NvimTree *************
 vim.keymap.set("n", "<leader>k", ":NvimTreeFindFile<CR>", M.default_opts)
