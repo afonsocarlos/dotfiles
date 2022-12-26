@@ -27,12 +27,13 @@ require("gitsigns").setup {
     end, { expr=true })
 
     -- Actions
-    nnoremap("<leader>hs", ":Gitsigns stage_hunk<CR>")
-    nnoremap("<leader>hu", ":Gitsigns reset_hunk<CR>")
+    vim.keymap.set({ "n", "v" },"<leader>hs", ":Gitsigns stage_hunk<CR>", { noremap = true, silent = true })
+    vim.keymap.set({ "n", "v" }, "<leader>hu", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true })
     nnoremap("<leader>hS", gs.stage_buffer)
     nnoremap("<leader>hr", gs.undo_stage_hunk)
     nnoremap("<leader>hU", gs.reset_buffer)
     nnoremap("<leader>hp", gs.preview_hunk)
+    nnoremap('<leader>hd', gs.diffthis)
     nnoremap("<leader>hb", function() gs.blame_line { full=true } end)
     nnoremap("<leader>tb", gs.toggle_current_line_blame)
   end
