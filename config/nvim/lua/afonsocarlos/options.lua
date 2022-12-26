@@ -27,12 +27,11 @@ vim.opt.showbreak = ">>"                                        -- virtual line 
 vim.opt.showcmd = true                                          -- show incomplete cmds down the bottom
 vim.opt.showmatch = true                                        -- show bracket matches
 vim.opt.smartcase = true                                        -- case sensitive if we type an uppercase
-vim.opt.swapfile = false                                        -- disable swap files
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0                                         -- remove timeout when hitting escape
 vim.opt.ttyfast = true                                          -- send more characters in fast terminals
 vim.opt.undolevels = 400                                        -- store a bunch of undo history
-vim.opt.updatetime = 1000                                       -- make updates happen faster
+vim.opt.updatetime = 50                                         -- make updates happen faster
 vim.opt.viewoptions = { "folds", "options", "cursor", "unix" }  -- improve Unix/Windows compatibility
 vim.opt.visualbell = true                                       -- enable visual bell (disable audio bell)
 vim.opt.wildignorecase = true                                   -- enable case-insensitive while completing file names
@@ -43,10 +42,15 @@ vim.opt.wrap = true                                             -- this enables 
 vim.opt.textwidth = 0
 vim.opt.wrapmargin = 0
 
+vim.opt.swapfile = false                                -- disable swap files
+vim.opt.backup = false                                  -- disable backup
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- setup undo directory
+vim.opt.undofile = true                                 -- enable undo files
+
 -- Indentation options
-vim.opt.expandtab = true     -- on pressing tab, insert 4 spaces
-vim.opt.shiftwidth = 4  -- when indenting '>', use 4 spaces width
-vim.opt.tabstop = 4     -- show existing tab with 4 spaces width
+vim.opt.expandtab = true    -- on pressing tab, insert 4 spaces
+vim.opt.shiftwidth = 4      -- when indenting '>', use 4 spaces width
+vim.opt.tabstop = 4         -- show existing tab with 4 spaces width
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
