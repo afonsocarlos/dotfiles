@@ -71,5 +71,5 @@ nnoremap("[Q", ":cfirst<CR>", { silent = true })
 nnoremap("]Q", ":clast<CR>", { silent = true })
 
 -- ************* NvimTree *************
-nnoremap("<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'", { expr = true, silent = true })
+nnoremap("<leader>k", ":NvimTreeFindFile<CR>", { silent = true })
 
