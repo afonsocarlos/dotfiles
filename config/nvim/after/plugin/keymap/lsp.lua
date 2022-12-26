@@ -3,16 +3,32 @@ local telescope_builtin = require "telescope.builtin"
 local nnoremap = require("afonsocarlos.keymap").nnoremap
 local vnoremap = require("afonsocarlos.keymap").vnoremap
 
+local config = {
+  path_display = function(opts, path)
+    local os_sep = require("telescope.utils").get_separator()
+    local found_first = false
+    for i = #path, 1, -1 do
+      if path:sub(i, i) == os_sep then
+        if found_first then
+          return path:sub(i + 1, -1)
+        end
+        found_first = true
+      end
+    end
+    return path
+  end,
+}
+
 -- LSP config (the mappings used in the default file don't quite work right)
 nnoremap("K", vim.lsp.buf.hover, { silent = true })
 nnoremap("<leader>gc", neogen.generate, { silent = true })
 nnoremap("<leader>gf", vim.lsp.buf.format, { silent = true })
 nnoremap("<leader>gD", vim.lsp.buf.declaration, { silent = true })
-nnoremap("<leader>gd", telescope_builtin.lsp_definitions, { silent = true })
-nnoremap("<leader>gr", telescope_builtin.lsp_references, { silent = true })
-nnoremap("<leader>gi", telescope_builtin.lsp_implementations, { silent = true })
+nnoremap("<leader>gd", function() telescope_builtin.lsp_definitions(config) end, { silent = true })
+nnoremap("<leader>gr", function() telescope_builtin.lsp_references(config) end, { silent = true })
+nnoremap("<leader>gi", function() telescope_builtin.lsp_implementations(config) end, { silent = true })
+nnoremap("<leader>gt", function() telescope_builtin.lsp_type_definitions(config) end, { silent = true })
 nnoremap("<leader>gh", vim.lsp.buf.signature_help, { silent = true })
-nnoremap("<leader>gt", vim.lsp.buf.type_definition, { silent = true })
 nnoremap("<leader>ge", vim.diagnostic.open_float, { silent = true })
 nnoremap("[g", vim.diagnostic.goto_prev, { silent = true })
 nnoremap("]g", vim.diagnostic.goto_next, { silent = true })
