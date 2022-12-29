@@ -89,9 +89,9 @@ vim.keymap.set("n", "[Q", ":cfirst<CR>zz", M.default_opts)
 vim.keymap.set("n", "]Q", ":clast<CR>zz", M.default_opts)
 
 -- ************* NvimTree *************
-vim.keymap.set("n", "<leader>k", ":NvimTreeFindFile<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'", { expr = true, silent = true })
 
 -- ************* Undotree *************
-vim.keymap.set("n", "<leader>u", ":UndotreeShow | UndotreeFocus<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>", M.default_opts)
 
 return M
