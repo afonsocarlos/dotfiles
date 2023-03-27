@@ -59,15 +59,6 @@ vim.keymap.set("n", "<leader>gs", ":G<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>gl", ":G pull<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>gp", ":G push<CR>", M.default_opts)
 
--- Thanks to @theprimeagen
--- Move lines around
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
 -- Delete without adding deleted text into the register
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("x", "<leader>d", "\"_d")
@@ -78,18 +69,18 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Go to next/prev buffer in buffer list
-vim.keymap.set("n", "[b", ":bp<CR>", M.default_opts)
-vim.keymap.set("n", "]b", ":bn<CR>", M.default_opts)
+vim.keymap.set("n", "[b", ":<C-U>exe v:count.'bp'<CR>", M.default_opts)
+vim.keymap.set("n", "]b", ":<C-U>exe v:count.'bn'<CR>", M.default_opts)
 vim.keymap.set("n", "[B", ":bfirst<CR>", M.default_opts)
 vim.keymap.set("n", "]B", ":blast<CR>", M.default_opts)
 -- Go to next/prev item in location list
-vim.keymap.set("n", "[l", ":lprev<CR>zz", M.default_opts)
-vim.keymap.set("n", "]l", ":lnext<CR>zz", M.default_opts)
+vim.keymap.set("n", "[l", ":<C-U>exe v:count.'lprev'<CR>zz", M.default_opts)
+vim.keymap.set("n", "]l", ":<C-U>exe v:count.'lnext'<CR>zz", M.default_opts)
 vim.keymap.set("n", "[L", ":lfirst<CR>zz", M.default_opts)
 vim.keymap.set("n", "]L", ":llast<CR>zz", M.default_opts)
 -- Go to next/prev item in quick list
-vim.keymap.set("n", "[q", ":cprev<CR>zz", M.default_opts)
-vim.keymap.set("n", "]q", ":cnext<CR>zz", M.default_opts)
+vim.keymap.set("n", "[q", ":<C-U>exe v:count.'cprev'<CR>zz", M.default_opts)
+vim.keymap.set("n", "]q", ":<C-U>exe v:count.'cnext'<CR>zz", M.default_opts)
 vim.keymap.set("n", "[Q", ":cfirst<CR>zz", M.default_opts)
 vim.keymap.set("n", "]Q", ":clast<CR>zz", M.default_opts)
 
