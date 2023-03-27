@@ -54,6 +54,11 @@ vim.keymap.set("n", "<C-y>", "3<C-y>")
 -- Hide hightlights on Esc
 vim.keymap.set("n", "<Esc>", ":nohl<Esc>", M.default_opts)
 
+-- fugitive Shortcuts
+vim.keymap.set("n", "<leader>gs", ":G<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>gl", ":G pull<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>gp", ":G push<CR>", M.default_opts)
+
 -- Thanks to @theprimeagen
 -- Move lines around
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
