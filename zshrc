@@ -118,6 +118,9 @@ fi
 # Alert on completion of shell commands
 alias tg='telegram-send "$([ $? = 0 ] && echo "" || echo "error: ") $(echo $history[$HISTCMD]|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*tg$//'\'')"'
 
+# Get remaining batttery life percentage
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '\''/percentage/ { print $2 }'\'''
+
 # Install zplug automatically, if not installed yet
 if [[ ! -d ~/.zplug ]]; then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
