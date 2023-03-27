@@ -48,14 +48,12 @@ require("lualine").setup {
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {},
-    lualine_z = { "tabs" },
-  },
-  winbar = {
-    lualine_b = {
+    lualine_y = {
       { navic.get_location, cond = navic.is_available },
     },
+    lualine_z = { "tabs" },
   },
+  winbar = {},
   inactive_winbar = {},
   extensions = { "nvim-tree", "quickfix" },
 }
