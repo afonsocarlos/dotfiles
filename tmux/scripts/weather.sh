@@ -35,5 +35,6 @@ lon=$(echo "$location" | cut -d, -f9)
 weather=$(curl --silent http://api.openweathermap.org/data/2.5/weather\?lat="$lat"\&lon="$lon"\&APPID="$api_key"\&units=metric)
 icon=$(echo "$weather" | jq -r .weather[0].id)
 temperature="$(echo "$weather" | jq -r .main.temp | cut -d. -f1)°C"
+pressure="$(echo "$weather" | jq -r .main.pressure | cut -d. -f1)Hg"
 
-echo "$(weather_icon "$icon") $temperature"
+echo "$(weather_icon "$icon") $temperature $pressure"
