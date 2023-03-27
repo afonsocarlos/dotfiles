@@ -18,6 +18,7 @@ return require("packer").startup {
     use "nvim-lua/popup.nvim"
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
+    use "nvim-telescope/telescope-live-grep-args.nvim"
 
 
     -- Colorscheme section
