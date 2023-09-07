@@ -18,11 +18,12 @@ vim.keymap.set("n", "<leader>s", ":update<CR>")
 -- Write file without trailing whitespaces
 vim.keymap.set("n", "<leader>w", ":noa w<CR>")
 -- Make file executable
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>echo 'File is now executable!'<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", M.default_opts)
 -- Close buffer
 vim.keymap.set("n", "<leader>db", ":Bdel<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>de", ":Bdel #<CR>", M.default_opts)
+vim.keymap.set("n", "<leader>dt", ":tabclose<CR>", M.default_opts)
 -- Toggle spell check
 vim.keymap.set("n", "<F6>", ":setlocal spell! spelllang=en_us<CR>")
 vim.keymap.set("n", "<F5>", ":setlocal spell! spelllang=pt_br<CR>")
