@@ -80,6 +80,21 @@ return require("packer").startup {
     -- highlight hex, rgb and colornames
     use "norcalli/nvim-colorizer.lua"
 
+    -- plugin for splitting/joining blocks of code
+    use {
+      "Wansmer/treesj",
+      requires = { "nvim-treesitter" },
+      config = function()
+        require("treesj").setup({ use_default_keymaps = false })
+      end,
+    }
+
+    -- Better quickfix window in Neovim
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+    use { 'junegunn/fzf', run = function()
+      vim.fn['fzf#install']()
+    end
+    }
 
     -- Nvim Treesitter
     use {

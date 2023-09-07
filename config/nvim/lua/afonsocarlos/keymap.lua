@@ -94,4 +94,6 @@ vim.keymap.set("n", "<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') !=
 -- ************* Undotree *************
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>", M.default_opts)
 
+-- ************* TreeSJ *************
+vim.keymap.set("n", "<leader>m", ":TSJToggle<CR>", M.default_opts)
 return M
