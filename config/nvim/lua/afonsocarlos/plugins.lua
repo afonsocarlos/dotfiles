@@ -43,6 +43,18 @@ return require("packer").startup {
     use "junegunn/vim-easy-align"
     -- Delete buffers without messing up layout
     use "moll/vim-bbye"
+    -- Vim REPL slime
+    use {
+      "jpalardy/vim-slime",
+      config = function()
+        vim.g.slime_target = "tmux"
+        vim.g.slime_no_mappings = 1
+        vim.g.slime_default_config = {
+          socket_name = "default",
+          target_pane = "{last}"
+        }
+      end
+    }
     -- Git signs for vim
     use "lewis6991/gitsigns.nvim"
     -- Provides additional text objects

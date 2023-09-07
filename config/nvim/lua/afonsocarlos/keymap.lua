@@ -83,6 +83,10 @@ vim.keymap.set("n", "[q", ":<C-U>exe v:count.'cprev'<CR>zz", M.default_opts)
 vim.keymap.set("n", "]q", ":<C-U>exe v:count.'cnext'<CR>zz", M.default_opts)
 vim.keymap.set("n", "[Q", ":cfirst<CR>zz", M.default_opts)
 vim.keymap.set("n", "]Q", ":clast<CR>zz", M.default_opts)
+-- vim-slime map
+vim.keymap.set("x", "<M-cr>", "<Plug>SlimeRegionSend")
+vim.keymap.set("n", "<M-cr>", "<Plug>SlimeParagraphSend")
+vim.keymap.set("n", "<C-c>v", "<Plug>SlimeConfig")
 
 -- ************* NvimTree *************
 vim.keymap.set("n", "<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'", { expr = true, silent = true })
