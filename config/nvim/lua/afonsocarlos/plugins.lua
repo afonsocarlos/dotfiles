@@ -107,6 +107,9 @@ return require("packer").startup {
     -- Simple plugin that shows the current code context
     use "SmiteshP/nvim-navic"
 
+    -- A tree like view for symbols in Neovim
+    use "simrat39/symbols-outline.nvim"
+
     -- LSP Plugins:
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
