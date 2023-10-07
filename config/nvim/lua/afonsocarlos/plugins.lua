@@ -1,145 +1,164 @@
-_ = vim.cmd [[packadd packer.nvim]]
-_ = vim.cmd [[packadd vimball]]
-_ = vim.cmd [[packadd cfilter]]
-
-return require("packer").startup {
-  function(use)
-    -- Packer can manage itself
-    use "wbthomason/packer.nvim"
-
-    -- Tpope plugins
-    use "tpope/vim-abolish"
-    use "tpope/vim-fugitive"
-    use "tpope/vim-repeat"
-
-
-    -- TJ plugins
-    use "nvim-lua/plenary.nvim"
-    use "nvim-lua/popup.nvim"
-    use "nvim-telescope/telescope.nvim"
-    use "nvim-telescope/telescope-ui-select.nvim"
-    use "nvim-telescope/telescope-live-grep-args.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 
-    -- Colorscheme section
-    use "navarasu/onedark.nvim" -- OneDark colorscheme for NeoVim
+local plugins = {
+  -- Tpope plugins
+  "tpope/vim-abolish",
+  "tpope/vim-fugitive",
+  "tpope/vim-repeat",
 
-    -- Neovim frame setup
-    use {
-      -- Status line enhancement
-      "nvim-lualine/lualine.nvim",
-      "yamatsum/nvim-web-nonicons",
-      {
-        -- A file explorer tree
-        "nvim-tree/nvim-tree.lua",
 
-        requires = {
-          "nvim-tree/nvim-web-devicons", -- optional, for file icons
-        },
+  -- TJ plugins
+  "nvim-lua/plenary.nvim",
+  "nvim-lua/popup.nvim",
+  "nvim-telescope/telescope.nvim",
+  "nvim-telescope/telescope-ui-select.nvim",
+  "nvim-telescope/telescope-live-grep-args.nvim",
+
+
+  -- Colorscheme section
+  "navarasu/onedark.nvim", -- OneDark colorscheme for NeoVim
+
+  -- Neovim frame setup
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
+
+  -- Status line enhancement
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = "yamatsum/nvim-web-nonicons",
+  },
+
+  -- ********** Editing help tools **********
+  "junegunn/vim-easy-align",
+  -- Delete buffers without messing up layout
+  "moll/vim-bbye",
+  -- Vim REPL slime
+  {
+    "jpalardy/vim-slime",
+    config = function()
+      vim.g.slime_target = "tmux"
+      vim.g.slime_no_mappings = 1
+      vim.g.slime_default_config = {
+        socket_name = "default",
+        target_pane = "{last}"
       }
-    }
+    end
+  },
+  -- Git signs for vim
+  "lewis6991/gitsigns.nvim",
+  -- Provides additional text objects
+  "wellle/targets.vim",
+  -- The undo history visualizer for VIM
+  "mbbill/undotree",
+  -- Smart and powerful comments plugin for Neovim
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end
+  },
+  -- Add/change/delete surrounding delimiter pairs with ease
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    config = function()
+      require("nvim-surround").setup()
+    end
+  },
+  "jiangmiao/auto-pairs",
+  -- highlight hex, rgb and colornames
+  "norcalli/nvim-colorizer.lua",
 
-    -- ********** Editing help tools **********
-    use "junegunn/vim-easy-align"
-    -- Delete buffers without messing up layout
-    use "moll/vim-bbye"
-    -- Vim REPL slime
-    use {
-      "jpalardy/vim-slime",
-      config = function()
-        vim.g.slime_target = "tmux"
-        vim.g.slime_no_mappings = 1
-        vim.g.slime_default_config = {
-          socket_name = "default",
-          target_pane = "{last}"
-        }
-      end
-    }
-    -- Git signs for vim
-    use "lewis6991/gitsigns.nvim"
-    -- Provides additional text objects
-    use "wellle/targets.vim"
-    -- The undo history visualizer for VIM
-    use "mbbill/undotree"
-    -- Smart and powerful comments plugin for Neovim
-    use {
-      "numToStr/Comment.nvim",
-      config = function()
-        require("Comment").setup()
-      end
-    }
-    -- Add/change/delete surrounding delimiter pairs with ease
-    use {
-      "kylechui/nvim-surround",
-      tag = "*",
-      config = function()
-        require("nvim-surround").setup()
-      end
-    }
-    use "jiangmiao/auto-pairs"
-    -- highlight hex, rgb and colornames
-    use "norcalli/nvim-colorizer.lua"
+  -- plugin for splitting/joining blocks of code
+  {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter" },
+    config = function()
+      require("treesj").setup({ use_default_keymaps = false })
+    end,
+  },
 
-    -- plugin for splitting/joining blocks of code
-    use {
-      "Wansmer/treesj",
-      requires = { "nvim-treesitter" },
-      config = function()
-        require("treesj").setup({ use_default_keymaps = false })
-      end,
-    }
-
-    -- Better quickfix window in Neovim
-    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
-    use { 'junegunn/fzf', run = function()
+  -- Better quickfix window in Neovim
+  { 'kevinhwang91/nvim-bqf', ft = 'qf' },
+  {
+    'junegunn/fzf',
+    build = function()
       vim.fn['fzf#install']()
     end
-    }
+  },
 
-    -- Nvim Treesitter
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-    }
-    use "nvim-treesitter/nvim-treesitter-textobjects"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
+  -- Nvim Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+  },
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
-    -- Simple plugin that shows the current code context
-    use "SmiteshP/nvim-navic"
+  -- Simple plugin that shows the current code context
+  "SmiteshP/nvim-navic",
 
-    -- A tree like view for symbols in Neovim
-    use "simrat39/symbols-outline.nvim"
+  -- A tree like view for symbols in Neovim
+  "simrat39/symbols-outline.nvim",
 
-    -- LSP Plugins:
-    use "neovim/nvim-lspconfig"
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-nvim-lua"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "petertriho/cmp-git"
-    use "ray-x/lsp_signature.nvim"
-    use "onsails/lspkind-nvim"
+  -- LSP Plugins:
+  "neovim/nvim-lspconfig",
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-nvim-lua",
+  "hrsh7th/cmp-nvim-lsp",
+  "petertriho/cmp-git",
+  "ray-x/lsp_signature.nvim",
+  "onsails/lspkind-nvim",
 
-    use "L3MON4D3/LuaSnip"
-    use "saadparwaiz1/cmp_luasnip"
-    use "honza/vim-snippets"
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+  "honza/vim-snippets",
 
-    -- A better annotation generator
-    use "danymat/neogen"
+  -- A better annotation generator
+  "danymat/neogen",
 
-    -- Provides LSP server
-    use "pierreglaser/folding-nvim"
+  -- Provides LSP server
+  "pierreglaser/folding-nvim",
 
-    -- Out of the box LSP features even without language server
-    use "jose-elias-alvarez/null-ls.nvim"
+  -- Out of the box LSP features even without language server
+  "jose-elias-alvarez/null-ls.nvim",
 
-    -- Flutter tools
-    use {
-      "akinsho/flutter-tools.nvim",
-      ft = { "flutter", "dart" },
-    }
-  end
+  -- Flutter tools
+  {
+    "akinsho/flutter-tools.nvim",
+    ft = { "flutter", "dart" },
+  },
 }
+
+local opts = {
+  -- defaults = {
+  -- lazy = true
+  -- }
+}
+
+require("lazy").setup(plugins, opts)

@@ -24,6 +24,3 @@ rm ~/.xterm-256color-italic.terminfo
 
 # setup tmux plugins
 mkdir -p ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-#
-# configure nvim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
