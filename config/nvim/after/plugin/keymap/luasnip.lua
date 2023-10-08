@@ -13,12 +13,14 @@ end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
   if luasnip.jumpable(-1) then
     luasnip.jump(-1)
+  else
+    return "<c-k>"
   end
-end, { silent = true })
+end, { expr = true, silent = true })
 
 -- <c-l> is selecting within a list of options.
 -- This is useful for choice nodes (introduced in the forthcoming episode 2)
-vim.keymap.set("i", "<c-l>", function()
+vim.keymap.set({ "i", "s" }, "<c-l>", function()
   if luasnip.choice_active() then
     luasnip.change_choice(1)
   end
