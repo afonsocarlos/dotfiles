@@ -5,15 +5,35 @@ local navic = require "nvim-navic"
 
 require("mason").setup()
 
+local servers = {
+  intelephense = {},
+  pyright = {},
+  lua_ls = {
+    Lua = {
+      completion = {
+        callSnippet = 'Replace',
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      format = { enable = true },
+      telemetry = { enable = false },
+      workspace = { checkThirdParty = true },
+    }
+  },
+
+}
+
 mason_lspconfig.setup {
-  ensure_installed = { "intelephense", "pyright", "sumneko_lua" },
+  ensure_installed = vim.tbl_keys(servers),
 }
 local installed_servers = mason_lspconfig.get_installed_servers()
 
 -- Loop through the installed servers and set them up
-for _, server in ipairs(installed_servers) do
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
-  lspconfig[server].setup({
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+for _, server_name in ipairs(installed_servers) do
+  lspconfig[server_name].setup({
+    settings = servers[server_name],
     capabilities = capabilities,
     on_attach = function(client, bufnr)
       if client.server_capabilities.documentSymbolProvider then
@@ -23,18 +43,19 @@ for _, server in ipairs(installed_servers) do
       -- folding.on_attach()
 
       -- Add some fancy integration
-      local setup_lsp = vim.api.nvim_create_augroup("setup_lsp", { clear = true })
-      vim.api.nvim_create_autocmd("CursorHold", {
-        group = setup_lsp,
-        pattern = "<buffer>",
-        callback = vim.lsp.buf.document_highlight
-      })
-      vim.api.nvim_create_autocmd("CursorMoved", {
-        group = setup_lsp,
-        pattern = "<buffer>",
-        callback = vim.lsp.buf.clear_references
-      })
-
+      if client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_create_augroup("setup_lsp", { clear = true })
+        vim.api.nvim_create_autocmd("CursorHold", {
+          group = "setup_lsp",
+          pattern = "<buffer>",
+          callback = vim.lsp.buf.document_highlight
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+          group = "setup_lsp",
+          pattern = "<buffer>",
+          callback = vim.lsp.buf.clear_references
+        })
+      end
     end
   })
 end
