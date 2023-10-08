@@ -1,4 +1,4 @@
-local navic = require "nvim-navic"
+local icons = require("nvim-nonicons")
 
 require("lualine").setup {
   options = {
@@ -22,7 +22,11 @@ require("lualine").setup {
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
-    lualine_b = { "branch", "diff", "diagnostics" },
+    lualine_b = {
+      { "branch", icon = icons.get("git-branch") },
+      "diff",
+      "diagnostics"
+    },
     lualine_c = {
       {
         "filename",
@@ -49,7 +53,9 @@ require("lualine").setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = {
-      { navic.get_location, cond = navic.is_available },
+      "navic",
+      color_correction = nil,
+      navic_opts = nil
     },
     lualine_z = { "tabs" },
   },
