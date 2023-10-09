@@ -1,8 +1,12 @@
 local lga_actions = require("telescope-live-grep-args.actions")
+local icons = require("nvim-nonicons")
 
 
 require("telescope").setup {
   defaults = {
+    prompt_prefix = "  " .. icons.get("telescope") .. "  ",
+    selection_caret = " ❯ ",
+    entry_prefix = "   ",
     file_sorter = require("telescope.sorters").get_fzy_sorter,
   },
 
@@ -28,7 +32,7 @@ require("telescope").setup {
       mappings = { -- extend mappings
         i = {
           ["<C-k>"] = lga_actions.quote_prompt(),
-          ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          ["<C-j>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
         },
       },
     },
