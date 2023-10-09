@@ -21,7 +21,7 @@
     tool = nvimdiff
     conflictstyle = diff3
 [diff]
-    tool = nvim
+    tool = nvimdiff
 [alias "branch"]
 [filter "lfs"]
     clean = git-lfs clean -- %f
