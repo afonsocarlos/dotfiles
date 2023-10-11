@@ -13,17 +13,12 @@
 
 require "afonsocarlos.globals"
 
-if require "afonsocarlos.first_load"() then
-    return
-end
-
 -- In general, it's a good idea to set this early in your config, because otherwise
 -- if you have any mappings you set BEFORE doing this, they will be set to the OLD
 -- leader.
 vim.g.mapleader = " "
 
-require "afonsocarlos.plugins"
 require "afonsocarlos.options"
+require "afonsocarlos.keymap"
 require "afonsocarlos.augroups"
-
-vim.g.do_filetype_lua = 1
+require "afonsocarlos.setup_plugins"
