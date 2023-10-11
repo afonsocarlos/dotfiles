@@ -17,7 +17,6 @@ vim.opt.listchars = "eol:↲,tab:»·,trail:·"                      -- Set icon
 vim.opt.matchtime = 1
 vim.opt.mouse = ""                                              -- Disable mouse
 vim.opt.number = true                                           -- display line number
-vim.opt.pastetoggle = "<F2>"                                    -- Toggle pastemode to avoid unexpected effects when pasting
 vim.opt.path:append "**"                                        -- set find command to look for sub directories recursively
 vim.opt.redrawtime = 5000                                       -- Prevent huge files from breaking (and disabling) syntax highlighting
 vim.opt.relativenumber = true                                   -- display line number relative to the current one
