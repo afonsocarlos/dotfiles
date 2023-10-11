@@ -26,6 +26,9 @@ vim.opt.showbreak = ">>"                                        -- virtual line 
 vim.opt.showcmd = true                                          -- show incomplete cmds down the bottom
 vim.opt.showmatch = true                                        -- show bracket matches
 vim.opt.smartcase = true                                        -- case sensitive if we type an uppercase
+vim.opt.splitbelow = true                                       -- put new windows always below
+vim.opt.splitright = true                                       -- put new windows always below
+vim.opt.termguicolors = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0                                         -- remove timeout when hitting escape
 vim.opt.ttyfast = true                                          -- send more characters in fast terminals
@@ -36,6 +39,7 @@ vim.opt.visualbell = true                                       -- enable visual
 vim.opt.wildignorecase = true                                   -- enable case-insensitive while completing file names
 vim.opt.wildmenu = true                                         -- Tab autocomplete in command mode
 vim.opt.wrap = true                                             -- this enables 'visual' wrapping
+
 
 -- this turns off physical line wrapping
 vim.opt.textwidth = 0
