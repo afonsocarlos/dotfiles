@@ -2,7 +2,6 @@ return {
   -- Tpope plugins
   "tpope/vim-abolish",
   "tpope/vim-dotenv",
-  "tpope/vim-dadbod",
   "tpope/vim-fugitive",
   "tpope/vim-obsession",
   "tpope/vim-repeat",
