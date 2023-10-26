@@ -64,6 +64,9 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 # binding keys
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
