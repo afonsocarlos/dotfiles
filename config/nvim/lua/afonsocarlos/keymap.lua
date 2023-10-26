@@ -10,6 +10,8 @@ vim.keymap.set("", "<C-j>", "<C-W>j", { remap = true })
 vim.keymap.set("", "<C-k>", "<C-W>k", { remap = true })
 vim.keymap.set("", "<C-h>", "<C-W>h", { remap = true })
 vim.keymap.set("", "<C-l>", "<C-W>l", { remap = true })
+vim.keymap.set("", "<M-,>", "<C-W><", { remap = true })
+vim.keymap.set("", "<M-.>", "<C-W>>", { remap = true })
 
 
 vim.keymap.set("n", "<leader>e", ":e<CR>:echo 'File reloaded!'<CR>", M.default_opts)
