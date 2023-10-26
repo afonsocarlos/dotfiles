@@ -22,7 +22,8 @@ return {
     "hrsh7th/cmp-path",   -- source for file system paths
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
+    -- { "hrsh7th/cmp-nvim-lsp-signature-help", dev = true },
+    {"ray-x/lsp_signature.nvim", config = true},
 
     { "petertriho/cmp-git", config = true },
     "onsails/lspkind.nvim", -- vs-code like pictograms
@@ -54,7 +55,7 @@ return {
             }
           }
         },
-        { name = 'nvim_lsp_signature_help' },
+        -- { name = 'nvim_lsp_signature_help' },
         { name = "nvim_lua" },
         { name = "path" },
         { name = "cmp_git" },
