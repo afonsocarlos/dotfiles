@@ -39,3 +39,15 @@ vim.api.nvim_create_autocmd("User", {
     call targets#mappings#extend({ 'b': {'pair': [{'o':'(', 'c':')'}]} })
   ]]
 })
+
+-- Defold extension setup
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("defold_filetypedetect", { clear = true }),
+  pattern = {
+    "*.script",
+    "*.gui_script",
+    "*.render_script",
+    "*.editor_script",
+  },
+  command = [[ setfiletype lua ]]
+})
