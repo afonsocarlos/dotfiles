@@ -85,55 +85,40 @@ alias tg='telegram-send "$([ $? = 0 ] && echo "" || echo "error: ") $(echo $hist
 # Get remaining batttery life percentage
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '\''/percentage/ { print $2 }'\'''
 
-# Install zplug automatically, if not installed yet
-if [[ ! -d ~/.zplug ]]; then
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-    source ~/.zplug/init.zsh && zplug update --self
-fi
-
-source ~/.zplug/init.zsh
-
-#################### Packages ####################
-# Add zsh-syntax-highlighting
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Add zsh-completions
-zplug "zsh-users/zsh-completions"
-
-# Add github like contributions calendar on terminal
-zplug "k4rthik/git-cal", as:command
-
-# Emoji on the command line
-zplug "mrowa44/emojify", as:command, use:emojify
-
-# Add GIF optimization script
-zplug "Charliiee/0143bc204a86be9d2a32abfe6900c930", from:gist, as:command, use:gif_optmize.sh
-zplug "Charliiee/87e0b6a1a3099fd7d1a253b2a48f886b", from:gist, as:command, use:whatismyip
-
-# Oh-my-zsh plugins
-zplug "plugins/battery", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 #################### Theme ####################
-# Add pure theme
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zinit pick"async.zsh" src"pure.zsh" light-mode for sindresorhus/pure
 
+#################### Packages ####################
+zinit wait lucid light-mode for \
+    zsh-users/zsh-completions \
+    zdharma-continuum/fast-syntax-highlighting
+
+# Add github like contributions calendar on terminal
+zinit as"program" wait lucid for \
+    k4rthik/git-cal \
+    so-fancy/diff-so-fancy \
+    mrowa44/emojify
+
+# Add GIF optimization script
+zinit as"program" wait lucid for \
+    pick"gif_optmize.sh" https://gist.githubusercontent.com/afonsocarlos/0143bc204a86be9d2a32abfe6900c930/raw/ff7013d09feba61cf58860d54bc4b87238b06e19/gif_optmize.sh \
+    pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip
+
+# Oh-my-zsh plugins
+zinit snippet OMZP::battery
+zinit snippet https://raw.githubusercontent.com/afonsocarlos/ohmyzsh/8b0f735cd37fcdedf1c1c2c206fabcf123b6e4a9/plugins/git/git.plugin.zsh
+
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
+export NVM_SYMLINK_CURRENT="true"
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('git' 'nvim')
+zinit wait lucid light-mode for lukechilds/zsh-nvm
 ###############################################
-
-# Update zplug
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-# Install plugins that have not been installed yet
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Load all plugins
-zplug load
 
 PROMPT="%(1j.[%j] .)"$PROMPT
 
@@ -141,7 +126,3 @@ if command -v neofetch >/dev/null 2>&1; then
     alias clear='clear; neofetch'
     clear; neofetch
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
