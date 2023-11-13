@@ -31,15 +31,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
--- Make targets.vim use default braces
-vim.api.nvim_create_autocmd("User", {
-  group = vim.api.nvim_create_augroup("targets_default", { clear = true }),
-  pattern = "targets#mappings#user",
-  command = [[
-    call targets#mappings#extend({ 'b': {'pair': [{'o':'(', 'c':')'}]} })
-  ]]
-})
-
 -- Defold extension setup
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("defold_filetypedetect", { clear = true }),

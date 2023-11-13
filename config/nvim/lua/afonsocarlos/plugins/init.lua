@@ -12,8 +12,6 @@ return {
   -- Delete buffers without messing up layout
   "moll/vim-bbye",
 
-  -- Provides additional text objects
-  "wellle/targets.vim",
   -- The undo history visualizer for VIM
   "mbbill/undotree",
 
