@@ -96,6 +96,9 @@ vim.keymap.set("n", "<C-c>v", "<Plug>SlimeConfig")
 -- ************* NvimTree *************
 vim.keymap.set("n", "<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'", { expr = true, silent = true })
 
+-- ************* DBUI *************
+vim.keymap.set("n", "<leader>l", ":DBUIToggle<CR>", M.default_opts)
+
 -- ************* Undotree *************
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>", M.default_opts)
 
