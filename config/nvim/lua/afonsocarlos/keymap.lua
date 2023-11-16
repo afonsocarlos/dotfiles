@@ -21,6 +21,8 @@ vim.keymap.set("n", "<leader>s", ":update<CR>")
 vim.keymap.set("n", "<leader>w", ":noa w<CR>")
 -- Make file executable
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", M.default_opts)
+-- Toggle checkbox ("- [x]")
+vim.keymap.set("n", "<leader><enter>", ':keeppatterns s/-\\s\\+\\[\\zs.\\{-}\\ze\\]/\\=submatch(0) == "x" ? " " : "x"/<CR>', M.default_opts)
 -- Close buffer
 vim.keymap.set("n", "<leader>db", ":Bdel<CR>", M.default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", M.default_opts)
@@ -33,9 +35,7 @@ vim.keymap.set("n", "<F7>", ":setlocal spell! spelllang=fr<CR>")
 vim.keymap.set("i", "<F5>", "<C-o>:setlocal spell! spelllang=pt_br<CR>")
 vim.keymap.set("i", "<F6>", "<C-o>:setlocal spell! spelllang=en_us<CR>")
 vim.keymap.set("i", "<F7>", "<C-o>:setlocal spell! spelllang=f<CR>")
---[[" toggle Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-" toggle Vista
+--[[" toggle Vista
 nnoremap <F9> :Vista!!<CR>
 " toggle Goyo (distraction free)
 nnoremap <F11> :Goyo<CR>
