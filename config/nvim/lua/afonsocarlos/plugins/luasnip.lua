@@ -1,4 +1,21 @@
+local default_opts = require("afonsocarlos.keymap").default_opts
+
 local luasnip
+
+-- <c-k> is my jump backwards key.
+-- this always moves to the previous item within the snippet
+-- this single keymap is set here outside because I want to keep
+-- the original <c-k> functionality available
+vim.keymap.set({ "i", "s" }, "<c-k>",
+  function()
+    if luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      return "<c-k>"
+    end
+  end,
+  { expr = true, silent = true }
+)
 
 return {
 
@@ -39,31 +56,7 @@ return {
   keys = {
     -- <c-j> is my expansion key
     -- this will expand the current item or jump to the next item within the snippet.
-    {
-      "<c-j>",
-      function()
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        end
-      end,
-      mode = { "i", "s" },
-      { silent = true }
-    },
-
-    -- <c-k> is my jump backwards key.
-    -- this always moves to the previous item within the snippet
-    {
-      "<c-k>",
-      function()
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          return "<c-k>"
-        end
-      end,
-      mode = { "i", "s" },
-      { expr = true, silent = true }
-    },
+    { "<c-j>", function() luasnip.expand_or_jump() end, mode = { "i", "s" }, default_opts },
 
     -- <c-l> is selecting within a list of options.
     -- This is useful for choice nodes (introduced in the forthcoming episode 2)
@@ -74,7 +67,8 @@ return {
           luasnip.change_choice(1)
         end
       end,
-      mode = { "i", "s" }
+      mode = { "i", "s" },
+      default_opts
     },
   }
 }
