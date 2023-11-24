@@ -10,6 +10,7 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
     local lga_actions = require("telescope-live-grep-args.actions")
     local icons = require("nvim-nonicons")
 
@@ -19,6 +20,14 @@ return {
         selection_caret = " ❯ ",
         entry_prefix = "   ",
         file_sorter = require("telescope.sorters").get_fzy_sorter,
+        mappings = {
+          i = {
+            ["<C-b>"] = actions.preview_scrolling_left,
+            ["<C-f>"] = actions.preview_scrolling_right,
+            ["<M-b>"] = actions.results_scrolling_left,
+            ["<M-f>"] = actions.results_scrolling_right,
+          }
+        },
       },
 
       extensions = {
@@ -40,7 +49,7 @@ return {
         live_grep_args = {
           auto_quoting = true, -- enable/disable auto-quoting
           -- define mappings, e.g.
-          mappings = {         -- extend mappings
+          mappings = {
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-j>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
