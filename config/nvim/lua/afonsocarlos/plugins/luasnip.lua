@@ -1,5 +1,3 @@
-local default_opts = require("afonsocarlos.keymap").default_opts
-
 local luasnip
 
 return {
@@ -58,7 +56,7 @@ return {
   keys = {
     -- <c-j> is my expansion key
     -- this will expand the current item or jump to the next item within the snippet.
-    { "<c-j>", function() luasnip.expand_or_jump() end, mode = { "i", "s" }, default_opts },
+    { "<c-j>", function() luasnip.expand_or_jump() end, mode = { "i", "s" }, silent = true },
 
     -- <c-l> is selecting within a list of options.
     -- This is useful for choice nodes (introduced in the forthcoming episode 2)
@@ -70,7 +68,7 @@ return {
         end
       end,
       mode = { "i", "s" },
-      default_opts
+      silent = true
     },
   }
 }

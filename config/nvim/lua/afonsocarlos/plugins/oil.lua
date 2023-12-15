@@ -1,5 +1,3 @@
-local default_opts = require("afonsocarlos.keymap").default_opts
-
 return {
   'stevearc/oil.nvim',
   opts = {
@@ -22,6 +20,6 @@ return {
     }
   },
   keys = {
-    { "<leader>-", "<CMD>Oil<CR>", mode = "n", default_opts }
+    { "<leader>-", "<CMD>Oil<CR>", mode = "n", silent = true }
   }
 }

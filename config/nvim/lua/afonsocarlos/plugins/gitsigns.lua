@@ -1,5 +1,3 @@
-local default_opts = require("afonsocarlos.keymap").default_opts
-
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -28,8 +26,6 @@ return {
         end, { expr = true })
 
         -- Actions
-        vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", default_opts)
-        vim.keymap.set({ "n", "v" }, "<leader>hu", ":Gitsigns reset_hunk<CR>", default_opts)
         vim.keymap.set("n", "<leader>hS", gs.stage_buffer)
         vim.keymap.set("n", "<leader>hr", gs.undo_stage_hunk)
         vim.keymap.set("n", "<leader>hU", gs.reset_buffer)
@@ -39,5 +35,9 @@ return {
         vim.keymap.set("n", "<leader>tb", gs.toggle_current_line_blame)
       end
     }
-  end
+  end,
+  keys = {
+    { "<leader>hs", ":Gitsigns stage_hunk<CR>", mode = { "n", "v" }, silent = true },
+    { "<leader>hu", ":Gitsigns reset_hunk<CR>", mode = { "n", "v" }, silent = true },
+  }
 }

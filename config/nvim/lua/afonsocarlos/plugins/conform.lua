@@ -1,5 +1,3 @@
-local default_opts = require("afonsocarlos.keymap").default_opts
-
 -- Out of the box LSP features even without language server
 return {
   "stevearc/conform.nvim",
@@ -30,6 +28,6 @@ return {
     end, { range = true })
   end,
   keys = {
-    { "<leader>gf", ":Format<CR>", mode = "", default_opts },
+    { "<leader>gf", ":Format<CR>", mode = "", silent = true },
   },
 }
