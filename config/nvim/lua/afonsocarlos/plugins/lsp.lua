@@ -128,7 +128,6 @@ return {
   keys = {
     { "K", vim.lsp.buf.hover, default_opts },
     { "<leader>gc", ":lua require('neogen').generate()<CR>", default_opts },
-    { "<leader>gf", vim.lsp.buf.format, default_opts },
     { "<leader>gD", vim.lsp.buf.declaration, default_opts },
     { "<leader>gd", ":Telescope lsp_definitions path_display={'tail'}<CR>", default_opts },
     { "<leader>gr", ":Telescope lsp_references path_display={'tail'}<CR>", default_opts },
