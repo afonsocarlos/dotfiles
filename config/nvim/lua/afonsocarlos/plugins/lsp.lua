@@ -4,7 +4,6 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "antosha417/nvim-lsp-file-operations", config = true },
     { "williamboman/mason.nvim",             config = true },
     "williamboman/mason-lspconfig.nvim",
     -- "ray-x/lsp_signature.nvim",
@@ -94,12 +93,12 @@ return {
         vim.api.nvim_create_autocmd("InsertEnter", {
           group = setup_inlay,
           buffer = bufnr,
-          callback = function() vim.lsp.inlay_hint(bufnr, true) end,
+          callback = function() vim.lsp.inlay_hint.enable(bufnr, true) end,
         })
         vim.api.nvim_create_autocmd("InsertLeave", {
           group = setup_inlay,
           buffer = bufnr,
-          callback = function() vim.lsp.inlay_hint(bufnr, false) end,
+          callback = function() vim.lsp.inlay_hint.enable(bufnr, false) end,
         })
       end,
       init_options = {
