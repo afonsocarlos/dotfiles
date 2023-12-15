@@ -2,24 +2,10 @@ local default_opts = require("afonsocarlos.keymap").default_opts
 
 local luasnip
 
--- <c-k> is my jump backwards key.
--- this always moves to the previous item within the snippet
--- this single keymap is set here outside because I want to keep
--- the original <c-k> functionality available
-vim.keymap.set({ "i", "s" }, "<c-k>",
-  function()
-    if luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      return "<c-k>"
-    end
-  end,
-  { expr = true, silent = true }
-)
-
 return {
 
   "L3MON4D3/LuaSnip",                     -- snippet engine
+  version = "2.*",
   lazy = true,
   event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
   dependencies = {
@@ -52,6 +38,22 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     -- require("luasnip.loaders.from_snipmate").lazy_load()
     require("luasnip.loaders.from_lua").lazy_load { paths = vim.fn.stdpath "config" .. "/lua/afonsocarlos/snippets/" }
+
+    -- <c-k> is my jump backwards key.
+    -- this always moves to the previous item within the snippet
+    -- this single keymap is set here using the vim keymap.set
+    -- because I want to keep the original <c-k> functionality available
+    vim.keymap.set({ "i", "s" }, "<c-k>",
+      function()
+        if luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          return "<c-k>"
+        end
+      end,
+      { expr = true, silent = true }
+    )
+
   end,
   keys = {
     -- <c-j> is my expansion key
