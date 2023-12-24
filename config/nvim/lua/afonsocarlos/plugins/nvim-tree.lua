@@ -92,7 +92,7 @@ return {
       hijack_directories = {
         enable = true
       },
-      hijack_netrw = true,
+      hijack_netrw = false,
       open_on_tab = false,
       update_cwd = true,
       diagnostics = {

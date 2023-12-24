@@ -1,5 +1,6 @@
 return {
-  'stevearc/oil.nvim',
+  "stevearc/oil.nvim",
+  lazy = false,
   opts = {
     columns = {
       "icon",
@@ -17,9 +18,9 @@ return {
         }
         return always_hidden[name]
       end,
-    }
+    },
   },
   keys = {
-    { "<leader>-", "<CMD>Oil<CR>", mode = "n", silent = true }
-  }
+    { "<leader>-", "<CMD>Oil<CR>", mode = "n", silent = true },
+  },
 }
