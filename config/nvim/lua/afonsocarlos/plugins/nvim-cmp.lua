@@ -23,9 +23,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     -- { "hrsh7th/cmp-nvim-lsp-signature-help", dev = true },
-    {"ray-x/lsp_signature.nvim", config = true},
-
-    { "petertriho/cmp-git", config = true },
+    "petertriho/cmp-git",
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
   config = function()
@@ -116,6 +114,11 @@ return {
             return vim_item
           end
         })
+      },
+
+      window = {
+        completion = { border = "rounded" },
+        documentation = { border = "rounded" },
       },
 
       experimental = {

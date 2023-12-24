@@ -4,7 +4,7 @@ return {
   dependencies = {
     { "williamboman/mason.nvim",             config = true },
     "williamboman/mason-lspconfig.nvim",
-    -- "ray-x/lsp_signature.nvim",
+    "ray-x/lsp_signature.nvim",
     -- A better annotation generator
     { "danymat/neogen", opts = { snippet_engine = "luasnip" } },
   },
@@ -20,7 +20,7 @@ return {
       lua_ls = {
         Lua = {
           completion = {
-            callSnippet = 'Replace',
+            callSnippet = "Replace",
           },
           diagnostics = {
             globals = { "vim" },
@@ -109,18 +109,29 @@ return {
       }
     }
 
+    -- Setup diagnostic signs
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- require("lsp_signature").setup({
-    --   bind = true, -- This is mandatory, otherwise border config won't get registered.
-    --   handler_opts = {
-    --     border = "none"
-    --   }
-    -- })
+    -- Setup border "rounded" to be used in floating window
+    require("lspconfig.ui.windows").default_options.border = "rounded"
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "rounded",
+    })
+    vim.diagnostic.config({
+      float = {
+        border = "rounded",
+      }
+    })
+    require("lsp_signature").setup({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "rounded"
+      }
+    })
   end,
   keys = {
     { "K", vim.lsp.buf.hover, silent = true },
