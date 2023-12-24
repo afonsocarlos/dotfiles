@@ -16,9 +16,9 @@ vim.keymap.set("", "<M-.>", "<C-W>>", { remap = true })
 
 vim.keymap.set("n", "<leader>e", ":e<CR>:echo 'File reloaded!'<CR>", default_opts)
 vim.keymap.set("n", "<leader>n", ":enew<CR>", default_opts)
-vim.keymap.set("n", "<leader>s", ":update<CR>")
+vim.keymap.set("n", "<leader>s", ":update<CR>", default_opts)
 -- Write file without trailing whitespaces
-vim.keymap.set("n", "<leader>w", ":noa w<CR>")
+vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 -- Make file executable
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", default_opts)
 -- Toggle checkbox ("- [x]")

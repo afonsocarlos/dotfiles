@@ -67,14 +67,14 @@ return {
     telescope.load_extension("ui-select")
   end,
   keys = {
-    { "<leader>fa", ":Telescope grep_string<CR>" },
-    { "<leader>fb", ":Telescope buffers<CR>" },
-    { "<leader>fc", ":Telescope git_branches<CR>" },
-    { "<leader>fd", ":Telescope diagnostics<CR>" },
-    { "<leader>ff", ":Telescope find_files<CR>" },
-    { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
-    { "<leader>fh", ":Telescope help_tags<CR>" },
-    { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>" },
-    { "<leader>fr", ":Telescope oldfiles<CR>" },
+    { "<leader>fa", ":Telescope grep_string<CR>", silent = true },
+    { "<leader>fb", ":Telescope buffers<CR>", silent = true },
+    { "<leader>fc", ":Telescope git_branches<CR>", silent = true },
+    { "<leader>fd", ":Telescope diagnostics<CR>", silent = true },
+    { "<leader>ff", ":Telescope find_files<CR>", silent = true },
+    { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", silent = true },
+    { "<leader>fh", ":Telescope help_tags<CR>", silent = true },
+    { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
+    { "<leader>fr", ":Telescope oldfiles<CR>", silent = true },
   }
 }
