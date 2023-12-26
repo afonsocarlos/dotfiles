@@ -59,11 +59,6 @@ vim.keymap.set("n", "<C-y>", "3<C-y>")
 -- Hide hightlights on Esc
 vim.keymap.set("n", "<Esc>", ":nohl<Esc>", default_opts)
 
--- fugitive Shortcuts
-vim.keymap.set("n", "<leader>gs", ":G<CR>", default_opts)
-vim.keymap.set("n", "<leader>gl", ":G pull<CR>", default_opts)
-vim.keymap.set("n", "<leader>gp", ":G push<CR>", default_opts)
-
 -- Delete without adding deleted text into the register
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
