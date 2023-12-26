@@ -9,6 +9,7 @@ return {
         lua = { "stylua" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        json = { { "fixjson", "prettierd", "prettier" } },
         php = { "pint" },
         -- Conform will run multiple formatters sequentially
         python = { "isort", "black" },
