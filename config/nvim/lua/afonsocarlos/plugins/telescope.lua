@@ -53,6 +53,7 @@ return {
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-j>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              ["<C-e>"] = actions.to_fuzzy_refine,
             },
           },
         },
@@ -76,5 +77,6 @@ return {
     { "<leader>fh", ":Telescope help_tags<CR>", silent = true },
     { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
     { "<leader>fr", ":Telescope oldfiles<CR>", silent = true },
+    { "<leader>ft", ":Telescope<CR>", silent = true },
   }
 }
