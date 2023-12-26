@@ -3,6 +3,7 @@ vim.opt.autowriteall = true                                     -- automatically
 vim.opt.backspace = { "indent", "eol", "start" }                -- make backspace work properly
 vim.opt.conceallevel = 2                                        -- Replace or hide text with conceal syntax
 vim.opt.cursorline = true                                       -- highlight current line
+vim.opt.diffopt:append "vertical"                               -- options settings for diff mode
 vim.opt.hidden = true                                           -- allow buffer switching without saving
 vim.opt.history = 100                                           -- store more command history
 vim.opt.hlsearch = true                                         -- highlight all matches
