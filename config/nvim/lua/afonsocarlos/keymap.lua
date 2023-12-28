@@ -6,13 +6,15 @@ local M = {}
 local default_opts = { noremap = true, silent = true }
 
 -- Ease window navigation
-vim.keymap.set("", "<C-j>", "<C-W>j", { remap = true })
-vim.keymap.set("", "<C-k>", "<C-W>k", { remap = true })
-vim.keymap.set("", "<C-h>", "<C-W>h", { remap = true })
-vim.keymap.set("", "<C-l>", "<C-W>l", { remap = true })
-vim.keymap.set("", "<M-,>", "<C-W><", { remap = true })
-vim.keymap.set("", "<M-.>", "<C-W>>", { remap = true })
-
+vim.keymap.set("n", "<C-j>", "<C-W>j", { remap = true })
+vim.keymap.set("n", "<C-k>", "<C-W>k", { remap = true })
+vim.keymap.set("n", "<C-h>", "<C-W>h", { remap = true })
+vim.keymap.set("n", "<C-l>", "<C-W>l", { remap = true })
+-- Resize with arrows
+vim.keymap.set("n", "<C-Up>", ":resize -5<CR>", default_opts)
+vim.keymap.set("n", "<C-Down>", ":resize +5<CR>", default_opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -5<CR>", default_opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +5<CR>", default_opts)
 
 vim.keymap.set("n", "<leader>e", ":e<CR>:echo 'File reloaded!'<CR>", default_opts)
 vim.keymap.set("n", "<leader>n", ":enew<CR>", default_opts)
