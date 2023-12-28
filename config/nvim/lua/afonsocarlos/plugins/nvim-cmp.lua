@@ -1,28 +1,13 @@
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
--- cmp.setup.cmdline("/", {
---   sources = {
---     { name = "buffer" }
---   }
--- })
-
--- Use cmdline & path source for ":" (if you enabled `native_menu`, this won't work anymore).
--- cmp.setup.cmdline(":", {
---   sources = cmp.config.sources({
---     { name = "path" }
---   }, {
---     { name = "cmdline" }
---   })
--- })
-
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-path",   -- source for file system paths
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
-    -- { "hrsh7th/cmp-nvim-lsp-signature-help", dev = true },
+    -- "hrsh7th/cmp-nvim-lsp-signature-help",
     "petertriho/cmp-git",
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
@@ -124,6 +109,16 @@ return {
       experimental = {
         ghost_text = true,
       },
+    })
+
+    -- Use cmdline & path source for ":" (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" }
+      }, {
+          { name = "cmdline" }
+        })
     })
   end,
 }
