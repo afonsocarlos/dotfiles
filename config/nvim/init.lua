@@ -18,6 +18,9 @@ require "afonsocarlos.globals"
 -- leader.
 vim.g.mapleader = " "
 
+-- Improve startup time for Neovim
+vim.loader.enable()
+
 require "afonsocarlos.options"
 require "afonsocarlos.keymap"
 require "afonsocarlos.augroups"
