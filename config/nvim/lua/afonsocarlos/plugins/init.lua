@@ -18,13 +18,6 @@ return {
   -- Better quickfix window in Neovim
   { "kevinhwang91/nvim-bqf", ft = "qf" },
 
-  -- Add/change/delete surrounding delimiter pairs with ease
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    config = true
-  },
-
   -- modern matchit.
   "andymass/vim-matchup",
 
