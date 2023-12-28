@@ -1,3 +1,20 @@
+local config_hipatterns = function ()
+  local hipatterns = require('mini.hipatterns')
+  hipatterns.setup({
+    highlighters = {
+      hex_color = hipatterns.gen_highlighter.hex_color(),
+      fixme = { pattern = 'FIXME', group = 'MiniHipatternsFixme' },
+      hack  = { pattern = 'HACK',  group = 'MiniHipatternsHack'  },
+      todo  = { pattern = 'TODO',  group = 'MiniHipatternsTodo'  },
+      note  = { pattern = 'NOTE',  group = 'MiniHipatternsNote'  },
+    }
+  })
+end
+
+local config_indentscope = function()
+  require("mini.indentscope").setup({})
+end
+
 local config_surround = function()
   local ts_input = require("mini.surround").gen_spec.input.treesitter
   require("mini.surround").setup({
@@ -27,10 +44,6 @@ local config_surround = function()
   vim.keymap.del("x", "ys")
 end
 
-local config_indentscope = function()
-  require("mini.indentscope").setup({})
-end
-
 return {
   "echasnovski/mini.nvim",
   version = "*",
@@ -38,6 +51,7 @@ return {
   config = function()
     config_surround()
     config_indentscope()
+    config_hipatterns()
   end,
   keys = {
     { "csw", "ysiw", remap = true },

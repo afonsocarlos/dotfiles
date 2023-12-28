@@ -30,9 +30,6 @@ return {
   -- A tree like view for symbols in Neovim
   { "simrat39/symbols-outline.nvim", config = true },
 
-  -- highlight hex, rgb and colornames
-  { "norcalli/nvim-colorizer.lua", config = true },
-
   {
     "junegunn/fzf",
     build = function()
