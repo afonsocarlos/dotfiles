@@ -6,17 +6,15 @@ local close_diff = function()
 end
 
 local toggle_diff_option = function(option)
-  return function()
-    if not vim.opt.diff:get() then
-      return
-    end
-
-    if vim.list_contains(vim.opt.diffopt:get(), option) then
-      vim.opt.diffopt:remove(option)
-    else
-      vim.opt.diffopt:append(option)
-    end
+  local status
+  if vim.list_contains(vim.opt.diffopt:get(), option) then
+    status = "off"
+    vim.opt.diffopt:remove(option)
+  else
+    status = "on"
+    vim.opt.diffopt:append(option)
   end
+  vim.notify(option .. " " .. status)
 end
 
 return {
@@ -45,6 +43,25 @@ return {
           vim.schedule(function() gs.prev_hunk() end)
           return "<Ignore>"
         end, { expr = true })
+
+        -- Diff View Shortcuts
+        vim.keymap.set("n", "gq", function()
+          if not vim.opt.diff:get() then return "gq" end
+          vim.schedule(function() close_diff() end)
+          return "<Ignore>"
+        end, { expr = true })
+
+        vim.keymap.set("n", "gw", function()
+          if not vim.opt.diff:get() then return "gw" end
+          vim.schedule(function() toggle_diff_option("iwhite") end)
+          return "<Ignore>"
+        end, { expr = true })
+
+        vim.keymap.set("n", "gW", function()
+          if not vim.opt.diff:get() then return "gW" end
+          vim.schedule(function() toggle_diff_option("iwhiteall") end)
+          return "<Ignore>"
+        end, { expr = true })
       end,
     })
   end,
@@ -66,10 +83,5 @@ return {
     { "<leader>gs", ":G<CR>", silent = true },
     { "<leader>gl", ":G! pull<CR>", silent = true },
     { "<leader>gp", ":G! push<CR>", silent = true },
-
-    -- Diff View Shortcuts
-    { "gq", close_diff, silent = true },
-    { "gs", toggle_diff_option("iwhite"), silent = true },
-    { "gS", toggle_diff_option("iwhiteall"), silent = true },
   },
 }
