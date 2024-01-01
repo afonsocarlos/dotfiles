@@ -7,6 +7,9 @@ return {
   "tpope/vim-repeat",
 
   -- ********** Editing help tools **********
+  -- Mini plugins
+  { import = "afonsocarlos.plugins.mini" },
+
   -- Easily align chunks of code
   "junegunn/vim-easy-align",
   -- Delete buffers without messing up layout
