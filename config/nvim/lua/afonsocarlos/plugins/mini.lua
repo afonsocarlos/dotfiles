@@ -1,13 +1,33 @@
-local config_hipatterns = function ()
-  local hipatterns = require('mini.hipatterns')
+local config_comment = function()
+  require("ts_context_commentstring").setup({
+    enable_autocmd = false,
+  })
+
+  require("mini.comment").setup({
+    options = {
+      custom_commentstring = function()
+        return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+      end,
+    },
+
+    hooks = {
+      post = function()
+        vim.cmd("normal! ^")
+      end,
+    },
+  })
+end
+
+local config_hipatterns = function()
+  local hipatterns = require("mini.hipatterns")
   hipatterns.setup({
     highlighters = {
       hex_color = hipatterns.gen_highlighter.hex_color(),
-      fixme = { pattern = 'FIXME', group = 'MiniHipatternsFixme' },
-      hack  = { pattern = 'HACK',  group = 'MiniHipatternsHack'  },
-      todo  = { pattern = 'TODO',  group = 'MiniHipatternsTodo'  },
-      note  = { pattern = 'NOTE',  group = 'MiniHipatternsNote'  },
-    }
+      fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
+      hack = { pattern = "HACK", group = "MiniHipatternsHack" },
+      todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
+      note = { pattern = "NOTE", group = "MiniHipatternsNote" },
+    },
   })
 end
 
@@ -48,10 +68,14 @@ return {
   "echasnovski/mini.nvim",
   version = "*",
   event = "VeryLazy",
+  dependencies = {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   config = function()
     config_surround()
     config_indentscope()
     config_hipatterns()
+    config_comment()
   end,
   keys = {
     { "csw", "ysiw", remap = true },

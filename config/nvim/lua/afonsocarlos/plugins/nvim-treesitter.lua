@@ -96,7 +96,6 @@ return {
         "vim",
         "vimdoc",
       },
-      context_commentstring = { enable = true },
       highlight = { enable = true },
       indent = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
