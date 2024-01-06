@@ -24,6 +24,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  group = vim.api.nvim_create_augroup("auto_resize_windows", { clear = true }),
+  callback = function()
+    vim.cmd "tabdo wincmd ="
+  end,
+})
+
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("quickclose", { clear = true }),
