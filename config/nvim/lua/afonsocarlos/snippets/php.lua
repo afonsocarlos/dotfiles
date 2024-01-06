@@ -1,3 +1,4 @@
+local composer = require "composer"
 local ls = require "luasnip"
 
 local c = ls.choice_node
@@ -46,7 +47,7 @@ return {
       namespace {namespace};
 
       /**
-       * @package {package}
+       * @package {namespace}
        */
       class {class}{extra}
       {{
@@ -54,19 +55,10 @@ return {
       }}
     ]], {
     i(0),
-    namespace = dl(1,
-      l.RELATIVE_FILEPATH
-      :gsub("/?%a*.php$", "")
-      :gsub("/src/", "/")
-      :gsub("/tests?/", "/")
-      :gsub("/", "\\")
-      :gsub("^%l", string.upper),
-      {}
-    ),
-    package = f(function (args) return args[1][1] end, { 1 }),
-    class = dl(2, l.TM_FILENAME_BASE, {}),
-    extra = c(3, {
-      sn(nil, { t " extends ", r(1, "other_class", i(3, "Base")) }),
+    namespace = f(function() return composer.resolve_php_namespace() end),
+    class = dl(1, l.TM_FILENAME_BASE, {}),
+    extra = c(2, {
+      sn(nil, { t " extends ", r(1, "other_class", i(2, "Base")) }),
       sn(nil, { t " implements ", r(1, "other_class") }),
       t "",
     }),

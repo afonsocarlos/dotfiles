@@ -54,6 +54,9 @@ return {
     ft = { "flutter", "dart" },
   },
 
+  -- PHP tools
+  "adalessa/composer.nvim",
+
   -- AI stuff
   {
     "Exafunction/codeium.vim",
