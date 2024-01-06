@@ -90,6 +90,7 @@ return {
             path = "[path]",
             luasnip = "[snip]",
             cmp_git = "[git]",
+            ["vim-dadbod-completion"] = "[dadbod]",
           },
 
           -- The function below will be called before any actual modifications from lspkind
@@ -119,6 +120,14 @@ return {
       }, {
           { name = "cmdline" }
         })
+    })
+
+    cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+      sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
+      }, {
+        { name = "buffer" },
+      }),
     })
   end,
 }
