@@ -1,10 +1,3 @@
--- Run PackerCompile on saving plugins.lua
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
-  pattern = "plugins.lua",
-  command = [[ source <afile> | PackerCompile ]]
-})
-
 -- Strip trailing whitespaces
 local treat_trailing_whitespace = vim.api.nvim_create_augroup("treat_trailing_whitespace", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -29,6 +22,25 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.fn.setreg("/", search)
     vim.api.nvim_win_set_cursor(0, current_position)
   end
+})
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("quickclose", { clear = true }),
+  pattern = {
+    "git",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "startuptime",
+    "tsplayground",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "gq", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
