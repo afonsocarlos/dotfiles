@@ -36,7 +36,7 @@ vim.keymap.set("n", "<F6>", ":setlocal spell! spelllang=en_us<CR>")
 vim.keymap.set("n", "<F7>", ":setlocal spell! spelllang=fr<CR>")
 vim.keymap.set("i", "<F5>", "<C-o>:setlocal spell! spelllang=pt_br<CR>")
 vim.keymap.set("i", "<F6>", "<C-o>:setlocal spell! spelllang=en_us<CR>")
-vim.keymap.set("i", "<F7>", "<C-o>:setlocal spell! spelllang=f<CR>")
+vim.keymap.set("i", "<F7>", "<C-o>:setlocal spell! spelllang=fr<CR>")
 --[[" toggle Vista
 nnoremap <F9> :Vista!!<CR>
 " toggle Goyo (distraction free)

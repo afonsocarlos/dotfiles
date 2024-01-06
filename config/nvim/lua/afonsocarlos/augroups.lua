@@ -31,6 +31,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
 -- Defold extension setup
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("defold_filetypedetect", { clear = true }),
