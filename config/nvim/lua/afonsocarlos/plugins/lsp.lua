@@ -100,13 +100,10 @@ return {
         })
       end,
       init_options = {
-        ["language_server_phpstan.enabled"] = false,
+        ["language_server_phpstan.enabled"] = true,
         ["language_server_psalm.enabled"] = false,
         ["language_server_worse_reflection.inlay_hints.enable"] = true,
       },
-      handlers = {
-        ['textDocument/publishDiagnostics'] = function() end
-      }
     }
 
     -- Setup diagnostic signs
