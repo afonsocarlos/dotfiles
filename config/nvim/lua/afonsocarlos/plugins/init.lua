@@ -37,7 +37,15 @@ return {
     "junegunn/fzf",
     build = function()
       vim.fn["fzf#install"]()
-    end
+    end,
+  },
+
+  -- full signature help, docs and completion for the nvim lua API.
+  {
+    "folke/neodev.nvim",
+    opts = {
+      library = { plugins = { "neotest" }, types = true },
+    },
   },
 
   -- Flutter tools
