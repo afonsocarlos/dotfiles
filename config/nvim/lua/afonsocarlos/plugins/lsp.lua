@@ -9,10 +9,10 @@ return {
     { "danymat/neogen", opts = { snippet_engine = "luasnip" } },
   },
   config = function()
-    local folding = require "folding"
-    local lspconfig = require "lspconfig"
-    local mason_lspconfig = require "mason-lspconfig"
-    local navic = require "nvim-navic"
+    local folding = require("folding")
+    local lspconfig = require("lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
+    local navic = require("nvim-navic")
 
     local servers = {
       intelephense = {},
@@ -28,14 +28,13 @@ return {
           format = { enable = true },
           telemetry = { enable = false },
           workspace = { checkThirdParty = true },
-        }
+        },
       },
-
     }
 
-    mason_lspconfig.setup {
+    mason_lspconfig.setup({
       ensure_installed = vim.tbl_keys(servers),
-    }
+    })
     local installed_servers = mason_lspconfig.get_installed_servers()
 
     -- Loop through the installed servers and set them up
@@ -57,19 +56,19 @@ return {
             vim.api.nvim_create_autocmd("CursorHold", {
               group = setup_lsp_highlight,
               buffer = bufnr,
-              callback = vim.lsp.buf.document_highlight
+              callback = vim.lsp.buf.document_highlight,
             })
             vim.api.nvim_create_autocmd("CursorMoved", {
               group = setup_lsp_highlight,
               buffer = bufnr,
-              callback = vim.lsp.buf.clear_references
+              callback = vim.lsp.buf.clear_references,
             })
           end
-        end
+        end,
       })
     end
 
-    lspconfig.phpactor.setup {
+    lspconfig.phpactor.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         client.server_capabilities.completionProvider = false
@@ -104,7 +103,7 @@ return {
         ["language_server_psalm.enabled"] = false,
         ["language_server_worse_reflection.inlay_hints.enable"] = true,
       },
-    }
+    })
 
     -- Setup diagnostic signs
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -121,13 +120,13 @@ return {
     vim.diagnostic.config({
       float = {
         border = "rounded",
-      }
+      },
     })
     require("lsp_signature").setup({
       bind = true, -- This is mandatory, otherwise border config won't get registered.
       handler_opts = {
-        border = "rounded"
-      }
+        border = "rounded",
+      },
     })
   end,
   keys = {
@@ -150,5 +149,5 @@ return {
     { "]g", vim.diagnostic.goto_next, silent = true },
     { "[e", ":lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
     { "]e", ":lua vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
-  }
+  },
 }

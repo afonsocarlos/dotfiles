@@ -58,12 +58,7 @@ return {
   "adalessa/composer.nvim",
 
   -- AI stuff
-  {
-    "Exafunction/codeium.vim",
-    config = function ()
-      vim.g.codeium_manual = true
-    end
-  },
+  "Exafunction/codeium.vim",
 
 
 
