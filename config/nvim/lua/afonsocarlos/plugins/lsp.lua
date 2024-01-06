@@ -52,16 +52,16 @@ return {
           folding.on_attach()
 
           -- Add some fancy integration
-          local setup_lsp = vim.api.nvim_create_augroup("setup_lsp", { clear = true })
+          local setup_lsp_highlight = vim.api.nvim_create_augroup("setup_lsp_highlight", { clear = true })
           if client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_autocmd("CursorHold", {
-              group = setup_lsp,
-              pattern = "<buffer>",
+              group = setup_lsp_highlight,
+              buffer = bufnr,
               callback = vim.lsp.buf.document_highlight
             })
             vim.api.nvim_create_autocmd("CursorMoved", {
-              group = setup_lsp,
-              pattern = "<buffer>",
+              group = setup_lsp_highlight,
+              buffer = bufnr,
               callback = vim.lsp.buf.clear_references
             })
           end
