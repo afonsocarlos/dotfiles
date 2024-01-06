@@ -2,14 +2,14 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "williamboman/mason.nvim",             config = true },
+    { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "ray-x/lsp_signature.nvim",
     -- A better annotation generator
     { "danymat/neogen", opts = { snippet_engine = "luasnip" } },
   },
   config = function()
-    -- local folding = require "folding"
+    local folding = require "folding"
     local lspconfig = require "lspconfig"
     local mason_lspconfig = require "mason-lspconfig"
     local navic = require "nvim-navic"
@@ -49,7 +49,7 @@ return {
             navic.attach(client, bufnr)
           end
 
-          -- folding.on_attach()
+          folding.on_attach()
 
           -- Add some fancy integration
           local setup_lsp = vim.api.nvim_create_augroup("setup_lsp", { clear = true })
