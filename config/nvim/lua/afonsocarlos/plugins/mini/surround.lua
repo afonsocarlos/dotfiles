@@ -35,6 +35,6 @@ return {
     { "csW", "ysiW", remap = true },
     -- Remap adding surrounding to Visual mode selection
     { "S", ":<C-u>lua MiniSurround.add('visual')<CR>", mode = "x", silent = true }, -- Make special mapping for "add surrounding for line"
-    { "yss", "ys_", remap = true },
+    { "yss", "ys<cmd>normal vg_o^<CR>", remap = true },
   },
 }
