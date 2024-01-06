@@ -77,6 +77,7 @@ return {
   lazy = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
     local nonicons_extention = require("nvim-nonicons.extentions.nvim-tree")
