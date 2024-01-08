@@ -20,6 +20,9 @@ end
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "samoshkin/vim-mergetool", -- Efficient way of using Vim as a Git mergetool
+  },
   config = function()
     require("gitsigns").setup({
       current_line_blame = true,
@@ -30,6 +33,9 @@ return {
 
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
+
+        vim.g.mergetool_layout = 'mr'
+        vim.g.mergetool_prefer_revision = 'local'
 
         -- Navigation
         vim.keymap.set("n", "]c", function()
@@ -83,5 +89,8 @@ return {
     { "<leader>gs", ":G<CR>", silent = true },
     { "<leader>gl", ":G! pull<CR>", silent = true },
     { "<leader>gp", ":G! push<CR>", silent = true },
+
+    { "<leader>hc", "<plug>(MergetoolToggle)", silent = true },
+    { "<leader>hct", ":call mergetool#toggle_layout('mr,b')<CR>", silent = true },
   },
 }
