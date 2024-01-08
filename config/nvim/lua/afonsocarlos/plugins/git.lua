@@ -1,7 +1,29 @@
 local close_diff = function()
-  local bufnr = vim.fn.bufnr("^fugitive://*/.git//0/*")
-  if vim.api.nvim_buf_is_loaded(bufnr) and vim.opt.diff:get() then
-    vim.api.nvim_buf_delete(bufnr, { force = true })
+  -- If we're in merge mode, exit it
+  if vim.g.mergetool_in_merge_mode and vim.g.mergetool_in_merge_mode ~= 0 then
+    vim.fn["mergetool#stop"]()
+    return
+  end
+
+  -- When running as 'vimdiff' or 'vim -d', close both files and exit Vim
+  if vim.g.is_started_as_vim_diff and vim.g.is_started_as_vim_diff ~= 0 then
+    vim.cmd([[windo quit]])
+    return
+  end
+
+    -- If current window is in diff mode, close all diff windows
+  if vim.opt.diff:get() then
+    vim.cmd([[diffoff!]])
+
+    -- close all windows but first one
+    local windows = vim.api.nvim_tabpage_list_wins(0)
+    table.sort(windows)
+    table.remove(windows, 1)
+
+    for _, win in ipairs(windows) do
+      vim.api.nvim_win_close(win, true)
+    end
+
   end
 end
 
