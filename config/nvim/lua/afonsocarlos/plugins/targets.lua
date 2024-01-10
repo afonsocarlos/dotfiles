@@ -1,4 +1,3 @@
-
 -- Provides additional text objects
 return {
   "wellle/targets.vim",
@@ -10,9 +9,14 @@ return {
     vim.api.nvim_create_autocmd("User", {
       group = vim.api.nvim_create_augroup("targets_default", { clear = true }),
       pattern = "targets#mappings#user",
-      command = [[
-        call targets#mappings#extend({ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]}, 'b': {'pair': [{'o':'(', 'c':')'}]} })
-      ]]
+      callback = function()
+        vim.api.nvim_exec2([[
+          call targets#mappings#extend({
+            \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': ','}]},
+            \ 'b': {'pair': [{'o':'(', 'c':')'}]}
+          \ })
+        ]], {})
+      end
     })
   end
 }
