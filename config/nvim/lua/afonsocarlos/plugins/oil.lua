@@ -9,7 +9,20 @@ return {
     },
     keymaps = {
       ["<leader>-"] = "actions.close",
+      ["gq"] = function()
+        local oil = require("oil")
+        oil.save(nil, function(err)
+          if err then
+            if err ~= "Canceled" then
+              vim.notify(err, vim.log.levels.ERROR)
+            end
+          else
+            oil.close()
+          end
+        end)
+      end,
     },
+    prompt_save_on_select_new_entry = false,
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name, bufnr)
