@@ -1,5 +1,12 @@
 return {
   {
+    "echasnovski/mini.ai",
+    version = "*",
+    opts = {
+      search_method = "cover_or_nearest",
+    },
+  },
+  {
     "echasnovski/mini.hipatterns",
     version = "*",
     config = function()
