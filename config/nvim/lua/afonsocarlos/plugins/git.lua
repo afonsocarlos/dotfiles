@@ -108,9 +108,10 @@ return {
 
     -- Fugitive Shortcuts
     { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
-    { "<leader>gs", ":G<CR>", silent = true },
+    { "<leader>gb", ":G blame<CR>", silent = true },
     { "<leader>gl", ":G! pull<CR>", silent = true },
     { "<leader>gp", ":G! push<CR>", silent = true },
+    { "<leader>gs", ":G<CR>", silent = true },
 
     { "<leader>hc", "<plug>(MergetoolToggle)", silent = true },
     { "<leader>hct", ":call mergetool#toggle_layout('mr,b')<CR>", silent = true },
