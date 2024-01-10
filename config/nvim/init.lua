@@ -24,4 +24,4 @@ vim.loader.enable()
 require "afonsocarlos.options"
 require "afonsocarlos.keymap"
 require "afonsocarlos.augroups"
-require "afonsocarlos.setup_plugins"
+require "afonsocarlos.lazy"
