@@ -61,7 +61,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-searchindex'
 
   " display ctag description (when completing)
-  " Plug 'majutsushi/tagbar'
+  Plug 'majutsushi/tagbar'
 
   " View and search LSP symbols, tags in Vim/NeoVim
   " Plug 'liuchengxu/vista.vim'
@@ -147,106 +147,31 @@ call plug#begin('~/.vim/plugged')
   " Emoji in Vim
   Plug 'junegunn/vim-emoji'
 
-  " NeoVim specific Plugins
-  if has('nvim')
-      " lint code like a charm for neovim
-      " Plug 'neomake/neomake'
+  " Fancy status bar
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
-      " Plug 'phpactor/phpactor',  {'do': 'composer install -d ~/.vim/plugged/phpactor', 'for': 'php'}
+  " NERDTree file explorer
+  Plug 'scrooloose/nerdtree'
+  " NERDTree git integration
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
-      " Plug 'ncm2/ncm2'
-      " Plug 'roxma/nvim-yarp'
-      " Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-      " Plug 'phpactor/ncm2-phpactor'
-      " Plug 'ncm2/ncm2-jedi'
-      " Plug 'ncm2/ncm2-ultisnips'
-      " Plug 'ncm2/float-preview.nvim'
+  " highlight hex, rgb and colornames
+  " Plug 'chrisbra/colorizer'
 
-      " nvim markdown preview
-      " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+  Plug 'sheerun/vim-polyglot'
 
-      " Nvim Treesitter
-      Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-      Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  " Use release branch (recommend)
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Coc Extensions to install coc-marketplace
 
-      " Intellisense
-      Plug 'neovim/nvim-lspconfig'
-      Plug 'williamboman/nvim-lsp-installer'
-      Plug 'hrsh7th/nvim-cmp'
-      Plug 'hrsh7th/cmp-buffer'
-      Plug 'hrsh7th/cmp-path'
-      Plug 'hrsh7th/cmp-nvim-lua'
-      Plug 'hrsh7th/cmp-nvim-lsp'
-      Plug 'petertriho/cmp-git'
-      Plug 'saadparwaiz1/cmp_luasnip'
-      Plug 'ray-x/lsp_signature.nvim'
-      Plug 'onsails/lspkind-nvim'
+  Plug 'dart-lang/dart-vim-plugin'
 
-      " Telescope finder
-      Plug 'nvim-lua/popup.nvim'
-      Plug 'nvim-lua/plenary.nvim'
-      Plug 'nvim-telescope/telescope.nvim'
-      Plug 'nvim-telescope/telescope-fzf-writer.nvim'
-      Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-      Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'git submodule update --init --recursive' }
+  " lint code like a charm
+  Plug 'scrooloose/syntastic'
 
-      " Plugin that creates missing LSP diagnostics highlight groups
-      Plug 'folke/lsp-colors.nvim'
-
-      " highlight hex, rgb and colornames
-      Plug 'norcalli/nvim-colorizer.lua'
-
-      " Display the indention levels with thin vertical lines
-      " Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
-
-      " Git signs for vim
-      Plug 'lewis6991/gitsigns.nvim'
-
-      Plug 'kyazdani42/nvim-web-devicons'
-      Plug 'akinsho/nvim-bufferline.lua'
-
-      " Tools to help create flutter apps in neovim using the native lsp
-      Plug 'akinsho/flutter-tools.nvim'
-
-      " A File Explorer for neovim written in lua
-      Plug 'kyazdani42/nvim-tree.lua'
-
-      " Neovim statusline plugin written in lua
-      " Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-
-      " Plug 'ThePrimeagen/git-worktree.nvim'
-
-      " Github Copilot
-      Plug 'github/copilot.vim'
-
-  " VIM specific Plugins
-  else
-      " Fancy status bar
-      Plug 'vim-airline/vim-airline'
-      Plug 'vim-airline/vim-airline-themes'
-
-      " NERDTree file explorer
-      Plug 'scrooloose/nerdtree'
-      " NERDTree git integration
-      Plug 'Xuyuanp/nerdtree-git-plugin'
-
-      " highlight hex, rgb and colornames
-      " Plug 'chrisbra/colorizer'
-
-      Plug 'sheerun/vim-polyglot'
-
-      " Use release branch (recommend)
-      Plug 'neoclide/coc.nvim', {'branch': 'release'}
-      " Coc Extensions to install coc-marketplace
-
-      Plug 'dart-lang/dart-vim-plugin'
-
-      " lint code like a charm
-      Plug 'scrooloose/syntastic'
-
-      " languages auto completion
-      Plug 'valloric/youcompleteme'
-  endif
+  " languages auto completion
+  Plug 'valloric/youcompleteme'
 
 call plug#end()
 
@@ -262,9 +187,8 @@ packadd! matchit
 syntax on
 " and set onedark as colorscheme
 colorscheme onedark
-" enable plugin TODO: edit this comment to a better explanation
+
 filetype plugin on
-let g:do_filetype_lua = 1
 
 
 " Special highlighting settings
@@ -289,11 +213,7 @@ augroup flutter_setup
     autocmd!
 
     autocmd FileType dart UltiSnipsAddFiletypes dart-flutter
-    if has('nvim')
-        autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync(nil, 1000)
-    else
-        autocmd BufWritePre *.dart DartFmt
-    endif
+    autocmd BufWritePre *.dart DartFmt
 augroup end
 augroup dart_customcommentstring
     autocmd!

@@ -77,8 +77,3 @@ if executable('rg')
     " Use rg over grep
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
-
-
-if has('nvim')
-    set inccommand=split
-endif

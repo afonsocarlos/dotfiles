@@ -7,10 +7,6 @@ let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 
 " ************* onedark.vim settings *************
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 if (has("termguicolors"))
   set termguicolors
@@ -91,69 +87,28 @@ let g:scratch_persistence_file = '~/wiki/Scratchpad.md'
 " ************* SuperTab settings *************
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" NeoVim specific Plugins
-if has('nvim')
-    " ************* gen_tags settings *************
-    let g:gen_tags#ctags_auto_gen = 1
-
-    " ************* Neomake settings *************
-    " Full config: when writing or reading a buffer, and on changes in insert and
-    " normal mode (after 1s; no delay when writing).
-    " call neomake#configure#automake('nrwi', 500)
-
-    " ************* Ncm2 float-preview settings *************
-    let g:float_preview#docked = 1
-
-    let g:gitgutter_sign_added = '│'
-    let g:gitgutter_sign_modified = '│'
-    let g:gitgutter_sign_removed = '│'
-    let g:gitgutter_sign_modified_removed = '~'
-
-    highlight NvimTreeEmptyFolderName guifg=#8094b4
-    highlight default link GitSignsCurrentLineBlame Comment
-
-    " ************* nvim-bufferline settings *************
-    lua require'carlos.bufferline'
-
-    " ************* nvim-cmp settings *************
-    lua require'carlos.nvim-cmp'
-
-    " ************* gitsigns settings *************
-    lua require'carlos.gitsigns'
-
-    " ************* lspconfig settings *************
-    lua require'carlos.lspconfig'
-
-    " ************* nvim-tree settings *************
-    lua require'carlos.nvim-tree'
-
-    " ************* telescope settings *************
-    lua require'carlos.telescope'
-
-" VIM specific Plugins
-else
-    " ************* vim-airline settings *************
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:gen_tags#ctags_auto_gen = 1
+" ************* vim-airline settings *************
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 "
-    " ************* syntastic settings *************
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_error_symbol = "✗"
-    let g:syntastic_warning_symbol = "⚠"
-    let g:syntastic_always_populate_loc_list = 1  " Make syntastic work with :lnext and :lprev
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
+" ************* syntastic settings *************
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_always_populate_loc_list = 1  " Make syntastic work with :lnext and :lprev
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 
-    " ************* Youcompleteme settings *************
-    " make YCM compatible with UltiSnips (using supertab)
-    let g:ycm_collect_identifiers_from_tags_files = 0
-    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-endif
+" ************* Youcompleteme settings *************
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_collect_identifiers_from_tags_files = 0
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " ************* Custom Snippets *************
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "customsnippets"]

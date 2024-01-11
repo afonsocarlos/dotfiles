@@ -92,27 +92,3 @@ augroup vimwikigroup
     autocmd BufLeave ~/wiki/* if expand('<afile>') !~ 'index.md' | execute 'Dispatch! cd <afile>:p:h; git add <afile>:t; git commit -m "Update <afile>:s?wiki/??"'
     autocmd VimLeave * execute 'Dispatch! git push'
 augroup end
-
-" NeoVim specific Plugins
-if has('nvim')
-    " augroup NCM2
-    "     autocmd!
-
-    "     " enable ncm2 for all buffers
-    "     autocmd BufEnter * call ncm2#enable_for_buffer()
-
-    "     " IMPORTANT: :help Ncm2PopupOpen for more information
-    "     set completeopt=noinsert,menuone,noselect
-
-    "     let g:ncm2#matcher = 'substrfuzzy'
-
-    "     " Press enter key to trigger snippet expansion
-    "     " The parameters are the same as `:help feedkeys()`
-    "     inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>\<C-R>=AutoPairsReturn()<CR>", 'n')
-    " augroup end
-endif
-
-augroup telescope
-    autocmd!
-    autocmd FileType TelescopePrompt call luaeval('require"compe".setup({enabled = false}, 0)')
-augroup END

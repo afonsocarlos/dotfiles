@@ -94,90 +94,46 @@ nmap <m-cr> <Plug>SlimeParagraphSend
 nmap <c-c>v <Plug>SlimeConfig
 
 
-if has('nvim')
-    " ************* Nvim lsp-config *************
-    " LSP config (the mappings used in the default file don't quite work right)
-    nnoremap <silent> <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
-    nnoremap <silent> <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
-    nnoremap <silent> <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
-    nnoremap <silent> <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
-    nnoremap <silent> <leader>gh <cmd>lua vim.lsp.buf.signature_help()<CR>
-    nnoremap <silent> [g <cmd>lua vim.diagnostic.goto_prev()<CR>
-    nnoremap <silent> ]g <cmd>lua vim.diagnostic.goto_next()<CR>
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" coc shortcuts
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>rn <Plug>(coc-rename)
+" Apply AutoFix to problem on the current line.
+xmap <silent><leader>a  <Plug>(coc-codeaction-selected)
+nmap <silent><leader>a  <Plug>(coc-codeaction-selected)
 
-    " ************* Nvim lspsaga *************
-    " nnoremap <silent> <leader>gp <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
-    nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-    nnoremap <silent><leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-    vnoremap <silent><leader>ca :<C-U>lua vim.lsp.buf.range_code_action()<CR>
-
-    " nnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
-    " nnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
-    " inoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(1)\<cr>" : "\<C-j>"
-    " inoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "\<c-r>=v:lua.require'lspsaga.action'.smart_scroll_with_saga(-1)\<cr>" : "\<C-k>"
-    " vnoremap <silent><nowait><expr> <C-j> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(1)<CR>" : "\<C-W>j"
-    " vnoremap <silent><nowait><expr> <C-k> v:lua.require'lspsaga.hover'.has_saga_hover() ? "<cmd>:lua require'lspsaga.action'.smart_scroll_with_saga(-1)<CR>" : "\<C-W>k"
-
-    " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> compe#complete()
-
-    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-
-    " ************* NvimTree *************
-    nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NvimTree") != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'
-
-    " ************* Telescope *************
-    nnoremap <leader>fa <cmd>lua require'telescope.builtin'.grep_string()<cr>
-    nnoremap <leader>fb <cmd>lua require'telescope.builtin'.buffers()<cr>
-    nnoremap <leader>fc <cmd>lua require'telescope.builtin'.commands()<cr>
-    " nnoremap <leader>ff <cmd>lua require'telescope'.extensions.fzf_writer.files()<cr>
-    " nnoremap <leader>fg <cmd>lua require'telescope'.extensions.fzf_writer.staged_grep()<cr>
-    nnoremap <leader>ff <cmd>lua require'telescope.builtin'.find_files()<cr>
-    nnoremap <leader>fg <cmd>lua require'telescope.builtin'.live_grep()<cr>
-    nnoremap <leader>fh <cmd>lua require'telescope.builtin'.help_tags()<cr>
-    nnoremap <leader>fl <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find()<cr>
-else
-    " Use `[g` and `]g` to navigate diagnostics
-    " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-    nmap <silent> [g <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]g <Plug>(coc-diagnostic-next)
-    " coc shortcuts
-    nmap <silent> <leader>gd <Plug>(coc-definition)
-    nmap <silent> <leader>gy <Plug>(coc-type-definition)
-    nmap <silent> <leader>gi <Plug>(coc-implementation)
-    nmap <silent> <leader>gr <Plug>(coc-references)
-    nmap <silent> <leader>rn <Plug>(coc-rename)
-    " Apply AutoFix to problem on the current line.
-    xmap <silent><leader>a  <Plug>(coc-codeaction-selected)
-    nmap <silent><leader>a  <Plug>(coc-codeaction-selected)
-
-    " Remap <C-j> and <C-k> for scroll float windows/popups.
-    if has('patch-8.2.0750')
-        nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-W>j"
-        nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-W>k"
-        inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-j>"
-        inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-k>"
-        vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-W>j"
-        vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-W>k"
-    endif
-
-    " Use <c-space> to trigger completion.
-    inoremap <silent><expr> <c-space> coc#refresh()
-
-    " inoremap <silent><expr> <TAB>
-    "       \ pumvisible() ? "\<C-n>" :
-    "       \ <SID>check_back_space() ? "\<TAB>" :
-    "       \ coc#refresh()
-
-    " Use K to show documentation in preview window.
-    nnoremap <silent> K :call functions#show_documentation()<CR>
-
-    " ************* NERDTree *************
-    nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
-
-    " ************* FZF.vim *************
-    nnoremap <leader>fa :Ag<CR>
-    nnoremap <leader>ff :Files<CR>
-    nnoremap <leader>fb :Buffers<CR>
-    nnoremap <leader>fh :Helptags<CR>
+" Remap <C-j> and <C-k> for scroll float windows/popups.
+if has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-W>j"
+    nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-W>k"
+    inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-j>"
+    inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-k>"
+    vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-W>j"
+    vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-W>k"
 endif
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call functions#show_documentation()<CR>
+
+" ************* NERDTree *************
+nnoremap <silent> <expr> <leader>k expand('%:p') != '' && bufwinnr("NERD_tree") != 1 ? ':NERDTreeFind<CR>' : ':NERDTreeToggle<CR>'
+
+" ************* FZF.vim *************
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fh :Helptags<CR>
