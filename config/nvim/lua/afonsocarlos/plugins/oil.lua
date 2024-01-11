@@ -22,6 +22,7 @@ return {
         end)
       end,
     },
+    lsp_rename_autosave = "unmodified",
     prompt_save_on_select_new_entry = false,
     view_options = {
       show_hidden = true,
