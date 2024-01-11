@@ -10,6 +10,7 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local finders = require("telescope.finders")
     local actions = require("telescope.actions")
     local lga_actions = require("telescope-live-grep-args.actions")
     local icons = require("nvim-nonicons")
@@ -20,6 +21,7 @@ return {
         selection_caret = " ❯ ",
         entry_prefix = "   ",
         file_sorter = require("telescope.sorters").get_fzy_sorter,
+        file_ignore_patterns = { ".git/", "node_modules", "vendor" },
         mappings = {
           i = {
             ["<C-b>"] = actions.preview_scrolling_left,
@@ -27,6 +29,27 @@ return {
             ["<M-b>"] = actions.results_scrolling_left,
             ["<M-f>"] = actions.results_scrolling_right,
           }
+        },
+      },
+
+      pickers = {
+        find_files = {
+          hidden = true,
+          mappings = {
+            i = {
+              ["<c-h>"] = function(prompt_bufnr)
+                local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+                local opts = {
+                  hidden = true,
+                  no_ignore = true,
+                  default_text = current_picker:_get_prompt(),
+                }
+
+                local cmd = { "fd", "--type", "f", "--hidden", "--no-ignore" }
+                current_picker:refresh(finders.new_oneshot_job(cmd, opts), {})
+              end,
+            },
+          },
         },
       },
 
