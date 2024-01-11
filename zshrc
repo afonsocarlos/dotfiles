@@ -71,6 +71,10 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 
+# Git aliases
+alias glr='git log origin/$(git_current_branch)..'
+alias gdr='git diff origin/$(git_current_branch)..'
+
 alias icat="kitty +kitten icat"
 alias rg="rg --smart-case"
 
