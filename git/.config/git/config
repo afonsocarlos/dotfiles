@@ -17,6 +17,7 @@
     pager = diff-so-fancy | emojify | less --tabs=4 -RFX
 [push]
     default = simple
+    useForceIfIncludes = true
 [merge]
     tool = nvimdiff
     conflictstyle = diff3
