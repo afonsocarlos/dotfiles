@@ -7,7 +7,7 @@ local textobjects = {
 
     keymaps = {
       -- You can use the capture groups defined in textobjects.scm
-      ["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
+      ["af"] = { query = "@function.full", desc = "Select outer part of a method/function definition" },
       ["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
       ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
       ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
@@ -16,6 +16,7 @@ local textobjects = {
     selection_modes = {
       ['@parameter.outer'] = 'v', -- charwise
       ['@function.outer'] = 'V',  -- linewise
+      ['@function.full'] = 'V',  -- linewise
       ['@class.outer'] = '<c-v>', -- blockwise
     },
     -- If you set this to `true` (default is `false`) then any textobject is
