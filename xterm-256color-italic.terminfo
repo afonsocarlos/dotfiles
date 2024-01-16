@@ -1,13 +1,14 @@
-# A xterm-256color based TERMINFO that adds the escape sequences for italic.
+# A xterm-256color based TERMINFO that adds the escape sequences for italic and colored undercurl.
 #
 # Install:
 #
-#   tic xterm-256color-italic.terminfo
+#   tic -x xterm-256color-italic.terminfo
 #
 # Usage:
 #
-#   export TERM=xterm-256color-italic
+#   export TERM="xterm-256color-italic"
 #
 xterm-256color-italic|xterm with 256 colors and italic,
 	sitm=\E[3m, ritm=\E[23m,
+	smm=\E[?1034h, smso=\E[7m, smul=\E[4m, tbc=\E[3g, Smulx=\E[4\:%p1%dm,
 	use=xterm-256color,

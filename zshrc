@@ -15,7 +15,7 @@ export MYSQL_PS1="\u@\h [\d] mysql> "
 export PATH=$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/build-tools:$HOME/.config/composer/vendor/bin:$HOME/.yarn/bin:/opt/flutter/bin
 
 # set xterm for appearance improvement
-export TERM="xterm-256color"
+export TERM="xterm-256color-italic"
 
 # New zsh theme is pure!!
 ZSH_THEME=""
