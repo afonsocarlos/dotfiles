@@ -64,7 +64,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
-    "windwp/nvim-ts-autotag",
+    -- { "windwp/nvim-ts-autotag", opts = { enable_close = false } },
     -- plugin for splitting/joining blocks of code
     {
       "Wansmer/treesj",
@@ -100,7 +100,7 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = { enable = true },
+      -- autotag = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
