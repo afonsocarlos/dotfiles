@@ -19,7 +19,7 @@
     default = current
     useForceIfIncludes = true
 [merge]
-    tool = nvimdiff
+    tool = vim_mergetool
     conflictstyle = diff3
 [diff]
     tool = nvimdiff
@@ -31,6 +31,9 @@
     required = true
 [mergetool]
     prompt = false
+[mergetool "vim_mergetool"]
+    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    trustExitCode = true
 [color]
     ui = true
 [color "diff-highlight"]
