@@ -111,7 +111,7 @@ return {
       /**
        * @test
        */
-      public function test{method}(): void
+      public function it_should_{method}(): void
       {{
           {}
       }}
