@@ -11,12 +11,12 @@
     patch = !git --no-pager diff --no-color
     show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
     uncommit = reset --soft HEAD^
-    unstage = reset
+    unstage = restore --staged
 [core]
     editor = nvim
     pager = diff-so-fancy | emojify | less --tabs=4 -RFX
 [push]
-    default = simple
+    default = current
     useForceIfIncludes = true
 [merge]
     tool = nvimdiff
