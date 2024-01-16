@@ -11,19 +11,20 @@ local close_diff = function()
     return
   end
 
-    -- If current window is in diff mode, close all diff windows
+  -- If current window is in diff mode, close all diff windows
   if vim.opt.diff:get() then
-    vim.cmd([[diffoff!]])
-
     -- close all windows but first one
     local windows = vim.api.nvim_tabpage_list_wins(0)
     table.sort(windows)
     table.remove(windows, 1)
 
     for _, win in ipairs(windows) do
-      vim.api.nvim_win_close(win, true)
+      if vim.api.nvim_get_option_value("diff", { win = win }) then
+        vim.api.nvim_win_close(win, true)
+      end
     end
 
+    vim.cmd([[diffoff!]])
   end
 end
 
@@ -56,8 +57,8 @@ return {
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
-        vim.g.mergetool_layout = 'mr'
-        vim.g.mergetool_prefer_revision = 'local'
+        vim.g.mergetool_layout = "mr"
+        vim.g.mergetool_prefer_revision = "local"
 
         -- Navigation
         vim.keymap.set("n", "]c", function()
