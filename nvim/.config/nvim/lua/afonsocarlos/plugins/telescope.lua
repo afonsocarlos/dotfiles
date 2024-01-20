@@ -43,6 +43,19 @@ return {
       },
 
       pickers = {
+        buffers = {
+          file_ignore_patterns = {},
+          show_all_buffers = true,
+          sort_lastused = true,
+          mappings = {
+            i = {
+              ["<M-d>"] = "delete_buffer",
+            },
+            n = {
+              ["d"] = "delete_buffer",
+            }
+          }
+        },
         find_files = {
           hidden = true,
           mappings = {
