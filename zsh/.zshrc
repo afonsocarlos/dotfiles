@@ -99,9 +99,12 @@ zinit as"program" wait lucid for \
     pick"gif_optmize.sh" https://gist.githubusercontent.com/afonsocarlos/0143bc204a86be9d2a32abfe6900c930/raw/ff7013d09feba61cf58860d54bc4b87238b06e19/gif_optmize.sh \
     pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip
 
+# Oh-my-zsh lib
+zinit snippet OMZL::clipboard.zsh
+
 # Oh-my-zsh plugins
 zinit snippet OMZP::battery
-zinit snippet https://raw.githubusercontent.com/afonsocarlos/ohmyzsh/8b0f735cd37fcdedf1c1c2c206fabcf123b6e4a9/plugins/git/git.plugin.zsh
+zinit snippet OMZP::git
 
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
