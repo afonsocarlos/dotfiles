@@ -1,4 +1,4 @@
-;; function.full: docblock + function
+; extends
 (
   (comment) * @_start
   .
