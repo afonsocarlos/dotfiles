@@ -40,6 +40,15 @@ local toggle_diff_option = function(option)
   vim.notify(option .. " " .. status)
 end
 
+local run_async = function(cmd)
+  return function()
+    vim.system(cmd, { text = true }, function(obj)
+      local msg = string.len(obj.stderr) > 0 and obj.stderr or obj.stdout
+      vim.schedule(function() vim.notify(msg) end)
+    end)
+  end
+end
+
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -110,8 +119,8 @@ return {
     -- Fugitive Shortcuts
     { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
     { "<leader>gb", ":G blame<CR>", silent = true },
-    { "<leader>gl", ":G! pull<CR>", silent = true },
-    { "<leader>gp", ":G! push<CR>", silent = true },
+    { "<leader>gl", run_async({ "Git", "pull", "--rebase" }), silent = true },
+    { "<leader>gp", run_async({ "Git", "push" }), silent = true },
     { "<leader>gs", ":G<CR>", silent = true },
 
     { "<leader>hc", "<plug>(MergetoolToggle)", silent = true },
