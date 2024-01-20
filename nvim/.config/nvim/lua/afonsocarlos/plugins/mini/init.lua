@@ -2,9 +2,15 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
-    opts = {
-      search_method = "cover_or_nearest",
-    },
+    config = function()
+      local ai = require("mini.ai")
+      ai.setup({
+        custom_textobjects = {
+          a = ai.gen_spec.argument({ separator = ",%s*" }),
+        },
+        search_method = "cover_or_nearest",
+      })
+    end,
   },
   {
     "echasnovski/mini.hipatterns",
