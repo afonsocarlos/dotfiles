@@ -21,7 +21,7 @@ return {
         selection_caret = " ❯ ",
         entry_prefix = "   ",
         file_sorter = require("telescope.sorters").get_fzy_sorter,
-        file_ignore_patterns = { ".git/", "node_modules", "vendor" },
+        file_ignore_patterns = { "^.git/", "node_modules" },
         mappings = {
           i = {
             ["<C-b>"] = actions.preview_scrolling_left,
