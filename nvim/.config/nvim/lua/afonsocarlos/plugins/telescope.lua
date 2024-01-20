@@ -30,6 +30,16 @@ return {
             ["<M-f>"] = actions.results_scrolling_right,
           }
         },
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+        },
       },
 
       pickers = {
@@ -37,7 +47,7 @@ return {
           hidden = true,
           mappings = {
             i = {
-              ["<c-h>"] = function(prompt_bufnr)
+              ["<C-h>"] = function(prompt_bufnr)
                 local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
                 local opts = {
                   hidden = true,
