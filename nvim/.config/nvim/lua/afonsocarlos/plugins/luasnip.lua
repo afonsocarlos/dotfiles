@@ -60,12 +60,12 @@ return {
     {
       "<c-l>",
       function()
-        if luasnip.choice_active() then
-          luasnip.change_choice(1)
-        end
+        if not luasnip.choice_active() then return "<c-g>u<Esc>[s1z=`]a<c-g>u" end
+        luasnip.change_choice(1)
       end,
       mode = { "i", "s" },
-      silent = true
+      silent = true,
+      expr = true
     },
   }
 }
