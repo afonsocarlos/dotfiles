@@ -28,17 +28,21 @@ return {
             ["<C-f>"] = actions.preview_scrolling_right,
             ["<M-b>"] = actions.results_scrolling_left,
             ["<M-f>"] = actions.results_scrolling_right,
-          }
+          },
+          n = {
+            ["<Left>"] = actions.preview_scrolling_left,
+            ["<Right>"] = actions.preview_scrolling_right,
+          },
         },
         vimgrep_arguments = {
-          'rg',
-          '--color=never',
-          '--no-heading',
-          '--with-filename',
-          '--line-number',
-          '--column',
-          '--smart-case',
-          '--hidden',
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
         },
       },
 
@@ -53,8 +57,8 @@ return {
             },
             n = {
               ["d"] = "delete_buffer",
-            }
-          }
+            },
+          },
         },
         find_files = {
           hidden = true,
@@ -104,9 +108,9 @@ return {
           },
         },
         ["ui-select"] = {
-          require("telescope.themes").get_cursor()
-        }
-      }
+          require("telescope.themes").get_cursor(),
+        },
+      },
     })
 
     -- telescope.load_extension("fzf")
@@ -124,5 +128,5 @@ return {
     { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
     { "<leader>fr", ":Telescope oldfiles<CR>", silent = true },
     { "<leader>ft", ":Telescope<CR>", silent = true },
-  }
+  },
 }
