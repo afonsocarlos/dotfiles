@@ -17,7 +17,7 @@ local textobjects = {
       ['@parameter.outer'] = 'v', -- charwise
       ['@function.outer'] = 'V',  -- linewise
       ['@function.full'] = 'V',  -- linewise
-      ['@class.outer'] = '<c-v>', -- blockwise
+      ['@class.outer'] = 'V', -- linewise
     },
     -- If you set this to `true` (default is `false`) then any textobject is
     -- extended to include preceding xor succeeding whitespace. Succeeding
