@@ -119,6 +119,7 @@ return {
   end,
   keys = {
     { "<leader>fa", ":Telescope grep_string<CR>", silent = true },
+    { "<leader>fa", [["vy:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('v')})<CR>]], mode = "v", silent = true },
     { "<leader>fb", ":Telescope buffers<CR>", silent = true },
     { "<leader>fc", ":Telescope git_branches<CR>", silent = true },
     { "<leader>fd", ":Telescope diagnostics<CR>", silent = true },
