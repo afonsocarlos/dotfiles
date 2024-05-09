@@ -18,6 +18,7 @@ stow keyledsd
 stow kitty
 stow neofetch
 stow nvim
+stow starship
 stow tmux
 stow vim
 stow zsh
