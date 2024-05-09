@@ -95,7 +95,8 @@ zinit as"program" wait lucid for \
 # Add GIF optimization script
 zinit as"program" wait lucid for \
     pick"gif_optmize.sh" https://gist.githubusercontent.com/afonsocarlos/0143bc204a86be9d2a32abfe6900c930/raw/ff7013d09feba61cf58860d54bc4b87238b06e19/gif_optmize.sh \
-    pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip
+    pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip \
+    pick"better-git-branch.sh" https://gist.githubusercontent.com/schacon/e9e743dee2e92db9a464619b99e94eff/raw/2e3ae498c2177f5974679a6ab33849cbf33b209e/better-git-branch.sh
 
 # Oh-my-zsh libs
 zinit snippet OMZL::async_prompt.zsh

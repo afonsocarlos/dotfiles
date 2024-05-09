@@ -12,6 +12,7 @@
     show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
     uncommit = reset --soft HEAD^
     unstage = restore --staged
+    bb = !better-git-branch.sh
 [core]
     editor = nvim
     pager = diff-so-fancy | emojify | less --tabs=4 -RFX
