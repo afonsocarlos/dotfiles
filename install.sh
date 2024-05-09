@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# configure zsh
-# first install oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# install tools
+./install_tools.sh
 
 # and enable italics to terminal
 tic -x xterm-256color-italic.terminfo
