@@ -5,14 +5,13 @@
 # if [ "$TMUX" = "" ]; then tmux; fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
 export DEFAULT_USER="$USER"
 
 # MySql Prompt improvement Exporting
 export MYSQL_PS1="\u@\h [\d] mysql> "
 
 # Android SDK Path exporting
-export PATH=$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/build-tools:$HOME/.config/composer/vendor/bin:$HOME/.yarn/bin:/opt/flutter/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/dev/scripts:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/build-tools:$HOME/.config/composer/vendor/bin:$HOME/.yarn/bin:/opt/flutter/bin
 
 # set xterm for appearance improvement
 export TERM="xterm-256color-italic"
@@ -22,8 +21,6 @@ ZSH_THEME=""
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
-
-source $ZSH/oh-my-zsh.sh
 
 # Sourcing icons
 if [[ -d ~/.fonts ]]; then
@@ -54,6 +51,7 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # binding keys
+bindkey -e
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 
@@ -99,12 +97,28 @@ zinit as"program" wait lucid for \
     pick"gif_optmize.sh" https://gist.githubusercontent.com/afonsocarlos/0143bc204a86be9d2a32abfe6900c930/raw/ff7013d09feba61cf58860d54bc4b87238b06e19/gif_optmize.sh \
     pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip
 
-# Oh-my-zsh lib
+# Oh-my-zsh libs
+zinit snippet OMZL::async_prompt.zsh
+zinit snippet OMZL::cli.zsh
 zinit snippet OMZL::clipboard.zsh
+zinit snippet OMZL::compfix.zsh
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::directories.zsh
+zinit snippet OMZL::functions.zsh
+zinit snippet OMZL::git.zsh
+zinit snippet OMZL::grep.zsh
+zinit snippet OMZL::history.zsh
+zinit snippet OMZL::key-bindings.zsh
+zinit snippet OMZL::misc.zsh
+zinit snippet OMZL::spectrum.zsh
+zinit snippet OMZL::theme-and-appearance.zsh
 
 # Oh-my-zsh plugins
 zinit snippet OMZP::battery
+zinit snippet OMZP::alias-finder
 zinit snippet OMZP::git
+zinit snippet OMZP::colored-man-pages
+
 
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
