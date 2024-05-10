@@ -127,7 +127,8 @@ return {
     { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", silent = true },
     { "<leader>fh", ":Telescope help_tags<CR>", silent = true },
     { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
-    { "<leader>fr", ":Telescope oldfiles<CR>", silent = true },
+    { "<leader>fo", ":Telescope oldfiles<CR>", silent = true },
+    { "<leader>fr", ":Telescope resume<CR>", silent = true },
     { "<leader>ft", ":Telescope<CR>", silent = true },
   },
 }
