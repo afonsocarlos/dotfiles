@@ -1,11 +1,11 @@
 return {
   -- Tpope plugins
-  "tpope/vim-abolish", -- intelligent substitution
-  "tpope/vim-dotenv", -- basic support for .env and Procfile
-  "tpope/vim-fugitive", -- git integration for Vim
+  "tpope/vim-abolish",   -- intelligent substitution
+  "tpope/vim-dotenv",    -- basic support for .env and Procfile
+  "tpope/vim-fugitive",  -- git integration for Vim
   "tpope/vim-obsession", -- continuously updated session files
-  "tpope/vim-repeat", -- repeat last modification regarding to Plugin editions
-  "tpope/vim-sleuth", -- Heuristically set buffer options
+  "tpope/vim-repeat",    -- repeat last modification regarding to Plugin editions
+  "tpope/vim-sleuth",    -- Heuristically set buffer options
 
   -- ********** Editing help tools **********
   -- Mini plugins
@@ -56,7 +56,7 @@ return {
   },
 
   -- PHP tools
-  "adalessa/composer.nvim",
+  "afonsocarlos/composer.nvim",
 
   -- AI stuff
   "Exafunction/codeium.vim",
