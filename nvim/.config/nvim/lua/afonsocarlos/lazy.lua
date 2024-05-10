@@ -13,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local opts = {
+  dev = {
+    path = "~/dev/plugins",
+  },
   -- defaults = {
   --   lazy = true
   -- }
