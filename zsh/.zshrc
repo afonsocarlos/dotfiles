@@ -79,7 +79,16 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 #################### Theme ####################
-zinit pick"async.zsh" src"pure.zsh" light-mode for sindresorhus/pure
+# zinit pick"async.zsh" src"pure.zsh" light-mode for sindresorhus/pure
+
+# Load starship theme
+# line 1: `starship` binary as command, from github release
+# line 2: starship setup at clone(create init.zsh, completion)
+# line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
 #################### Packages ####################
 zinit wait lucid light-mode for \
@@ -93,6 +102,8 @@ zinit as"program" wait lucid for \
     mrowa44/emojify
 
 # Add GIF optimization script
+# external IP lookup script
+# better branch listing for git
 zinit as"program" wait lucid for \
     pick"gif_optmize.sh" https://gist.githubusercontent.com/afonsocarlos/0143bc204a86be9d2a32abfe6900c930/raw/ff7013d09feba61cf58860d54bc4b87238b06e19/gif_optmize.sh \
     pick"whatismyip" https://gist.githubusercontent.com/afonsocarlos/87e0b6a1a3099fd7d1a253b2a48f886b/raw/29f47f4863b005aefe9cd3f13ae668adc9a49e77/whatismyip \
@@ -128,7 +139,8 @@ export NVM_LAZY_LOAD_EXTRA_COMMANDS=('git' 'nvim')
 zinit wait lucid light-mode for lukechilds/zsh-nvm
 ###############################################
 
-PROMPT="%(1j.[%j] .)"$PROMPT
+# Pure Prompt
+# PROMPT="%(1j.[%j] .)"$PROMPT
 
 if command -v neofetch >/dev/null 2>&1; then
     alias clear='clear; neofetch'
