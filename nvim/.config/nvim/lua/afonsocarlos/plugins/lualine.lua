@@ -68,7 +68,7 @@ return {
       },
       winbar = {},
       inactive_winbar = {},
-      extensions = { "nvim-tree", "quickfix" },
+      extensions = { "nvim-tree", "quickfix", "fugitive", "lazy", "man" },
     }
   end
 }
