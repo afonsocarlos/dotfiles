@@ -48,7 +48,8 @@ return {
       "<c-k>",
       function()
         if not luasnip.jumpable(-1) then return "<c-k>" end
-        luasnip.jump(-1)
+        vim.schedule(function() luasnip.jump(-1) end)
+        return "<Ignore>"
       end,
       mode = { "i", "s" },
       silent = true,
@@ -61,7 +62,8 @@ return {
       "<c-l>",
       function()
         if not luasnip.choice_active() then return "<c-g>u<Esc>[s1z=`]a<c-g>u" end
-        luasnip.change_choice(1)
+        vim.schedule(function() luasnip.change_choice(1) end)
+        return "<Ignore>"
       end,
       mode = { "i", "s" },
       silent = true,
