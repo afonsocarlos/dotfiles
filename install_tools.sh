@@ -31,12 +31,9 @@ if [ -x "$(command -v apt)" ]; then
 
   echo "Installing tools..."
   sudo apt-get install -y \
-    broot \
     curl \
-    exfat-utils \
-    flameshot \
+    flatpak \
     git \
-    git-trim \
     htop \
     httpie \
     jq \
@@ -58,6 +55,19 @@ else
   echo "Skipping installing system tools..."
 
 fi
+
+echo "Installing flatpak applications..."
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install -y \
+  flathub com.brave.Browser \
+  flathub com.discordapp.Discord \
+  flathub com.spotify.Client \
+  flathub com.uploadedlobster.peek \
+  flathub com.usebruno.Bruno \
+  flathub com.valvesoftware.Steam \
+  flathub org.flameshot.Flameshot \
+  flathub org.keepassxc.KeePassXC \
+  flathub org.telegram.desktop
 
 echo "Installing neovim (from source)..."
 if ! [ -d $HOME/build/neovim ]; then
