@@ -3,6 +3,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
@@ -32,9 +33,17 @@ success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
+[git_commit]
+format = '[\($hash\)]($style)[$tag](yellow) '
+style = "black"
+tag_symbol = "  "
+tag_disabled = false
+tag_max_candidates = 2
+
 [git_branch]
 format = "[$branch(:$remote_branch)]($style)"
 style = "bright-black"
+only_attached = true
 
 [git_status]
 format = "[[(*$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)[$conflicted](yellow)"
