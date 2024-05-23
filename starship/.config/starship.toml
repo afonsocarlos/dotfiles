@@ -48,6 +48,7 @@ only_attached = true
 [git_status]
 format = "[[(*$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)[$conflicted](yellow)"
 style = "cyan"
+diverged = "⇣⇡"
 conflicted = "resolving"
 untracked = "​"
 modified = "​"
@@ -58,7 +59,7 @@ stashed = "​"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "yellow"
 
 [cmd_duration]
 format = "[$duration]($style) "
