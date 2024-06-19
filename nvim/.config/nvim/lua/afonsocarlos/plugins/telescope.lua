@@ -50,7 +50,6 @@ return {
         buffers = {
           file_ignore_patterns = {},
           show_all_buffers = true,
-          sort_lastused = true,
           mappings = {
             i = {
               ["<M-d>"] = "delete_buffer",
