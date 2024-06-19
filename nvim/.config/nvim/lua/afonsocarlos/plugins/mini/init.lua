@@ -8,6 +8,7 @@ return {
         custom_textobjects = {
           a = ai.gen_spec.argument({ separator = ",%s*" }),
         },
+        n_lines = 500,
         search_method = "cover_or_nearest",
       })
     end,
