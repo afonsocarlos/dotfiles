@@ -69,6 +69,9 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+vim.keymap.set("v", "<leader>_", ":<C-U>keeppatterns '<,'>s/\\%V[ -]/_/g<CR>", default_opts)
+vim.keymap.set("v", "<leader>cr", " <Plug>(abolish-coerce)", { remap = true })
+
 -- Go to next/prev buffer in buffer list
 vim.keymap.set("n", "[b", ":<C-U>exe v:count.'bp'<CR>", default_opts)
 vim.keymap.set("n", "]b", ":<C-U>exe v:count.'bn'<CR>", default_opts)
