@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-path",   -- source for file system paths
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
@@ -45,6 +46,7 @@ return {
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer", keyword_length = 5 },
         { name = 'vim-dadbod-completion' },
+        { name = 'emoji' },
       }),
 
       snippet = {
