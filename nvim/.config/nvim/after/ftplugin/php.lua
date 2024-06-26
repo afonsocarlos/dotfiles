@@ -1,3 +1,4 @@
+vim.opt_local.commentstring = "// %s"
 vim.opt_local.makeprg = "vendor/bin/phpunit"
 vim.opt.errorformat:append("%E%n)\\ %.%#,%Z%f:%l,%C%m,%C,%-G%.%#")
 -- create vim errorformat for parsing phpunit results
