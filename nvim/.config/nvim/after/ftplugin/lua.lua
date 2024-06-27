@@ -3,9 +3,9 @@ vim.opt_local.textwidth = 120
 vim.opt_local.shiftwidth = 2
 vim.opt_local.formatoptions:remove({ "o" })
 
-MiniSplitjoin = MiniSplitjoin or require("mini.splitjoin")
+local has_mini_splitjoin, MiniSplitjoin = pcall(require, "mini.splitjoin")
 
-if MiniSplitjoin == nil then
+if not has_mini_splitjoin then
   return
 end
 

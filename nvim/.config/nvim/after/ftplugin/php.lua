@@ -3,9 +3,9 @@ vim.opt_local.makeprg = "vendor/bin/phpunit"
 vim.opt.errorformat:append("%E%n)\\ %.%#,%Z%f:%l,%C%m,%C,%-G%.%#")
 -- create vim errorformat for parsing phpunit results
 
-local status, MiniSplitjoin = pcall(require, "mini.splitjoin")
+local has_mini_splitjoin, MiniSplitjoin = pcall(require, "mini.splitjoin")
 
-if not status then
+if not has_mini_splitjoin then
   return
 end
 
