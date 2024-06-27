@@ -5,7 +5,7 @@ return {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-emoji",
-    "hrsh7th/cmp-path",   -- source for file system paths
+    "hrsh7th/cmp-path", -- source for file system paths
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -45,8 +45,8 @@ return {
         { name = "cmp_git" },
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer", keyword_length = 5 },
-        { name = 'vim-dadbod-completion' },
-        { name = 'emoji' },
+        { name = "vim-dadbod-completion" },
+        { name = "emoji" },
       }),
 
       snippet = {
@@ -60,7 +60,7 @@ return {
         format = require("lspkind").cmp_format({
           mode = "symbol_text", -- show only symbol annotations
           preset = "codicons",
-          maxwidth = 50,        -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
           symbol_map = {
             Text = "",
@@ -82,7 +82,7 @@ return {
             Folder = "",
             EnumMember = "",
             Constant = "",
-            Struct = ""
+            Struct = "",
           },
 
           menu = {
@@ -100,8 +100,8 @@ return {
           before = function(entry, vim_item)
             -- ...
             return vim_item
-          end
-        })
+          end,
+        }),
       },
 
       window = {
@@ -118,18 +118,17 @@ return {
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = "path" }
+        { name = "path" },
       }, {
-          { name = "cmdline" }
-        })
+        { name = "cmdline" },
+      }),
     })
 
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
-      sources = cmp.config.sources({
+      sources = {
         { name = "vim-dadbod-completion" },
-      }, {
         { name = "buffer" },
-      }),
+      },
     })
   end,
 }

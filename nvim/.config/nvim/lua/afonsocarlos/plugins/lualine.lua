@@ -2,12 +2,12 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "yamatsum/nvim-web-nonicons"
+    "yamatsum/nvim-web-nonicons",
   },
   config = function()
     local icons = require("nvim-nonicons")
 
-    require("lualine").setup {
+    require("lualine").setup({
       options = {
         icons_enabled = true,
         theme = "auto",
@@ -23,7 +23,7 @@ return {
           statusline = 1000,
           tabline = 1000,
           winbar = 1000,
-        }
+        },
       },
       sections = {
         lualine_a = {
@@ -32,19 +32,19 @@ return {
         lualine_b = {
           { "branch", icon = icons.get("git-branch") },
           "diff",
-          "diagnostics"
+          "diagnostics",
         },
         lualine_c = {
           {
             "filename",
             path = 1,
-          }
+          },
         },
         lualine_x = { "encoding", "fileformat" },
         lualine_y = { "filetype", "progress" },
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
-        }
+        },
       },
       inactive_sections = {
         lualine_a = {},
@@ -52,7 +52,7 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {
         lualine_a = { "buffers" },
@@ -62,13 +62,13 @@ return {
         lualine_y = {
           "navic",
           color_correction = nil,
-          navic_opts = nil
+          navic_opts = nil,
         },
         lualine_z = { "tabs" },
       },
       winbar = {},
       inactive_winbar = {},
       extensions = { "nvim-tree", "quickfix", "fugitive", "lazy", "man" },
-    }
-  end
+    })
+  end,
 }
