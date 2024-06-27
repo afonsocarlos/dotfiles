@@ -13,6 +13,7 @@ return {
 
       -- Default config
       require("mini.indentscope").setup()
+      require("mini.sessions").setup({ autoread = true })
     end,
   },
 }

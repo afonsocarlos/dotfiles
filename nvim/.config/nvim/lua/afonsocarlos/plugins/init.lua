@@ -3,7 +3,6 @@ return {
   "tpope/vim-abolish",   -- intelligent substitution
   "tpope/vim-dotenv",    -- basic support for .env and Procfile
   "tpope/vim-fugitive",  -- git integration for Vim
-  "tpope/vim-obsession", -- continuously updated session files
   "tpope/vim-repeat",    -- repeat last modification regarding to Plugin editions
   "tpope/vim-sleuth",    -- Heuristically set buffer options
 
