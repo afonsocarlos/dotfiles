@@ -77,6 +77,13 @@ return {
             },
           },
         },
+        git_branches = {
+          mappings = {
+            i = {
+              ["<cr>"] = actions.git_switch_branch,
+            },
+          }
+        }
       },
 
       extensions = {
