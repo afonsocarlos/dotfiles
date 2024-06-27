@@ -13,7 +13,7 @@ $php\
 $python\
 $character"""
 
-command_timeout = 5000
+command_timeout = 800
 
 [username]
 format = "[$user]($style)"
@@ -56,6 +56,7 @@ staged = "​"
 renamed = "​"
 deleted = "​"
 stashed = "​"
+ignore_submodules = true
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
