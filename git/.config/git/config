@@ -24,7 +24,6 @@
     conflictstyle = diff3
 [diff]
     tool = nvimdiff
-[alias "branch"]
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -32,6 +31,7 @@
     required = true
 [mergetool]
     prompt = false
+    keepBackup = false
 [mergetool "vim_mergetool"]
     cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
     trustExitCode = true
