@@ -48,7 +48,7 @@ only_attached = true
 [git_status]
 format = "[[(*$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)[$conflicted](yellow)"
 style = "cyan"
-diverged = "⇣⇡"
+diverged = "⇣⇡ "
 conflicted = "resolving"
 untracked = "​"
 modified = "​"
