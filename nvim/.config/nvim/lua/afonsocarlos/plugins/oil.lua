@@ -9,6 +9,11 @@ return {
     },
     keymaps = {
       ["<leader>-"] = "actions.close",
+      ["g/"] = function ()
+        local project_root = require("lspconfig").util.find_git_ancestor(vim.fn.getcwd())
+        vim.cmd("cd " .. project_root)
+        vim.notify("CWD: " .. project_root)
+      end,
       ["gq"] = function()
         local oil = require("oil")
         oil.save(nil, function(err)
