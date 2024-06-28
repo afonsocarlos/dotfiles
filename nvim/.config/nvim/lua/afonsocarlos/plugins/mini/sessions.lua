@@ -10,9 +10,9 @@ local setup_autosession = function()
       local lspconfig = require("lspconfig")
 
       local cwd = vim.fn.getcwd()
-      local dir_root = lspconfig.util.find_git_ancestor(cwd)
+      local project_root = lspconfig.util.find_git_ancestor(cwd)
 
-      if not dir_root then
+      if not project_root then
         MiniSessions.setup({ autoread = false })
         return
       end
@@ -27,11 +27,11 @@ local setup_autosession = function()
 
       for _, directory in ipairs(autosession_directories) do
         if cwd:find(directory) then
-          local session_name = dir_root:gsub("/", "_")
+          local session_name = project_root:gsub("/", "_")
 
           local session = MiniSessions.detected[session_name]
           if not session then
-            vim.cmd("cd " .. dir_root)
+            vim.cmd("cd " .. project_root)
             MiniSessions.write(session_name)
           else
             -- Hack Minisessions.detected table setting the modify_time for the session for the current directory as the
