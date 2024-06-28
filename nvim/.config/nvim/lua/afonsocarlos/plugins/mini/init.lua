@@ -8,12 +8,12 @@ return {
       -- Custom config
       require(current_path .. ".ai").setup()
       require(current_path .. ".hipatterns").setup()
+      require(current_path .. ".sessions").setup()
       require(current_path .. ".splitjoin").setup()
       require(current_path .. ".surround").setup()
 
       -- Default config
       require("mini.indentscope").setup()
-      require("mini.sessions").setup({ autoread = true })
     end,
   },
 }
