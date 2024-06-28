@@ -10,6 +10,8 @@ vim.keymap.set("n", "<C-j>", "<C-W>j", { remap = true })
 vim.keymap.set("n", "<C-k>", "<C-W>k", { remap = true })
 vim.keymap.set("n", "<C-h>", "<C-W>h", { remap = true })
 vim.keymap.set("n", "<C-l>", "<C-W>l", { remap = true })
+-- Add spelling correction
+vim.keymap.set("n", "gz", "[s1z=``")
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -5<CR>", default_opts)
 vim.keymap.set("n", "<C-Down>", ":resize +5<CR>", default_opts)
