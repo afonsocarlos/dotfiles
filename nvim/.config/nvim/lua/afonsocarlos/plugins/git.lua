@@ -120,8 +120,10 @@ return {
     -- Fugitive Shortcuts
     { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
     { "<leader>gb", ":G blame<CR>", silent = true },
-    { "<leader>gl", run_async({ "git", "pull", "--rebase" }), silent = true },
+    { "<leader>gl", run_async({ "git", "pull" }), silent = true },
+    { "<leader>gL", run_async({ "git", "pull", "--rebase" }), silent = true },
     { "<leader>gp", run_async({ "git", "push", "-u" }), silent = true },
+    { "<leader>gP", run_async({ "git", "push", "-u", "--force-with-lease" }), silent = true },
     { "<leader>gs", ":G<CR>", silent = true },
 
     { "<leader>hc", "<plug>(MergetoolToggle)", silent = true },
