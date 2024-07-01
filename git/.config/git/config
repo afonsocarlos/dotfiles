@@ -16,6 +16,8 @@
 [core]
     editor = nvim
     pager = diff-so-fancy | emojify | less --tabs=4 -RFX
+[fetch]
+    prune = true
 [push]
     default = current
     useForceIfIncludes = true
@@ -58,7 +60,5 @@
 [rebase]
     autoStash = true
     updateRefs = true
-[column]
-    branch = auto
 [branch]
     sort = -committerdate
