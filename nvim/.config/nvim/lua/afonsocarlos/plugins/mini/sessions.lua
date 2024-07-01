@@ -43,6 +43,8 @@ local setup_autosession = function()
 end
 
 M.setup = function()
+  local MiniSessions = require("mini.sessions")
+
   vim.api.nvim_create_autocmd("VimEnter", {
     group = vim.api.nvim_create_augroup("AutoSession", { clear = true }),
     nested = true,
@@ -51,7 +53,38 @@ M.setup = function()
     desc = "Create Session automatically if it doesn't exist",
   })
 
-  require("mini.sessions").setup({
+  vim.api.nvim_create_user_command("SSave", function(opts)
+    local session_name = nil
+    if opts.args ~= "" then
+      session_name = opts.args
+    end
+    MiniSessions.write(session_name)
+  end, {
+    complete = function()
+      local sessions = {}
+      for session, _ in pairs(MiniSessions.detected) do
+        table.insert(sessions, session)
+      end
+      return sessions
+    end,
+    nargs = "?",
+  })
+
+  vim.api.nvim_create_user_command("SSelect", function(opts)
+    local action = nil
+    if opts.args ~= "" then
+      action = opts.args
+    end
+    MiniSessions.select(action, { force = opts.bang })
+  end, {
+    bang = true,
+    complete = function()
+      return { "read", "write", "delete" }
+    end,
+    nargs = "?",
+  })
+
+  MiniSessions.setup({
     autoread = true,
   })
 end
