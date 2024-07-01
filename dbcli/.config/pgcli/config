@@ -200,8 +200,6 @@ output.null = "#808080"
 # DSN to call by -D option
 [alias_dsn]
 # example_dsn = postgresql://[user[:password]@][host][:port][/dbname]
-local = postgresql://mypayments:q^R^UA1&0SZ@localhost:5434/mypayments
-local_lrv = postgresql://mypayments:q^R^UA1&0SZ@localhost:5434/db-lrv-postgres
 
 # Format for number representation
 # for decimal "d" - 12345678, ",d" - 12,345,678
