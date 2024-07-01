@@ -31,8 +31,7 @@ local setup_autosession = function()
       else
         -- Hack Minisessions.detected table setting the modify_time for the session for the current directory as the
         -- greatest so "MiniSessions.get_latest()" retrieves the session for the current directory
-        session.modify_time = vim.fn.getftime(session.path)
-        MiniSessions.detected[session_name] = session
+        vim.system({ "touch", MiniSessions.config.directory .. "/" .. session_name }):wait()
       end
 
       return
