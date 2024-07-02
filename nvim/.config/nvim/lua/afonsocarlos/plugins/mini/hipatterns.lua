@@ -7,9 +7,14 @@ M.setup = function()
       hex_color = hipatterns.gen_highlighter.hex_color(),
       fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
       hack = { pattern = "HACK", group = "MiniHipatternsHack" },
-      todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
       note = { pattern = "NOTE", group = "MiniHipatternsNote" },
+      todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
     },
+  })
+
+  vim.api.nvim_create_user_command("TodoList", [[grep '\b(FIXME\|HACK\|NOTE\|TODO)\b' <args>]], {
+    complete = "file",
+    nargs = "?",
   })
 end
 
