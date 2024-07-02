@@ -74,21 +74,6 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("v", "<leader>_", ":<C-U>keeppatterns '<,'>s/\\%V[ -]/_/g<CR>", default_opts)
 vim.keymap.set("v", "<leader>cr", " <Plug>(abolish-coerce)", { remap = true })
 
--- Go to next/prev buffer in buffer list
-vim.keymap.set("n", "[b", ":<C-U>exe v:count.'bp'<CR>", default_opts)
-vim.keymap.set("n", "]b", ":<C-U>exe v:count.'bn'<CR>", default_opts)
-vim.keymap.set("n", "[B", ":bfirst<CR>", default_opts)
-vim.keymap.set("n", "]B", ":blast<CR>", default_opts)
--- Go to next/prev item in location list
-vim.keymap.set("n", "[l", ":<C-U>exe v:count.'lprev'<CR>zz", default_opts)
-vim.keymap.set("n", "]l", ":<C-U>exe v:count.'lnext'<CR>zz", default_opts)
-vim.keymap.set("n", "[L", ":lfirst<CR>zz", default_opts)
-vim.keymap.set("n", "]L", ":llast<CR>zz", default_opts)
--- Go to next/prev item in quick list
-vim.keymap.set("n", "[q", ":<C-U>exe v:count.'cprev'<CR>zz", default_opts)
-vim.keymap.set("n", "]q", ":<C-U>exe v:count.'cnext'<CR>zz", default_opts)
-vim.keymap.set("n", "[Q", ":cfirst<CR>zz", default_opts)
-vim.keymap.set("n", "]Q", ":clast<CR>zz", default_opts)
 -- vim-slime map
 vim.keymap.set("x", "<M-cr>", "<Plug>SlimeRegionSend")
 vim.keymap.set("n", "<M-cr>", "<Plug>SlimeParagraphSend")
