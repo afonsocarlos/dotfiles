@@ -63,7 +63,14 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = { "buffers" },
+        lualine_a = {
+          {
+            "buffers",
+            filetype_names = {
+              fugitive = "Git",
+            },
+          },
+        },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
