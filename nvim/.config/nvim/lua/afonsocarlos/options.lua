@@ -22,7 +22,7 @@ vim.opt.path:append "**"                                        -- set find comm
 vim.opt.redrawtime = 5000                                       -- Prevent huge files from breaking (and disabling) syntax highlighting
 vim.opt.relativenumber = true                                   -- display line number relative to the current one
 vim.opt.shell = "/usr/bin/bash"                                 -- Set bash as vim shell (it speeds up vim-fugitive A LOT)
-vim.opt.shortmess:append "c"                                    -- show completion suggestions (^X) in insert mode
+vim.opt.shortmess:append "cS"                                   -- show completion suggestions (^X) in insert mode and hide Search count
 vim.opt.showbreak = ">>"                                        -- virtual line indicator
 vim.opt.showcmd = true                                          -- show incomplete cmds down the bottom
 vim.opt.showmatch = true                                        -- show bracket matches

@@ -40,7 +40,15 @@ return {
             path = 1,
           },
         },
-        lualine_x = { "encoding", "fileformat" },
+        lualine_x = {
+          {
+            "searchcount",
+            maxcount = 9999,
+            timeout = 500,
+          },
+          "encoding",
+          "fileformat",
+        },
         lualine_y = { "filetype", "progress" },
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
