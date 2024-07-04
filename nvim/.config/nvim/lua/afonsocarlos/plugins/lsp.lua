@@ -16,7 +16,7 @@ return {
 
     local servers = {
       intelephense = {},
-      pyright = {},
+      jsonls = {},
       lua_ls = {
         Lua = {
           completion = {
@@ -30,6 +30,7 @@ return {
           workspace = { checkThirdParty = true },
         },
       },
+      pyright = {},
     }
 
     mason_lspconfig.setup({
