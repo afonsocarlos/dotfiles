@@ -32,14 +32,16 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
--- close some filetypes with <q>
+-- close some filetypes with <gq>
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("quickclose", { clear = true }),
   pattern = {
+    "fugitive",
     "git",
     "help",
     "lspinfo",
     "man",
+    "neotest-summary",
     "notify",
     "qf",
     "startuptime",
@@ -47,7 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "gq", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "gq", "winnr('$') == 1 ? ':bdel<cr>' : ':close<cr>'", { buffer = event.buf, expr = true, silent = true })
   end,
 })
 
