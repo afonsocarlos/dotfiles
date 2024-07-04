@@ -115,10 +115,12 @@ return {
     { "<leader>hP", ":Gitsigns preview_hunk_inline<CR>", silent = true },
     { "<leader>hb", ":Gitsigns blame_line<CR>", silent = true },
     { "<leader>hB", ":Gitsigns blame_line full=true<CR>", silent = true },
+    { "<leader>hd", ":Gitsigns diffthis<CR>", silent = true },
+    { "<leader>hD", ":Gitsigns diffthis ~<CR>", silent = true },
     { "<leader>ht", ":Gitsigns toggle_current_line_blame<CR>", silent = true },
+    { "<leader>htd", ":Gitsigns toggle_deleted<CR>", silent = true },
 
     -- Fugitive Shortcuts
-    { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
     { "<leader>gb", ":G blame<CR>", silent = true },
     { "<leader>gl", run_async({ "git", "pull" }), silent = true },
     { "<leader>gL", run_async({ "git", "pull", "--rebase" }), silent = true },
