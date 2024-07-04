@@ -44,7 +44,15 @@ return {
         { name = "path" },
         { name = "cmp_git" },
         { name = "luasnip" }, -- For luasnip users.
-        { name = "buffer", keyword_length = 5 },
+        {
+          name = "buffer",
+          option = {
+            keyword_length = 5,
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end,
+          },
+        },
         { name = "vim-dadbod-completion" },
         { name = "emoji" },
       }),
