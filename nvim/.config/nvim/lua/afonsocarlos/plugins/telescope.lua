@@ -20,7 +20,6 @@ return {
         prompt_prefix = "  " .. icons.get("telescope") .. "  ",
         selection_caret = " ❯ ",
         entry_prefix = "   ",
-        file_sorter = require("telescope.sorters").get_fzy_sorter,
         file_ignore_patterns = { "^.git/", "node_modules" },
         mappings = {
           i = {
@@ -87,21 +86,6 @@ return {
       },
 
       extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = false,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
-        fzf_writer = {
-          minimum_grep_characters = 2,
-          minimum_files_characters = 2,
-          use_highlighter = true,
-        },
-        -- fzy_native = {
-        --   override_generic_sorter = false,
-        --   override_file_sorter = true,
-        -- }
         live_grep_args = {
           auto_quoting = true, -- enable/disable auto-quoting
           -- define mappings, e.g.
@@ -119,8 +103,7 @@ return {
       },
     })
 
-    -- telescope.load_extension("fzf")
-    -- telescope.load_extension("fzy_native")
+    telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
   end,
   keys = {
