@@ -10,7 +10,7 @@ if not has_mini_splitjoin then
 end
 
 local gen_hook = MiniSplitjoin.gen_hook
-local brackets = { brackets = { "%b[]" } }
+local brackets = { brackets = { "%b()", "%b[]" } }
 
 local add_comma_brackets = gen_hook.add_trailing_separator(brackets)
 local del_comma_brackets = gen_hook.del_trailing_separator(brackets)
