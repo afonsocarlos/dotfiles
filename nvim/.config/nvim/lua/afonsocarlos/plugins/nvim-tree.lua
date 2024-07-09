@@ -76,7 +76,6 @@ return {
   version = "*",
   lazy = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
