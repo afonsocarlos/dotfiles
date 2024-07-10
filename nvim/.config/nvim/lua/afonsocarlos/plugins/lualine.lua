@@ -1,3 +1,7 @@
+local spell = function ()
+  return vim.wo.spell and ("Spell: %s"):format(vim.bo.spelllang) or ""
+end
+
 -- Status line enhancement
 return {
   "nvim-lualine/lualine.nvim",
@@ -51,6 +55,7 @@ return {
         },
         lualine_y = { "filetype", "progress" },
         lualine_z = {
+          { spell },
           { "location", separator = { right = "" }, left_padding = 2 },
         },
       },
