@@ -26,7 +26,8 @@ vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 -- Make file executable
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", default_opts)
 -- Toggle checkbox ("- [x]")
-vim.keymap.set("n", "<leader><enter>", ':keeppatterns s/-\\s\\+\\[\\zs.\\{-}\\ze\\]/\\=submatch(0) == "x" ? " " : "x"/<CR>', default_opts)
+vim.keymap.set("n", "gX", [[:exec search("- \\[ \\]", "bcn", line(".")) ? "norm ci]x" : "norm ci] "<CR>]], default_opts)
+vim.keymap.set("x", "gX", [[:<C-U>exec search("- \\[ \\]", "bcn", line("'<")) ? "'<,'>norm ci]x" : "'<,'>norm ci] "<CR>]], default_opts)
 -- Close buffer
 vim.keymap.set("n", "<leader>db", ":Bdel<CR>", default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", default_opts)
