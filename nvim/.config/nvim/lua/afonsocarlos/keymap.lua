@@ -25,6 +25,7 @@ vim.keymap.set("n", "<leader>s", ":update<CR>", default_opts)
 vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 -- Make file executable
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", default_opts)
+vim.keymap.set("n", "<leader>X", ":!chmod -x %<CR>:echo 'File is not executable anymore!'<CR>", default_opts)
 -- Close buffer
 vim.keymap.set("n", "<leader>db", ":Bdel<CR>", default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", default_opts)
