@@ -56,6 +56,8 @@ vim.keymap.set("n", "ZQ", ":qa!<CR>", default_opts)
 -- Insert new line in normal mode
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
+vim.keymap.set("n", "gco", "o.<Esc>gcc$C", { remap = true })
+vim.keymap.set("n", "gcO", "O.<Esc>gcc$C", { remap = true })
 -- Enable better scrolling
 vim.keymap.set("n", "<C-e>", "3<C-e>")
 vim.keymap.set("n", "<C-y>", "3<C-y>")
