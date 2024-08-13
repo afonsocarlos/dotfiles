@@ -1,5 +1,9 @@
 local M = {}
 
+local is_running_headless = function()
+  return vim.tbl_isempty(vim.api.nvim_list_uis())
+end
+
 local is_something_shown = function()
   return vim.fn.argc() > 0 or vim.api.nvim_buf_line_count(0) > 1
 end
@@ -27,7 +31,7 @@ local setup_autosession = function()
       local session = MiniSessions.detected[session_name]
       if session then
         -- does not auto load session if something else is shown
-        if is_something_shown() then
+        if is_something_shown() or is_running_headless() then
           return
         end
 
