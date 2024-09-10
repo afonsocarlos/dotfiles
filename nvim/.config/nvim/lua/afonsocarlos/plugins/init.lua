@@ -21,9 +21,6 @@ return {
   -- modern matchit.
   "andymass/vim-matchup",
 
-  -- Provides LSP server
-  "pierreglaser/folding-nvim",
-
   -- Simple plugin that shows the current code context
   "SmiteshP/nvim-navic",
 

@@ -9,7 +9,6 @@ return {
     { "danymat/neogen", opts = { snippet_engine = "luasnip" } },
   },
   config = function()
-    local folding = require("folding")
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local navic = require("nvim-navic")
@@ -49,8 +48,6 @@ return {
             navic.attach(client, bufnr)
           end
 
-          folding.on_attach()
-
           -- Add some fancy integration
           local setup_lsp_highlight = vim.api.nvim_create_augroup("setup_lsp_highlight", { clear = true })
           if client.server_capabilities.documentHighlightProvider then
@@ -68,6 +65,7 @@ return {
         end,
       })
     end
+    require('ufo').setup()
 
     lspconfig.phpactor.setup({
       capabilities = capabilities,
