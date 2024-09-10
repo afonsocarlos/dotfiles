@@ -14,14 +14,14 @@ return {
   },
   opts = {
     graph_style = "unicode",
-    kind = "split",
+    kind = "split_below_all",
     commit_editor = {
-      kind = "split",
+      kind = "split_below_all",
       show_staged_diff = true,
       staged_diff_split_kind = "vsplit",
     },
     popup = {
-     kind = "split",
+      kind = "split_below_all",
     },
     mappings = {
       commit_editor = {
