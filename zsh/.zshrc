@@ -103,6 +103,11 @@ zinit as"program" wait lucid for \
     so-fancy/diff-so-fancy \
     mrowa44/emojify
 
+zinit as"program" wait lucid for \
+    atclone"npm install; npm run build; ln -s ./build/index.mjs git-split-diffs" \
+    atpull"%atclone" pick"git-split-diffs" \
+    banga/git-split-diffs
+
 # Add GIF optimization script
 # external IP lookup script
 # better branch listing for git

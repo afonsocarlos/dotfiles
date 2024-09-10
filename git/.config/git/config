@@ -38,6 +38,8 @@
 [mergetool "vim_mergetool"]
     cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
     trustExitCode = true
+[pager]
+    diff = git-split-diffs --color | emojify | less -RFX
 [color]
     ui = true
 [color "diff-highlight"]
@@ -63,3 +65,6 @@
     updateRefs = true
 [branch]
     sort = -committerdate
+[split-diffs]
+    theme-name = github-dark-dim
+    syntax-highlighting-theme = one-dark-pro
