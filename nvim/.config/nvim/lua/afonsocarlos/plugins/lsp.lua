@@ -5,8 +5,6 @@ return {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "ray-x/lsp_signature.nvim",
-    -- A better annotation generator
-    { "danymat/neogen", opts = { snippet_engine = "luasnip" } },
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -130,7 +128,6 @@ return {
   end,
   keys = {
     { "K", vim.lsp.buf.hover, silent = true },
-    { "<leader>gc", ":lua require('neogen').generate()<CR>", silent = true },
     { "<leader>gD", vim.lsp.buf.declaration, silent = true },
     { "<leader>gd", ":Telescope lsp_definitions path_display={'tail'}<CR>", silent = true },
     { "<leader>gr", ":Telescope lsp_references path_display={'tail'}<CR>", silent = true },
