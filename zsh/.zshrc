@@ -108,6 +108,9 @@ zinit as"program" wait lucid for \
     atpull"%atclone" pick"git-split-diffs" \
     banga/git-split-diffs
 
+zinit from"gh-r" as"program" wait lucid light-mode for \
+  pick"tldr" tldr-pages/tlrc
+
 # Add GIF optimization script
 # external IP lookup script
 # better branch listing for git
