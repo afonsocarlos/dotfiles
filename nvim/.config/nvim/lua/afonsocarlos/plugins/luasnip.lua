@@ -2,8 +2,9 @@ local luasnip
 
 return {
 
-  "L3MON4D3/LuaSnip",                     -- snippet engine
+  "L3MON4D3/LuaSnip", -- snippet engine
   version = "2.*",
+  build = "make install_jsregexp",
   lazy = true,
   event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
   dependencies = {
@@ -18,7 +19,10 @@ return {
     local types = require("luasnip.util.types")
 
     luasnip.config.set_config({
-      history = true,
+      keep_roots = false,
+      link_roots = false,
+      link_children = false,
+      exit_roots = true,
 
       update_events = "TextChanged,TextChangedI",
 
@@ -34,8 +38,7 @@ return {
     })
 
     require("luasnip.loaders.from_vscode").lazy_load()
-    -- require("luasnip.loaders.from_snipmate").lazy_load()
-    require("luasnip.loaders.from_lua").lazy_load { paths = vim.fn.stdpath "config" .. "/lua/afonsocarlos/snippets/" }
+    require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/afonsocarlos/snippets/" })
   end,
   keys = {
     -- <c-j> is my expansion key
