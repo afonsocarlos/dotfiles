@@ -11,9 +11,8 @@ return {
   "NeogitOrg/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "sindrets/diffview.nvim",
   },
-  config = {
+  opts = {
     graph_style = "unicode",
     kind = "split",
     commit_editor = {
