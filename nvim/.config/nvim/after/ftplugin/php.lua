@@ -23,3 +23,27 @@ vim.b.minisplitjoin_config = {
 
 vim.b.test_coverage_cmd = { "vendor/bin/phpunit", "--coverage-cobertura", "coverage/cobertura.xml" }
 vim.b.test_coverage_env = { XDEBUG_MODE = "coverage" }
+
+
+-- -- Automatically fold private functions
+local ufo = require('ufo')
+local bufnr = vim.api.nvim_get_current_buf()
+
+-- make sure buffer is attached
+vim.wait(100, function() ufo.attach(bufnr) end)
+if ufo.hasAttached(bufnr) then
+  -- getFolds returns a Promise if providerName == 'lsp', use vim.wait in this case
+  local ok, promise = pcall(ufo.getFolds, bufnr, 'lsp')
+  if ok and promise then
+    promise:thenCall(function (ranges)
+      if ufo.applyFolds(bufnr, ranges) then
+        ufo.openAllFolds()
+
+        vim.cmd([[silent! keeppatterns g/\(private function\_.\{-}\)\@<={/norm! +zc]])
+        -- vim.cmd([[silent! keeppatterns g/private function/foldclose]])
+      end
+    end):catch(function (err)
+      vim.notify(err, vim.log.levels.ERROR)
+    end)
+  end
+end
