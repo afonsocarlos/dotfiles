@@ -1,6 +1,3 @@
-[user]
-    name = Carlos Afonso
-    email = afonso.carlos.braga@gmail.com
 [alias]
     authors = shortlog -sne
     branch-author = "! fn() { git for-each-ref --format=\"%(color:green)%(committerdate) %09 %(color:yellow)%(refname) %09 %(color:cyan)%(authorname) %(authoremail)\" | sort -k5nr -k2Mr -k3nr -k4nr; }; echo \"$(tput bold)local:$(tput sgr0)\"; fn | grep heads; echo ; echo \"$(tput bold)$(tput setaf 1)remote:$(tput sgr0)\"; fn | grep remotes"
@@ -14,32 +11,8 @@
     uncommit = reset --soft HEAD^
     unstage = restore --staged
     bb = !better-git-branch.sh
-[core]
-    editor = nvim
-    pager = diff-so-fancy | emojify | less --tabs=4 -RFX
-[fetch]
-    prune = true
-[push]
-    default = current
-    useForceIfIncludes = true
-[merge]
-    tool = vim_mergetool
-    conflictstyle = diff3
-[diff]
-    tool = nvimdiff
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-[mergetool]
-    prompt = false
-    keepBackup = false
-[mergetool "vim_mergetool"]
-    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
-    trustExitCode = true
-[pager]
-    diff = git-split-diffs --color | emojify | less -RFX
+[branch]
+    sort = -committerdate
 [color]
     ui = true
 [color "diff-highlight"]
@@ -54,17 +27,44 @@
     old = red bold
     new = green bold
     whitespace = red reverse
-[rerere]
-    enabled = 1
-[pull]
-    ff = only
+[core]
+    editor = nvim
+    pager = diff-so-fancy | emojify | less --tabs=4 -RFX
+[diff]
+    tool = nvimdiff
+[fetch]
+    prune = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [init]
     defaultBranch = master
+[merge]
+    tool = vim_mergetool
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "vim_mergetool"]
+    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    trustExitCode = true
+[pager]
+    diff = git-split-diffs --color | emojify | less -RFX
+[pull]
+    ff = only
+[push]
+    default = current
+    useForceIfIncludes = true
 [rebase]
     autoStash = true
     updateRefs = true
-[branch]
-    sort = -committerdate
+[rerere]
+    enabled = 1
 [split-diffs]
     theme-name = github-dark-dim
     syntax-highlighting-theme = one-dark-pro
+[user]
+    name = Carlos Afonso
+    email = afonso.carlos.braga@gmail.com
