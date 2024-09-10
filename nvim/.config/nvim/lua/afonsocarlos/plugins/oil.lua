@@ -9,6 +9,9 @@ return {
     },
     keymaps = {
       ["<leader>-"] = "actions.close",
+      ["<C-h>"] = false,
+      ["<M-h>"] = "actions.select_split",
+      ["<M-v>"] = "actions.select_vsplit",
       ["g/"] = function ()
         local project_root = require("lspconfig").util.find_git_ancestor(vim.fn.getcwd())
         vim.cmd("cd " .. project_root)
