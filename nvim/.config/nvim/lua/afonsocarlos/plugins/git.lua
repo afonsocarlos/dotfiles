@@ -56,6 +56,23 @@ return {
     "samoshkin/vim-mergetool", -- Efficient way of using Vim as a Git mergetool
   },
   config = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "GitSignsChanged",
+      group = vim.api.nvim_create_augroup("update_fugitive_after_gitsigns_action", { clear = true }),
+      callback = function ()
+        for _, window in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+          local buf = vim.api.nvim_win_get_buf(window)
+          local bufname = vim.api.nvim_buf_get_name(buf)
+          if vim.startswith(bufname, 'fugitive://') then
+            vim.api.nvim_buf_call(buf, function()
+              vim.cmd.doautocmd('BufReadCmd')
+            end)
+          end
+        end
+      end,
+      desc = "Update fugitive when staging/unstaging hunks",
+    })
+
     require("gitsigns").setup({
       current_line_blame = true,
       current_line_blame_opts = {
