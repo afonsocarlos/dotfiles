@@ -47,7 +47,8 @@ if [ -x "$(command -v apt)" ]; then
     tmux \
     vim \
     wget \
-    zsh
+    zsh \
+    zoxide
 
 else
 
