@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = {"CmdLineEnter", "InsertEnter"},
+  event = { "CmdLineEnter", "InsertEnter" },
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-cmdline",
@@ -8,7 +8,6 @@ return {
     "hrsh7th/cmp-path", -- source for file system paths
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
-    -- "hrsh7th/cmp-nvim-lsp-signature-help",
     "petertriho/cmp-git",
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
@@ -32,15 +31,7 @@ return {
 
       sources = cmp.config.sources({
         { name = "nvim_lua" },
-        {
-          name = "nvim_lsp",
-          option = {
-            php = {
-              keyword_pattern = [=[[\%(\$\k*\)\|\k\+]]=]
-            }
-          }
-        },
-        -- { name = 'nvim_lsp_signature_help' },
+        { name = "nvim_lsp", priority = 1000 },
         { name = "path" },
         { name = "cmp_git" },
         { name = "luasnip" }, -- For luasnip users.
@@ -71,26 +62,31 @@ return {
           maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
           symbol_map = {
-            Text = "",
-            Method = "ƒ",
-            Function = "",
-            Constructor = "",
-            Variable = "",
-            Class = "",
-            Interface = "ﰮ",
-            Module = "",
+            Text = "󰉿",
+            Method = "󰆧",
+            Function = "󰊕",
+            Constructor = "",
+            Variable = "󰀫",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Field = "󰜢",
             Property = "",
-            Unit = "",
-            Value = "",
-            Enum = "了",
-            Keyword = "",
-            Snippet = "﬌",
+            Unit = "󰑭",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
             Color = "",
-            File = "",
-            Folder = "",
+            File = "󰈙",
+            Reference = "󰈇",
+            Folder = "󰉋",
             EnumMember = "",
-            Constant = "",
-            Struct = "",
+            Constant = "󰏿",
+            Struct = "󰙅",
+            Event = "",
+            Operator = "󰆕",
+            TypeParameter = "",
           },
 
           menu = {
