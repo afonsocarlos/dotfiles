@@ -141,6 +141,8 @@ return {
     { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
     { "<leader>hD", ":Gdiffsplit @<CR>", silent = true },
     { "<leader>gb", ":G blame<CR>", silent = true },
+    { "<leader>gca", ":bot G commit --verbose --all<CR>", silent = true },
+    { "<leader>gcc", ":bot G commit --verbose<CR>", silent = true },
     { "<leader>gl", run_async({ "git", "pull" }), silent = true },
     { "<leader>gL", run_async({ "git", "pull", "--rebase" }), silent = true },
     { "<leader>gp", run_async({ "git", "push", "-u" }), silent = true },
