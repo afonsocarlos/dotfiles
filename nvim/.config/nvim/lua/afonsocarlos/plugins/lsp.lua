@@ -63,7 +63,6 @@ return {
         end,
       })
     end
-    require('ufo').setup()
 
     lspconfig.phpactor.setup({
       capabilities = capabilities,

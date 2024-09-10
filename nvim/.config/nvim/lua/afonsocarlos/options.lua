@@ -58,6 +58,12 @@ vim.opt.tabstop = 4         -- show existing tab with 4 spaces width
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
+-- Folding options
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldnestmax = 10
+vim.opt.foldlevel = 10
+
 -- set file encoding
 vim.opt.encoding = "utf-8"
 vim.opt.fileencodings = { "utf-8", "latin1" }
