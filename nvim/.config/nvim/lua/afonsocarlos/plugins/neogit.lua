@@ -12,6 +12,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  lazy = false,
   opts = {
     graph_style = "unicode",
     kind = "split_below_all",
@@ -39,5 +40,8 @@ return {
         ["gz"] = goto_section("stash"),
       },
     },
+  },
+  keys = {
+    { "<leader>gc", ":Neogit commit<CR>", silent = true },
   },
 }
