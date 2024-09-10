@@ -107,6 +107,7 @@ return {
     telescope.load_extension("ui-select")
   end,
   keys = {
+    { "<leader>f/", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
     { "<leader>fa", ":Telescope grep_string<CR>", silent = true },
     { "<leader>fa", [["vy:lua require('telescope.builtin').grep_string({search = vim.fn.getreg('v')})<CR>]], mode = "v", silent = true },
     { "<leader>fb", ":Telescope buffers<CR>", silent = true },
@@ -115,7 +116,8 @@ return {
     { "<leader>ff", ":Telescope find_files<CR>", silent = true },
     { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", silent = true },
     { "<leader>fh", ":Telescope help_tags<CR>", silent = true },
-    { "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", silent = true },
+    { "<leader>fl", ":Telescope git_bcommits<CR>", silent = true },
+    { "<leader>fl", ":<C-U>Telescope git_bcommits_range<CR>", mode = "v", silent = true },
     { "<leader>fo", ":Telescope oldfiles<CR>", silent = true },
     { "<leader>fr", ":Telescope resume<CR>", silent = true },
     { "<leader>ft", ":Telescope<CR>", silent = true },
