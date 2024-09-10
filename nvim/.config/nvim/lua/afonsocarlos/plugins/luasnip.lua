@@ -17,7 +17,7 @@ return {
     luasnip = require("luasnip")
     local types = require("luasnip.util.types")
 
-    luasnip.config.set_config {
+    luasnip.config.set_config({
       history = true,
 
       update_events = "TextChanged,TextChangedI",
@@ -31,7 +31,7 @@ return {
           },
         },
       },
-    }
+    })
 
     require("luasnip.loaders.from_vscode").lazy_load()
     -- require("luasnip.loaders.from_snipmate").lazy_load()
@@ -40,7 +40,14 @@ return {
   keys = {
     -- <c-j> is my expansion key
     -- this will expand the current item or jump to the next item within the snippet.
-    { "<c-j>", function() luasnip.expand_or_jump() end, mode = { "i", "s" }, silent = true },
+    {
+      "<c-j>",
+      function()
+        return luasnip.jumpable(1) and luasnip.jump(1) or luasnip.expand_or_jump()
+      end,
+      mode = { "i", "s" },
+      silent = true,
+    },
 
     -- <c-k> is my jump backwards key.
     -- this always moves to the previous item within the snippet
@@ -67,7 +74,7 @@ return {
       end,
       mode = { "i", "s" },
       silent = true,
-      expr = true
+      expr = true,
     },
-  }
+  },
 }
