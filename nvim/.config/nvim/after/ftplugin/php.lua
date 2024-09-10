@@ -20,3 +20,6 @@ vim.b.minisplitjoin_config = {
   split = { hooks_post = { add_comma_brackets } },
   join = { hooks_post = { del_comma_brackets } },
 }
+
+vim.b.test_coverage_cmd = { "vendor/bin/phpunit", "--coverage-cobertura", "coverage/cobertura.xml" }
+vim.b.test_coverage_env = { XDEBUG_MODE = "coverage" }
