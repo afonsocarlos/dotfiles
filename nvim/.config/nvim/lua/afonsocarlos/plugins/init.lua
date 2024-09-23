@@ -29,9 +29,7 @@ return {
 
   {
     "junegunn/fzf",
-    build = function()
-      vim.fn["fzf#install"]()
-    end,
+    build = "./install --all",
   },
 
   -- full signature help, docs and completion for the nvim lua API.
