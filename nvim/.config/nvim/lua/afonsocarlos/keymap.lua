@@ -64,8 +64,9 @@ vim.keymap.set("n", "<C-y>", "3<C-y>")
 -- Hide hightlights on Esc
 vim.keymap.set("n", "<Esc>", ":nohl<Esc>", default_opts)
 
--- Delete without adding deleted text into the register
-vim.keymap.set("x", "<leader>p", "\"_dP")
+-- Paste without adding deleted text into the unamed register
+-- Enable ve=onemore to handle the special case of pasting/replacing last word at the end of line
+vim.keymap.set("x", "<leader>p", ":<C-U>set virtualedit+=onemore<CR>gv\"_dP:set virtualedit-=onemore<CR>")
 
 -- Simple way to copy to clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")

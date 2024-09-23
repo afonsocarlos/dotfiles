@@ -21,6 +21,7 @@ vim.opt.number = true                                           -- display line 
 vim.opt.path:append "**"                                        -- set find command to look for sub directories recursively
 vim.opt.redrawtime = 5000                                       -- Prevent huge files from breaking (and disabling) syntax highlighting
 vim.opt.relativenumber = true                                   -- display line number relative to the current one
+vim.opt.selection = "old"                                       -- Keep selection inclusive but doesn't allow the cursor to be positioned one character past the line.
 vim.opt.shell = "/usr/bin/bash"                                 -- Set bash as vim shell (it speeds up vim-fugitive A LOT)
 vim.opt.shortmess:append "cS"                                   -- show completion suggestions (^X) in insert mode and hide Search count
 vim.opt.showbreak = ">>"                                        -- virtual line indicator
@@ -36,6 +37,7 @@ vim.opt.ttyfast = true                                          -- send more cha
 vim.opt.undolevels = 400                                        -- store a bunch of undo history
 vim.opt.updatetime = 50                                         -- make updates happen faster
 vim.opt.viewoptions = { "folds", "options", "cursor", "unix" }  -- improve Unix/Windows compatibility
+vim.opt.virtualedit = { "block" }                                       -- enable visual bell (disable audio bell)
 vim.opt.visualbell = true                                       -- enable visual bell (disable audio bell)
 vim.opt.wildignorecase = true                                   -- enable case-insensitive while completing file names
 vim.opt.wildmenu = true                                         -- Tab autocomplete in command mode
