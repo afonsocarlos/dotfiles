@@ -48,10 +48,10 @@ vim.opt.wrap = true                                             -- this enables 
 vim.opt.textwidth = 0
 vim.opt.wrapmargin = 0
 
-vim.opt.swapfile = false                                -- disable swap files
-vim.opt.backup = false                                  -- disable backup
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- setup undo directory
-vim.opt.undofile = true                                 -- enable undo files
+vim.opt.swapfile = false                                          -- disable swap files
+vim.opt.backup = false                                            -- disable backup
+vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo"  -- setup undo directory
+vim.opt.undofile = true                                           -- enable undo files
 
 -- Indentation options
 vim.opt.expandtab = true    -- on pressing tab, insert 4 spaces
