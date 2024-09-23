@@ -9,7 +9,9 @@ return {
     },
     keymaps = {
       ["<leader>-"] = "actions.close",
+      ["<leader>e"] = "actions.refresh",
       ["<C-h>"] = false,
+      ["<C-l>"] = false,
       ["<M-h>"] = "actions.select_split",
       ["<M-v>"] = "actions.select_vsplit",
       ["g/"] = function ()
