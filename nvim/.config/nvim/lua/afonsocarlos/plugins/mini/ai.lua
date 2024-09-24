@@ -7,9 +7,17 @@ M.setup = function()
       a = ai.gen_spec.argument({ separator = ",%s*" }),
       b = { { "%b()" }, "^.().*().$" },
       B = { { "%b{}" }, "^.%s*().-()%s*.$" },
-      c = ai.gen_spec.treesitter({ a = '@class.outer', i = '@class.inner' }),
-      f = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
-      F = ai.gen_spec.treesitter({ a = '@function.full', i = '@function.inner' }),
+      c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+      f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+      F = ai.gen_spec.treesitter({ a = "@function.full", i = "@function.inner" }),
+      g = function()
+        local from = { line = 1, col = 1 }
+        local to = {
+          line = vim.fn.line("$"),
+          col = math.max(vim.fn.getline("$"):len(), 1),
+        }
+        return { from = from, to = to }
+      end,
       ["{"] = false,
     },
     n_lines = 500,
