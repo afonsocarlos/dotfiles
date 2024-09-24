@@ -6,7 +6,6 @@ M.setup = function()
     custom_textobjects = {
       a = ai.gen_spec.argument({ separator = ",%s*" }),
       b = { { "%b()" }, "^.().*().$" },
-      B = { { "%b{}" }, "^.%s*().-()%s*.$" },
       c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
       f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
       F = ai.gen_spec.treesitter({ a = "@function.full", i = "@function.inner" }),
@@ -18,7 +17,6 @@ M.setup = function()
         }
         return { from = from, to = to }
       end,
-      ["{"] = false,
     },
     n_lines = 500,
     search_method = "cover_or_nearest",
