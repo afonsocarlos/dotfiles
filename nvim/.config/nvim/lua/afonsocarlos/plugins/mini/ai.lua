@@ -26,16 +26,8 @@ M.setup = function()
         }
         return { from = from, to = to }
       end,
-      k = {
-        {
-          { "%f[^%s,]%w+%s*[:=]%s*", },
-          { "%f[^%s,]'.-'%s*[:=]%s*", },
-          { '%f[^%s,]".-"%s*[:=]%s*', },
-          { "%f[^%s,]%['.-']%s*[:=]%s*", },
-          { '%f[^%s,]%[".-"]%s*[:=]%s*', },
-        },
-        "^().-()%s*[:=]",
-      },
+      k = ai.gen_spec.treesitter({ a = "@array_key.outer", i = "@array_key.inner" }),
+      v = ai.gen_spec.treesitter({ a = "@array_value.outer", i = "@array_value.inner" }),
     },
     n_lines = 500,
     search_method = "cover_or_nearest",
