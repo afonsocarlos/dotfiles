@@ -4,6 +4,15 @@ M.setup = function()
   local ai = require("mini.ai")
   ai.setup({
     custom_textobjects = {
+      S = {
+        {
+          "%u[%l%d]+%f[^%l%d]",
+          "%f[%S][%l%d]+%f[^%l%d]",
+          "%f[%P][%l%d]+%f[^%l%d]",
+          "^[%l%d]+%f[^%l%d]",
+        },
+        "^().*()$",
+      },
       a = ai.gen_spec.argument({ separator = ",%s*" }),
       b = { { "%b()" }, "^.().*().$" },
       c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
