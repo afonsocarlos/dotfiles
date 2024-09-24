@@ -28,6 +28,7 @@ M.setup = function()
       end,
       k = ai.gen_spec.treesitter({ a = "@array_key.outer", i = "@array_key.inner" }),
       v = ai.gen_spec.treesitter({ a = "@array_value.outer", i = "@array_value.inner" }),
+      x = { { "%f[%S]%w+='.-'", '%f[%S]%w+=".-"' }, "^%w+=.().*().$" },
     },
     n_lines = 500,
     search_method = "cover_or_nearest",
