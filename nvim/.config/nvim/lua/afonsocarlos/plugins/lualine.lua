@@ -1,4 +1,17 @@
-local spell = function ()
+local quickfix_count = function()
+  local qf_values = vim.fn.getqflist({ idx = 0, size = 0 })
+  local qf_loc_label = ""
+  if qf_values.size > 0 then
+    qf_loc_label = ("Qf: [%s/%s]"):format(qf_values.idx, qf_values.size)
+  end
+  local loc_values = vim.fn.getloclist(0, { idx = 0, size = 0 })
+  if loc_values.size > 0 then
+    qf_loc_label = ("%s Loc: [%s/%s]"):format(qf_loc_label, loc_values.idx, loc_values.size)
+  end
+  return qf_loc_label
+end
+
+local spell = function()
   return vim.wo.spell and ("Spell: %s"):format(vim.bo.spelllang) or ""
 end
 
@@ -45,6 +58,7 @@ return {
           },
         },
         lualine_x = {
+          { quickfix_count },
           {
             "searchcount",
             maxcount = 9999,
