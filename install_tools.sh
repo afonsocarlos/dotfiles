@@ -89,3 +89,11 @@ fi
 if ! [ -d $HOME/.pyenv ]; then
   curl https://pyenv.run | bash
 fi
+
+echo "Installing handful terminal apps..."
+pip install --break-system-packages --user -U \
+  mycli \
+  pgcli \
+  qmk \
+  solaar \
+  yt-dlp
