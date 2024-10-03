@@ -14,6 +14,13 @@ return {
 
   -- The undo history visualizer for VIM
   "mbbill/undotree",
+  {
+    "kevinhwang91/nvim-fundo",
+    dependencies = { "kevinhwang91/promise-async" },
+    build = function() require("fundo").install() end,
+    lazy = false,
+    config = true
+  },
 
   -- Better quickfix window in Neovim
   { "kevinhwang91/nvim-bqf", ft = "qf" },
