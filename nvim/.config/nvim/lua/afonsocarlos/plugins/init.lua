@@ -7,8 +7,7 @@ return {
   "tpope/vim-sleuth",    -- Heuristically set buffer options
 
   -- ********** Editing help tools **********
-  -- Easily align chunks of code
-  "junegunn/vim-easy-align",
+
   -- Delete buffers without messing up layout
   "moll/vim-bbye",
 
@@ -33,6 +32,9 @@ return {
 
   -- A tree like view for symbols in Neovim
   { "simrat39/symbols-outline.nvim", config = true },
+
+  -- Easily align chunks of code
+  "junegunn/vim-easy-align",
 
   {
     "junegunn/fzf",
