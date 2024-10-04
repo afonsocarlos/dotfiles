@@ -18,7 +18,7 @@ local setup_autosession = function()
   local project_root = vim.fs.dirname(root_git)
   local session_name = project_root:gsub("/", "%%")
 
-  local HOME = os.getenv("HOME"):gsub("[.-]", "%%%1")
+  local HOME = vim.pesc(os.getenv("HOME"))
   local autosession_directories = {
     HOME .. "/.dotfiles",
     HOME .. "/build",
