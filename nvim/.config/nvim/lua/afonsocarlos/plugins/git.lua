@@ -137,9 +137,13 @@ return {
     { "<leader>ht", ":Gitsigns toggle_current_line_blame<CR>", silent = true },
     { "<leader>htd", ":Gitsigns toggle_deleted<CR>", silent = true },
 
-    -- Fugitive Shortcuts
-    { "<leader>hd", ":Gdiffsplit<CR>", silent = true },
+    -- Diffview Shortcuts
+    { "<leader>hd", ":DiffviewOpen<CR>", silent = true },
     { "<leader>hD", ":Gdiffsplit @<CR>", silent = true },
+    { "<leader>hf", ":DiffviewFileHistory %<CR>", silent = true },
+    { "<leader>hh", ":DiffviewFileHistory<CR>", silent = true },
+
+    -- Fugitive Shortcuts
     { "<leader>gb", ":G blame<CR>", silent = true },
     { "<leader>gca", ":bot G commit --verbose --all<CR>", silent = true },
     { "<leader>gcc", ":bot G commit --verbose<CR>", silent = true },
@@ -149,6 +153,7 @@ return {
     { "<leader>gP", run_async({ "git", "push", "-u", "--force-with-lease" }), silent = true },
     { "<leader>gs", ":G<CR>", silent = true },
 
+    -- Mergetool Shortcuts
     { "<leader>hc", "<plug>(MergetoolToggle)", silent = true },
     { "<leader>hct", ":call mergetool#toggle_layout('mr,b')<CR>", silent = true },
   },
