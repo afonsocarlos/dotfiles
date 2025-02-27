@@ -40,6 +40,7 @@ if [ -x "$(command -v apt)" ]; then
     neofetch \
     peek \
     php \
+    python3-pip \
     ripgrep \
     screenkey \
     tmux \
@@ -94,4 +95,5 @@ pip install --break-system-packages --user -U \
   pgcli \
   qmk \
   solaar \
+  magic-wormhole \
   yt-dlp
