@@ -27,9 +27,10 @@ vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>:echo 'File is now executable!'<CR>", default_opts)
 vim.keymap.set("n", "<leader>X", ":!chmod -x %<CR>:echo 'File is not executable anymore!'<CR>", default_opts)
 -- Close buffer
-vim.keymap.set("n", "<leader>db", ":Bdel<CR>", default_opts)
-vim.keymap.set("n", "<leader>dd", ":Bdel!<CR>", default_opts)
-vim.keymap.set("n", "<leader>de", ":Bdel #<CR>", default_opts)
+vim.keymap.set("n", "<leader>db", ":bdel!<CR>", default_opts)
+vim.keymap.set("n", "<leader>dd", ":Bdel<CR>", default_opts)
+vim.keymap.set("n", "<leader>df", ":Bdel!<CR>", default_opts)
+vim.keymap.set("n", "<leader>da", ":Bdel #<CR>", default_opts)
 vim.keymap.set("n", "<leader>dt", ":tabclose<CR>", default_opts)
 -- Toggle spell check
 vim.keymap.set("n", "<F5>", ":setlocal spell! spelllang=pt_br<CR>")
