@@ -18,7 +18,7 @@ return {
     dependencies = { "kevinhwang91/promise-async" },
     build = function() require("fundo").install() end,
     lazy = false,
-    config = true
+    config = function () require("fundo").setup() end,
   },
 
   -- Better quickfix window in Neovim
