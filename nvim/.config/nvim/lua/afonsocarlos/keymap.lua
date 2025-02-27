@@ -13,10 +13,10 @@ vim.keymap.set("n", "<C-l>", "<C-W>l", { remap = true })
 -- Add spelling correction
 vim.keymap.set("n", "gz", "[s1z=``")
 -- Resize with arrows
-vim.keymap.set("n", "<C-Up>", ":resize -5<CR>", default_opts)
-vim.keymap.set("n", "<C-Down>", ":resize +5<CR>", default_opts)
-vim.keymap.set("n", "<C-Left>", ":vertical resize -5<CR>", default_opts)
-vim.keymap.set("n", "<C-Right>", ":vertical resize +5<CR>", default_opts)
+vim.keymap.set("n", "<C-S-Up>", ":resize -5<CR>", default_opts)
+vim.keymap.set("n", "<C-S-Down>", ":resize +5<CR>", default_opts)
+vim.keymap.set("n", "<C-S-Left>", ":vertical resize -5<CR>", default_opts)
+vim.keymap.set("n", "<C-S-Right>", ":vertical resize +5<CR>", default_opts)
 
 vim.keymap.set("n", "<leader>e", ":e<CR>:echo 'File reloaded!'<CR>", default_opts)
 vim.keymap.set("n", "<leader>n", ":enew<CR>", default_opts)
