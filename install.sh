@@ -3,6 +3,8 @@
 # install tools
 ./install_tools.sh
 
+mkdir -p ~/build ~/dev ~/work
+
 # and enable italics to terminal
 tic -x xterm-256color-italic.terminfo
 # test if it worked!

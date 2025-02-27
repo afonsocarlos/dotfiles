@@ -3,8 +3,6 @@
 set -e
 # set -x
 
-mkdir -p ~/build ~/dev ~/work
-
 # function install {
 #   which $1 &> /dev/null
 #
