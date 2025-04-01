@@ -33,8 +33,8 @@ return {
       end,
       ["<leader>ff"] = {
         function()
-          require("telescope.builtin").find_files({
-            cwd = require("oil").get_current_dir()
+          require('fzf-lua').files({
+            cwd = require("oil").get_current_dir(),
           })
         end,
         mode = "n",
