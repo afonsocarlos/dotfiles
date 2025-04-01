@@ -20,8 +20,8 @@ return {
       end
     end
 
-    vim.keymap.set("n", "gX", ":set opfunc=v:lua.toggle_checkbox<CR>g@", { silent = true })
-    vim.keymap.set("x", "gX", ":<C-U>:lua toggle_checkbox('visual')<CR>", { silent = true })
-    vim.keymap.set("n", "gXX", "gX_", { remap = true })
+    vim.keymap.set("n", "<leader>x", ":set opfunc=v:lua.toggle_checkbox<CR>g@", { silent = true })
+    vim.keymap.set("x", "<leader>x", ":<C-U>:lua toggle_checkbox('visual')<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>xx", "<leader>x_", { remap = true })
   end,
 }
