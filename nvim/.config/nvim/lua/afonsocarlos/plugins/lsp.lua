@@ -4,7 +4,6 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
-    "ray-x/lsp_signature.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -99,48 +98,27 @@ return {
       },
     })
 
-    -- Setup diagnostic signs
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    -- Setup border "rounded" to be used in floating window
-    require("lspconfig.ui.windows").default_options.border = "rounded"
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
-    })
     vim.diagnostic.config({
-      float = {
-        border = "rounded",
-      },
-    })
-    require("lsp_signature").setup({
-      bind = true, -- This is mandatory, otherwise border config won't get registered.
-      handler_opts = {
-        border = "rounded",
+      virtual_lines = {
+       -- Only show virtual line diagnostics for the current cursor line
+       current_line = true,
       },
     })
   end,
   keys = {
-    { "K", vim.lsp.buf.hover, silent = true },
-    { "<leader>gD", vim.lsp.buf.declaration, silent = true },
+    { "grD", vim.lsp.buf.declaration, silent = true }, -- Probably delete this one
     { "<leader>gd", ":FzfLua lsp_definitions ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
-    { "<leader>gr", ":FzfLua lsp_references ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
-    { "<leader>gi", ":FzfLua lsp_implementations ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
-    { "<leader>gt", ":FzfLua lsp_typedefs ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
-    { "<leader>gh", vim.lsp.buf.signature_help, silent = true },
-    { "<leader>ge", vim.diagnostic.open_float, silent = true },
-    { "<leader>rn", vim.lsp.buf.rename, silent = true },
-    { "<leader>ca", vim.lsp.buf.code_action, silent = true },
-    { "<leader>ca", vim.lsp.buf.code_action, silent = true },
-    { "<leader>gwa", vim.lsp.buf.add_workspace_folder, silent = true },
-    { "<leader>gwr", vim.lsp.buf.remove_workspace_folder, silent = true },
-    { "<leader>gwl", function() P(vim.lsp.buf.list_workspace_folders()) end, silent = true },
-    { "[g", vim.diagnostic.goto_prev, silent = true },
-    { "]g", vim.diagnostic.goto_next, silent = true },
+    { "grr", ":FzfLua lsp_references ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
+    { "gri", ":FzfLua lsp_implementations ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
+    { "grt", ":FzfLua lsp_typedefs ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
+    { "grs", vim.lsp.buf.signature_help, silent = true },
+    { "grd", vim.diagnostic.open_float, silent = true },
+    { "grwa", vim.lsp.buf.add_workspace_folder, silent = true },
+    { "grwr", vim.lsp.buf.remove_workspace_folder, silent = true },
+    { "grwl", function() P(vim.lsp.buf.list_workspace_folders()) end, silent = true },
     { "[e", ":lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
     { "]e", ":lua vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
+    { "[t", ":pop<CR>", silent = true },
+    { "]t", ":tag<CR>", silent = true },
   },
 }

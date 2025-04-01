@@ -41,6 +41,7 @@ vim.opt.virtualedit = { "block" }                                       -- enabl
 vim.opt.visualbell = true                                       -- enable visual bell (disable audio bell)
 vim.opt.wildignorecase = true                                   -- enable case-insensitive while completing file names
 vim.opt.wildmenu = true                                         -- Tab autocomplete in command mode
+vim.opt.winborder = "rounded"                                   -- Give all floating windows rounded borders by default
 vim.opt.wrap = true                                             -- this enables 'visual' wrapping
 
 
