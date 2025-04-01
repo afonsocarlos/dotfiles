@@ -1,10 +1,10 @@
 return {
   -- Tpope plugins
-  "tpope/vim-abolish",   -- intelligent substitution
-  "tpope/vim-dotenv",    -- basic support for .env and Procfile
-  "tpope/vim-fugitive",  -- git integration for Vim
-  "tpope/vim-repeat",    -- repeat last modification regarding to Plugin editions
-  "tpope/vim-sleuth",    -- Heuristically set buffer options
+  "tpope/vim-abolish",  -- intelligent substitution
+  "tpope/vim-dotenv",   -- basic support for .env and Procfile
+  "tpope/vim-fugitive", -- git integration for Vim
+  "tpope/vim-repeat",   -- repeat last modification regarding to Plugin editions
+  "tpope/vim-sleuth",   -- Heuristically set buffer options
 
   -- ********** Editing help tools **********
 
@@ -18,7 +18,7 @@ return {
     dependencies = { "kevinhwang91/promise-async" },
     build = function() require("fundo").install() end,
     lazy = false,
-    config = function () require("fundo").setup() end,
+    config = function() require("fundo").setup() end,
   },
 
   -- Better quickfix window in Neovim
@@ -43,9 +43,12 @@ return {
 
   -- full signature help, docs and completion for the nvim lua API.
   {
-    "folke/neodev.nvim",
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
     opts = {
-      library = { plugins = { "neotest" }, types = true },
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
     },
   },
 

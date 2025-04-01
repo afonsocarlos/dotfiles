@@ -6,11 +6,10 @@ local conceal_todolist = function()
 end
 
 local conceal_emojis = function()
-  local items = require("cmp_emoji.items")
-  local emojis = items()
+  local emojis = require("blink-emoji.emojis").get()
 
   for _, emoji in ipairs(emojis) do
-    vim.fn.matchadd("Conceal", emoji.word, 10, -1, { conceal = emoji.insertText })
+    vim.fn.matchadd("Conceal", emoji.textEdit.newText, 10, -1, { conceal = emoji.insertText })
   end
 end
 

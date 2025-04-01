@@ -8,7 +8,6 @@ return {
   lazy = true,
   event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
   dependencies = {
-    "saadparwaiz1/cmp_luasnip",           -- for autocompletion
     -------------- check these --------------
     "rafamadriz/friendly-snippets",       -- useful snippets
     "honza/vim-snippets",
