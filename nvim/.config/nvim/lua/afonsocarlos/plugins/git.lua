@@ -87,19 +87,6 @@ return {
         vim.g.mergetool_layout = "mr"
         vim.g.mergetool_prefer_revision = "local"
 
-        -- Navigation
-        vim.keymap.set("n", "]c", function()
-          if vim.wo.diff then return "]c" end
-          vim.schedule(function() gs.nav_hunk('next', { navigation_message = true }) end)
-          return "<Ignore>"
-        end, { expr = true })
-
-        vim.keymap.set("n", "[c", function()
-          if vim.wo.diff then return "[c" end
-          vim.schedule(function() gs.nav_hunk('prev', { navigation_message = true }) end)
-          return "<Ignore>"
-        end, { expr = true })
-
         -- Diff View Shortcuts
         vim.keymap.set("n", "gq", function()
           if not vim.opt.diff:get() then return "gq" end
@@ -123,6 +110,8 @@ return {
   end,
   keys = {
     -- Gitsigns Shortcuts
+    { "]c", "&diff == 1 ? ']c' : ':Gitsigns nav_hunk next navigation_message=true<CR>'", expr = true, silent = true },
+    { "[c", "&diff == 1 ? '[c' : ':Gitsigns nav_hunk prev navigation_message=true<CR>'", expr = true, silent = true },
     { "[C", ":Gitsigns nav_hunk first navigation_message=true<CR>", mode = { "n", "v" }, silent = true },
     { "]C", ":Gitsigns nav_hunk last navigation_message=true<CR>", mode = { "n", "v" }, silent = true },
     { "<leader>hs", ":Gitsigns stage_hunk<CR>", mode = { "n", "v" }, silent = true },
