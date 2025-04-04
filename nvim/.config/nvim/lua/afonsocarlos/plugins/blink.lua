@@ -1,3 +1,10 @@
+local selection = {
+  selection = {
+    preselect = false,
+    auto_insert = true,
+  },
+}
+
 return {
   "saghen/blink.cmp",
   dependencies = {
@@ -14,66 +21,42 @@ return {
     cmdline = {
       enabled = true,
       completion = {
-        list = {
-          selection = {
-            preselect = false,
-            auto_insert = true,
-          },
-        },
+        list = selection,
         menu = { auto_show = true },
       },
+      keymap = {
+        ["<Right>"] = { "fallback" },
+        ["<Left>"] = { "fallback" },
+      },
+      sources = function()
+        if vim.fn.getcmdtype() == ":" then return { "cmdline", "path" } end
+        return {}
+      end
     },
 
     completion = {
       documentation = { auto_show = true },
-      list = {
-        selection = {
-          preselect = false,
-          auto_insert = true,
-        },
-      }
+      list = selection
     },
 
     signature = { enabled = true },
 
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji" },
-      -- :smile:
       per_filetype = {
         sql = { "snippets", "dadbod", "buffer" },
       },
       providers = {
-        buffer = {
-          opts = {
-            get_bufnrs = function()
-              return vim.tbl_filter(function(bufnr)
-                return vim.bo[bufnr].buftype == ""
-              end, vim.api.nvim_list_bufs())
-            end,
-          },
-        },
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-        -- :sweat_smile:
         emoji = {
-          module = "blink-emoji",
           name = "Emoji",
-          score_offset = 15, -- Tune by preference
-          opts = { insert = true }, -- Insert emoji (default) or complete its name
-          -- should_show_items = function()
-          --   return vim.tbl_contains(
-          --     -- Enable emoji completion only for git commits and markdown.
-          --     -- By default, enabled for all file-types.
-          --     { "gitcommit", "markdown" },
-          --     vim.o.filetype
-          --   )
-          -- end,
+          module = "blink-emoji",
+          score_offset = 15,
+          should_show_items = function()
+            return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
+          end,
         },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          -- make lazydev completions top priority (see `:h blink.cmp`)
-          score_offset = 100,
-        },
+        lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
       },
     },
   },
