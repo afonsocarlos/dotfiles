@@ -82,9 +82,6 @@ vim.keymap.set("x", "<M-cr>", "<Plug>SlimeRegionSend")
 vim.keymap.set("n", "<M-cr>", "<Plug>SlimeParagraphSend")
 vim.keymap.set("n", "<C-c>v", "<Plug>SlimeConfig")
 
--- ************* NvimTree *************
-vim.keymap.set("n", "<leader>k", "expand('%:p') != '' && bufwinnr('NvimTree') != 1 ? ':NvimTreeFindFile<CR>' : ':NvimTreeToggle<CR>'", { expr = true, silent = true })
-
 -- ************* Undotree *************
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>", default_opts)
 
