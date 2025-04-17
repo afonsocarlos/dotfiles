@@ -1,3 +1,31 @@
+local display_diagnostic = function(jump, opts)
+  pcall(vim.api.nvim_del_augroup_by_name, "lsp_diagnostics")
+
+  opts = opts or {}
+  opts.count = jump or 0
+  vim.diagnostic.jump(opts)
+
+  local virtual_lines_enabled = vim.diagnostic.config().virtual_lines
+
+  if virtual_lines_enabled and jump == nil then
+    vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+    local _, winid = vim.diagnostic.open_float()
+    vim.api.nvim_set_current_win(winid or 0)
+  else
+    vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
+  end
+
+  vim.defer_fn(function()  -- deferred to not trigger by jump itself
+    vim.api.nvim_create_autocmd('CursorMoved', {
+      group = vim.api.nvim_create_augroup('lsp_diagnostics', { clear = true }),
+      once = true,
+      callback = function()
+        vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+      end,
+    })
+  end, 1)
+end
+
 local goto_definition = function()
   local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
   if not next(clients) then return "<C-]>" end
@@ -111,12 +139,7 @@ return {
       },
     })
 
-    vim.diagnostic.config({
-      virtual_lines = {
-       -- Only show virtual line diagnostics for the current cursor line
-       current_line = true,
-      },
-    })
+    vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
   end,
   keys = {
     { "grD", vim.lsp.buf.declaration, silent = true }, -- Probably delete this one
@@ -125,12 +148,16 @@ return {
     { "gri", ":FzfLua lsp_implementations ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
     { "grt", ":FzfLua lsp_typedefs ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
     { "grs", vim.lsp.buf.signature_help, silent = true },
-    { "grd", vim.diagnostic.open_float, silent = true },
+    { "grd", display_diagnostic, silent = true },
     { "grwa", vim.lsp.buf.add_workspace_folder, silent = true },
     { "grwr", vim.lsp.buf.remove_workspace_folder, silent = true },
     { "grwl", function() P(vim.lsp.buf.list_workspace_folders()) end, silent = true },
-    { "[e", ":lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
-    { "]e", ":lua vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }<CR>", silent = true },
+    { "[e", function() display_diagnostic(-vim.v.count1, { severity = vim.diagnostic.severity.ERROR }) end, silent = true },
+    { "]e", function() display_diagnostic(vim.v.count1, { severity = vim.diagnostic.severity.ERROR }) end, silent = true },
+    { "[d", function() display_diagnostic(-vim.v.count1) end, silent = true },
+    { "]d", function() display_diagnostic(vim.v.count1) end, silent = true },
+    { "[D", function() display_diagnostic(-math.huge, { wrap = false }) end, silent = true },
+    { "]D", function() display_diagnostic(math.huge, { wrap = false }) end, silent = true },
     { "[t", ":pop<CR>", silent = true },
     { "]t", ":tag<CR>", silent = true },
   },
