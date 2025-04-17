@@ -53,6 +53,8 @@ vim.keymap.set("n", "ga", "<Plug>(EasyAlign)", { remap = true })
 vim.keymap.set("n", "Y", "y$")
 -- Quit All windows without checking for changes
 vim.keymap.set("n", "ZQ", ":qa!<CR>", default_opts)
+-- Quit All windows saving buffers that changed
+vim.keymap.set("n", "ZA", ":xa<CR>", default_opts)
 vim.keymap.set("n", "gco", "o.<Esc>gcc$C", { remap = true })
 vim.keymap.set("n", "gcO", "O.<Esc>gcc$C", { remap = true })
 -- Enable better scrolling
