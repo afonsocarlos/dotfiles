@@ -53,6 +53,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- composer.lock extension setup
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("composer_filetypedetect", { clear = true }),
+  pattern = {
+    "composer.lock",
+  },
+  command = [[ setfiletype json ]]
+})
+
 -- Defold extension setup
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("defold_filetypedetect", { clear = true }),

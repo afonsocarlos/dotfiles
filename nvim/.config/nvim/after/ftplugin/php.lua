@@ -23,5 +23,3 @@ vim.b.minisplitjoin_config = {
 
 vim.b.test_coverage_cmd = { "vendor/bin/phpunit", "--coverage-cobertura", "coverage/cobertura.xml" }
 vim.b.test_coverage_env = { XDEBUG_MODE = "coverage" }
-
-vim.opt_local.foldexpr = "getline(v:lnum)=~'^ *use'?1:nvim_treesitter#foldexpr()"

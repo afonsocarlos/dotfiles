@@ -1,6 +1,6 @@
 ; extends
 (
-  (comment) * @_start
+  (comment)* @_start
   .
   [
     (function_definition)
