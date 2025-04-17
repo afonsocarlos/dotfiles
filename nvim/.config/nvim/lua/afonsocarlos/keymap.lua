@@ -55,6 +55,10 @@ vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "ZQ", ":qa!<CR>", default_opts)
 -- Quit All windows saving buffers that changed
 vim.keymap.set("n", "ZA", ":xa<CR>", default_opts)
+-- Always delete til the limits of the paragraph linewise
+vim.keymap.set("n", "d}", "V}kd", default_opts)
+vim.keymap.set("n", "d{", "V{jd", default_opts)
+-- Insert new commented line
 vim.keymap.set("n", "gco", "o.<Esc>gcc$C", { remap = true })
 vim.keymap.set("n", "gcO", "O.<Esc>gcc$C", { remap = true })
 -- Enable better scrolling
