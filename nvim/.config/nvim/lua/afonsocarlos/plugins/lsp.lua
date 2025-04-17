@@ -31,11 +31,12 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = vim.tbl_keys(servers),
+      automatic_installation = true,
     })
     local installed_servers = mason_lspconfig.get_installed_servers()
 
     -- Loop through the installed servers and set them up
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     for _, server_name in ipairs(installed_servers) do
       lspconfig[server_name].setup({
         settings = servers[server_name],
