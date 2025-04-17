@@ -114,6 +114,7 @@ return {
     { "[c", "&diff == 1 ? '[c' : ':Gitsigns nav_hunk prev navigation_message=true<CR>'", expr = true, silent = true },
     { "[C", ":Gitsigns nav_hunk first navigation_message=true<CR>", mode = { "n", "v" }, silent = true },
     { "]C", ":Gitsigns nav_hunk last navigation_message=true<CR>", mode = { "n", "v" }, silent = true },
+    { "ih", ":Gitsigns select_hunk<CR>", mode = { "o", "x" }, silent = true },
     { "<leader>hs", ":Gitsigns stage_hunk<CR>", mode = { "n", "v" }, silent = true },
     { "<leader>hu", ":Gitsigns reset_hunk<CR>", mode = { "n", "v" }, silent = true },
     { "<leader>hS", ":Gitsigns stage_buffer<CR>", silent = true },
