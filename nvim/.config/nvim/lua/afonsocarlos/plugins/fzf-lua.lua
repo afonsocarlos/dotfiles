@@ -63,6 +63,7 @@ return {
     { "<leader>fo", ":FzfLua oldfiles<CR>", silent = true },
     { "<leader>fq", ":FzfLua grep_quickfix<CR>", silent = true },
     { "<leader>fr", ":FzfLua resume<CR>", silent = true },
+    { "<leader>fs", ":FzfLua git_status<CR>", silent = true },
     { "<leader>ft", ":FzfLua<CR>", silent = true },
   }
 }
