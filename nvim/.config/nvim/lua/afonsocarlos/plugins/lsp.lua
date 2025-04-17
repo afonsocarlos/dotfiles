@@ -1,3 +1,15 @@
+local goto_definition = function()
+  local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr() })
+  if not next(clients) then return "<C-]>" end
+  vim.schedule(function()
+    require("fzf-lua").lsp_definitions({
+      ignore_current_line = true,
+      formatter = "path.filename_first",
+    })
+  end)
+  return "<Ignore>"
+end
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -108,7 +120,7 @@ return {
   end,
   keys = {
     { "grD", vim.lsp.buf.declaration, silent = true }, -- Probably delete this one
-    { "<leader>gd", ":FzfLua lsp_definitions ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
+    { "<C-]>", goto_definition, expr = true },
     { "grr", ":FzfLua lsp_references ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
     { "gri", ":FzfLua lsp_implementations ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
     { "grt", ":FzfLua lsp_typedefs ignore_current_line=true formatter=path.filename_first<CR>", silent = true },
