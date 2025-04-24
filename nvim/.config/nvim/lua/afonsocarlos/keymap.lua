@@ -21,6 +21,8 @@ vim.keymap.set("n", "<C-S-Right>", ":vertical resize +5<CR>", default_opts)
 vim.keymap.set("n", "<leader>e", ":e<CR>:echo 'File reloaded!'<CR>", default_opts)
 vim.keymap.set("n", "<leader>n", ":enew<CR>", default_opts)
 vim.keymap.set("n", "<leader>s", ":update<CR>", default_opts)
+-- Save file as sudo on files that require root permission
+vim.keymap.set("n", "<leader>S", ":write !sudo tee % >/dev/null<CR>:edit!<CR>", default_opts)
 -- Write file without trailing whitespaces
 vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 -- Make file executable
