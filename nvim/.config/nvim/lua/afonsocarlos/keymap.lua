@@ -69,6 +69,13 @@ vim.keymap.set("n", "<C-y>", "3<C-y>")
 -- Hide hightlights on Esc
 vim.keymap.set("n", "<Esc>", ":nohl<Esc>", default_opts)
 
+-- Search within visual selection
+vim.keymap.set("x", "/", "<Esc>/\\%V", default_opts)
+
+-- Block insert in line visual mode
+vim.keymap.set("x", "I", function() return vim.fn.mode() == "V" and "^<C-v>I" or "I" end, { expr = true })
+vim.keymap.set("x", "A", function() return vim.fn.mode() == "V" and "$<C-v>A" or "A" end, { expr = true })
+
 -- Paste without adding deleted text into the unamed register
 -- Enable ve=onemore to handle the special case of pasting/replacing last word at the end of line
 vim.keymap.set("x", "<leader>p", ":<C-U>set virtualedit+=onemore<CR>gv\"_dP:set virtualedit-=onemore<CR>")
