@@ -72,10 +72,9 @@ vim.keymap.set("n", "<Esc>", ":nohl<Esc>", default_opts)
 vim.keymap.set("x", "<leader>p", ":<C-U>set virtualedit+=onemore<CR>gv\"_dP:set virtualedit-=onemore<CR>")
 
 -- Simple way to copy to clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y", { remap = true })
-vim.keymap.set("n", "<leader>y<C-G>", ":<C-U>call setreg('+', expand('%'))<CR>", default_opts)
+vim.keymap.set({ "n", "v" }, "gy", "\"+y")
+vim.keymap.set("n", "gY", "\"+Y", { remap = true })
+vim.keymap.set("n", "gy<C-G>", ":<C-U>call setreg('+', expand('%'))<CR>", default_opts)
 
 vim.keymap.set("v", "<leader>_", ":<C-U>keeppatterns '<,'>s/\\%V[ -]/_/g<CR>", default_opts)
 vim.keymap.set("v", "<leader>cr", " <Plug>(abolish-coerce)", { remap = true })
