@@ -40,10 +40,10 @@ return {
     require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/afonsocarlos/snippets/" })
   end,
   keys = {
-    -- <c-j> is my expansion key
+    -- <c-h> is my expansion key
     -- this will expand the current item or jump to the next item within the snippet.
     {
-      "<c-j>",
+      "<c-h>",
       function()
         return luasnip.jumpable(1) and luasnip.jump(1) or luasnip.expand_or_jump()
       end,
@@ -65,18 +65,15 @@ return {
       expr = true,
     },
 
-    -- <c-l> is selecting within a list of options.
-    -- This is useful for choice nodes (introduced in the forthcoming episode 2)
+    -- <c-j> is selecting within a list of options.
+    -- This is useful for choice nodes
     {
-      "<c-l>",
+      "<c-j>",
       function()
-        if not luasnip.choice_active() then return "<c-g>u<Esc>[s1z=`]a<c-g>u" end
-        vim.schedule(function() luasnip.change_choice(1) end)
-        return "<Ignore>"
+        return luasnip.choice_active() and luasnip.change_choice(1)
       end,
       mode = { "i", "s" },
       silent = true,
-      expr = true,
     },
   },
 }
