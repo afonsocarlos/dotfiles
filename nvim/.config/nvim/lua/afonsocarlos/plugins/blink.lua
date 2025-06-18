@@ -39,7 +39,13 @@ return {
       list = selection
     },
 
+    keymap = {
+      ["<C-K>"] = {},
+    },
+
     signature = { enabled = true },
+
+    snippets = { preset = "luasnip" },
 
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji" },
