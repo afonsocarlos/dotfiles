@@ -46,7 +46,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local navic = require("nvim-navic")
 
@@ -78,7 +77,7 @@ return {
     -- Loop through the installed servers and set them up
     local capabilities = require("blink.cmp").get_lsp_capabilities()
     for _, server_name in ipairs(installed_servers) do
-      lspconfig[server_name].setup({
+      vim.lsp.config[server_name] = {
         settings = servers[server_name],
         capabilities = capabilities,
         on_attach = function(client, bufnr)
@@ -101,10 +100,11 @@ return {
             })
           end
         end,
-      })
+      }
+      vim.lsp.enable(server_name)
     end
 
-    lspconfig.phpactor.setup({
+    vim.lsp.config["phpactor"] = {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         client.server_capabilities.completionProvider = false
@@ -137,7 +137,8 @@ return {
       init_options = {
         ["language_server_worse_reflection.inlay_hints.enable"] = true,
       },
-    })
+    }
+    vim.lsp.enable("phpactor")
 
     vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
   end,
