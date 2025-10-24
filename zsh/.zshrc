@@ -64,6 +64,9 @@ alias gdr='git diff origin/$(git_current_branch)..'
 alias icat="kitty +kitten icat"
 alias rg="rg --smart-case"
 
+# PHP aliases
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+
 # Overcoming muscle memory
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
