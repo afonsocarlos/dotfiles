@@ -46,6 +46,9 @@ nnoremap <F9> :Vista!!<CR>
 nnoremap <F11> :Goyo<CR>
 --]]
 
+-- Swap g; and g, functionality
+vim.keymap.set("n", "g;", "g,", default_opts)
+vim.keymap.set("n", "g,", "g;", default_opts)
 -- Shortcut for vertically aligning elements with Easy Align
 vim.keymap.set("n", "gA", "ga")
 vim.keymap.set("x", "ga", "<Plug>(EasyAlign)", { remap = true })
