@@ -41,6 +41,16 @@ return {
         nowait = true,
         desc = "Find files in the current directory"
       },
+      ["<leader>fg"] = {
+        function()
+          require('fzf-lua').live_grep({
+            cwd = require("oil").get_current_dir(),
+          })
+        end,
+        mode = "n",
+        nowait = true,
+        desc = "Find files in the current directory"
+      },
     },
     lsp_file_methods = {
       autosave_changes = "unmodified",
