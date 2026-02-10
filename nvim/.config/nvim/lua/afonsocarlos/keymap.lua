@@ -6,10 +6,10 @@ local M = {}
 local default_opts = { noremap = true, silent = true }
 
 -- Ease window navigation
-vim.keymap.set("n", "<C-j>", "<C-W>j", { remap = true })
-vim.keymap.set("n", "<C-k>", "<C-W>k", { remap = true })
-vim.keymap.set("n", "<C-h>", "<C-W>h", { remap = true })
-vim.keymap.set("n", "<C-l>", "<C-W>l", { remap = true })
+vim.keymap.set("n", "<C-Up>", "<C-W>k", { remap = true })
+vim.keymap.set("n", "<C-Down>", "<C-W>j", { remap = true })
+vim.keymap.set("n", "<C-Left>", "<C-W>h", { remap = true })
+vim.keymap.set("n", "<C-Right>", "<C-W>l", { remap = true })
 -- Add spelling correction
 vim.keymap.set("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 vim.keymap.set("n", "gz", "[s1z=``")
