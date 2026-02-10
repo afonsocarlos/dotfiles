@@ -37,7 +37,7 @@ vim.opt.ttyfast = true                                          -- send more cha
 vim.opt.undolevels = 400                                        -- store a bunch of undo history
 vim.opt.updatetime = 50                                         -- make updates happen faster
 vim.opt.viewoptions = { "folds", "options", "cursor", "unix" }  -- improve Unix/Windows compatibility
-vim.opt.virtualedit = { "block" }                                       -- enable visual bell (disable audio bell)
+vim.opt.virtualedit = { "block" }                               -- enable visual bell (disable audio bell)
 vim.opt.visualbell = true                                       -- enable visual bell (disable audio bell)
 vim.opt.wildignorecase = true                                   -- enable case-insensitive while completing file names
 vim.opt.wildmenu = true                                         -- Tab autocomplete in command mode
@@ -63,9 +63,8 @@ vim.opt.smartindent = true
 
 -- Folding options
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldnestmax = 10
-vim.opt.foldlevel = 10
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
 
 -- set file encoding
 vim.opt.encoding = "utf-8"
