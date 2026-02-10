@@ -25,3 +25,5 @@ require "afonsocarlos.options"
 require "afonsocarlos.keymap"
 require "afonsocarlos.augroups"
 require "afonsocarlos.lazy"
+
+vim.cmd.colorscheme "catppuccin-mocha"

@@ -1,19 +1,25 @@
 return {
-  "navarasu/onedark.nvim", -- OneDark colorscheme for NeoVim
-
-  lazy = false,
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   config = function()
-    local onedark = require("onedark")
-    local palette = require("onedark.palette").dark
-    onedark.setup({
-      highlights = {
-        MiniHipatternsFixme = { fg = palette.red, bg = "NONE", fmt = "NONE" },
-        MiniHipatternsHack =  { fg = palette.yellow, bg = "NONE", fmt = "NONE" },
-        MiniHipatternsNote =  { fg = palette.purple, bg = "NONE", fmt = "NONE" },
-        MiniHipatternsTodo =  { fg = palette.cyan, bg = "NONE", fmt = "NONE" },
-      }
+    local catppuccin = require("catppuccin")
+    catppuccin.setup({
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      custom_highlights = function(colors)
+        return {
+          Search = { bg = colors.yellow, fg = colors.mantle },
+          IncSearch = { bg = colors.peach, fg = colors.mantle },
+          CurSearch = { bg = colors.peach, fg = colors.mantle },
+          Substitute = { bg = colors.mauve, fg = colors.mantle },
+
+          MiniHipatternsFixme = { fg = colors.red, bg = "NONE" },
+          MiniHipatternsHack =  { fg = colors.yellow, bg = "NONE" },
+          MiniHipatternsNote =  { fg = colors.mauve, bg = "NONE" },
+          MiniHipatternsTodo =  { fg = colors.sapphire, bg = "NONE" },
+        }
+      end,
+
     })
-    onedark.load()
   end,
 }
