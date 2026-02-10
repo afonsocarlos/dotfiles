@@ -68,7 +68,10 @@ vim.keymap.set("n", "gcO", "O.<Esc>gcc$C", { remap = true })
 vim.keymap.set("n", "<C-e>", "3<C-e>")
 vim.keymap.set("n", "<C-y>", "3<C-y>")
 -- Hide hightlights on Esc
-vim.keymap.set("n", "<Esc>", ":nohl<Esc>", default_opts)
+vim.keymap.set("n", "<Esc>", function ()
+  CloseAllFloatingWindows()
+  vim.cmd.nohl()
+end, default_opts)
 
 -- Search within visual selection
 vim.keymap.set("x", "/", "<Esc>/\\%V", default_opts)
