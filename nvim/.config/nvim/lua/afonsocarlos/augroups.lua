@@ -53,6 +53,46 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- treesitter setup for specific filetypes
+vim.api.nvim_create_autocmd({"FileType"}, {
+  group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
+  pattern = "*",
+  callback = function(event)
+    local treesitter = require('nvim-treesitter')
+
+    local lang = vim.treesitter.language.get_lang(event.match)
+
+    local avaliable_parsers = treesitter.get_available()
+
+    -- Check if lang is in the list of available parsers
+    if not vim.tbl_contains(avaliable_parsers, lang) then return end
+
+    -- Try to start the parser install for the language.
+    local ok, task = pcall(treesitter.install, { lang })
+    if not ok then return end
+
+    -- Wait for the installation to finish (up to 10 seconds).
+    task:wait(10000)
+
+    vim.g["no_" .. lang .. "_maps"] = true
+
+    -- Enable syntax highlighting for the buffer
+    ok, _ = pcall(vim.treesitter.start, event.buf, lang)
+    if not ok then return end
+
+    vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
+-- HACK: This is a (permanent) temporary hack to fix the issue with current edited file's filetype not being detected
+-- when restoring a session. The bug started to happen after I updated tree-sitter from master to main. Anyways,
+-- redetecting filetype on UIEnter seems to solve it for now
+vim.api.nvim_create_autocmd("UIEnter", {
+  callback = function()
+    vim.cmd("filetype detect")
+  end,
+})
+
 -- composer.lock extension setup
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("composer_filetypedetect", { clear = true }),
