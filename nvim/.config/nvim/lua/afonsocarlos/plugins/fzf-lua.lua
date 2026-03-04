@@ -1,3 +1,17 @@
+local find_dirs = function()
+  local project_root = vim.fs.dirname(vim.fs.find(".git", { upward = true })[1]) or "."
+  require("fzf-lua").fzf_exec("find " .. project_root .. " -type d", {
+    prompt = "Select directory> ",
+    actions = {
+      ["default"] = function(selected)
+        if selected and #selected > 0 then
+          require("oil").open(selected[1])
+        end
+      end
+    }
+  })
+end
+
 return {
   "ibhagwan/fzf-lua",
   lazy = false,
@@ -57,6 +71,7 @@ return {
     { "<leader>fc", ":FzfLua git_branches<CR>", silent = true },
     { "<leader>fd", ":FzfLua diagnostics_workspace<CR>", silent = true },
     { "<leader>ff", ":FzfLua files<CR>", silent = true },
+    { "<leader>fF", find_dirs, silent = true },
     { "<leader>fg", ":FzfLua live_grep<CR>", silent = true },
     { "<leader>fh", ":FzfLua helptags<CR>", silent = true },
     { "<leader>fl", ":FzfLua git_bcommits<CR>", silent = true },
