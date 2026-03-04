@@ -10,6 +10,9 @@ return {
     keymaps = {
       ["<leader>-"] = "actions.close",
       ["<leader>e"] = "actions.refresh",
+      ["y<C-G>"] = "actions.yank_entry",
+      ["<leader>yy"] = "actions.copy_to_system_clipboard",
+      ["<leader>p"] = "actions.paste_from_system_clipboard",
       ["<C-h>"] = false,
       ["<C-l>"] = false,
       ["<M-h>"] = "actions.select_split",
