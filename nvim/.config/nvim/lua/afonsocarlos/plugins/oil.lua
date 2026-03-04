@@ -15,7 +15,7 @@ return {
       ["<M-h>"] = "actions.select_split",
       ["<M-v>"] = "actions.select_vsplit",
       ["g/"] = function ()
-        local project_root = require("lspconfig").util.find_git_ancestor(vim.fn.getcwd())
+        local project_root = vim.fs.dirname(vim.fs.find(".git", { upward = true })[1])
         vim.cmd("tcd " .. project_root)
         vim.notify("Tab CWD: " .. project_root)
       end,
