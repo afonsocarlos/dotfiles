@@ -14,6 +14,7 @@ return {
 
       -- Default config
       require("mini.indentscope").setup()
+      require("mini.pairs").setup()
     end,
   },
 }
