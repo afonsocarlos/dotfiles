@@ -40,7 +40,8 @@ return {
     },
 
     keymap = {
-      ["<C-K>"] = {},
+      ["<C-k>"] = false,
+      ["<Tab>"] = false,
     },
 
     signature = { enabled = true },
