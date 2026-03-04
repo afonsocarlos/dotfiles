@@ -7,6 +7,7 @@ M.setup = function()
       F = ai.gen_spec.treesitter({ a = "@function.full", i = "@function.inner" }),
       S = {
         {
+          -- camelCase
           "%u[%l%d]+%f[^%l%d]",
           "%f[%S][%l%d]+%f[^%l%d]",
           "%f[%P][%l%d]+%f[^%l%d]",
@@ -24,7 +25,7 @@ M.setup = function()
           line = vim.fn.line("$"),
           col = math.max(vim.fn.getline("$"):len(), 1),
         }
-        return { from = from, to = to }
+        return { from = from, to = to, vis_mode = "V" }
       end,
       k = ai.gen_spec.treesitter({ a = "@array_key.outer", i = "@array_key.inner" }),
       v = ai.gen_spec.treesitter({ a = "@array_value.outer", i = "@array_value.inner" }),
