@@ -54,6 +54,15 @@ return {
         sql = { "snippets", "dadbod", "buffer" },
       },
       providers = {
+        buffer = {
+          opts = {
+            get_bufnrs = function()
+              return vim.tbl_filter(function(bufnr)
+                return vim.bo[bufnr].buftype == ""
+              end, vim.api.nvim_list_bufs())
+            end,
+          },
+        },
         dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
         emoji = {
           name = "Emoji",
@@ -64,6 +73,7 @@ return {
           end,
         },
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
+        lsp = { fallbacks = {} },
       },
     },
   },
