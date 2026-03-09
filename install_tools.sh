@@ -43,6 +43,7 @@ if [ -x "$(command -v apt)" ]; then
     python3-pip \
     ripgrep \
     screenkey \
+    stow \
     tmux \
     vim \
     wget \
@@ -67,6 +68,7 @@ flatpak install -y \
   flathub com.valvesoftware.Steam \
   flathub org.flameshot.Flameshot \
   flathub org.keepassxc.KeePassXC \
+  flathub org.localsend.localsend_app \
   flathub org.telegram.desktop
 
 echo "Installing neovim (from source)..."
