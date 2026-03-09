@@ -32,11 +32,11 @@ if [ -x "$(command -v apt)" ]; then
     curl \
     flatpak \
     git \
+    ghostty \
     htop \
     httpie \
     jq \
     jqp \
-    kitty \
     neofetch \
     peek \
     php \
