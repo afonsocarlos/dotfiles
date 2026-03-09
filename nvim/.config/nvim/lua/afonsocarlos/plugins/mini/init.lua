@@ -14,7 +14,13 @@ return {
 
       -- Default config
       require("mini.indentscope").setup()
-      require("mini.pairs").setup()
+      require("mini.pairs").setup({
+        mappings = {
+          [' '] = { action = 'open', pair = '  ', neigh_pattern = '[%(%[{][%)%]}]' },
+          ['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^\\].' },
+          ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
+        }
+      })
     end,
   },
 }
