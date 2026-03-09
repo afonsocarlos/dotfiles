@@ -64,16 +64,13 @@ return {
   -- AI stuff
   {
     "supermaven-inc/supermaven-nvim",
-    dev = true,
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
-          accept_suggestion = "<Tab>",
-          clear_suggestion = "<C-]>",
           accept_word = "<M-]>",
         }
       })
-    end
+    end,
   },
 
 
