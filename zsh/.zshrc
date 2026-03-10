@@ -49,9 +49,6 @@ export MANPAGER='nvim -u NORC "+colorscheme vim" +Man!'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
 # binding keys
 bindkey -e
 bindkey "\033[1~" beginning-of-line
@@ -142,7 +139,7 @@ zinit snippet OMZL::theme-and-appearance.zsh
 zinit snippet OMZP::battery
 zinit snippet OMZP::alias-finder
 zinit snippet OMZP::git
-
+zinit snippet OMZP::docker
 
 export NVM_COMPLETION=true
 export NVM_LAZY_LOAD=true
