@@ -107,7 +107,7 @@ zinit as"program" wait lucid for \
     mrowa44/emojify
 
 zinit as"program" wait lucid for \
-    atclone"npm install; npm run build; ln -s ./build/index.mjs git-split-diffs" \
+    atclone"npm install; npm run build; ln -sf ./build/index.mjs git-split-diffs" \
     atpull"%atclone" pick"git-split-diffs" \
     banga/git-split-diffs
 
