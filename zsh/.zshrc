@@ -142,7 +142,6 @@ zinit snippet OMZL::theme-and-appearance.zsh
 zinit snippet OMZP::battery
 zinit snippet OMZP::alias-finder
 zinit snippet OMZP::git
-zinit snippet OMZP::colored-man-pages
 
 
 export NVM_COMPLETION=true
