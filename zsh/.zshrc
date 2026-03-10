@@ -41,7 +41,7 @@ else
   export EDITOR='nvim'
 fi
 
-export MANPAGER='nvim +Man!'
+export MANPAGER='nvim -u NORC "+colorscheme vim" +Man!'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
