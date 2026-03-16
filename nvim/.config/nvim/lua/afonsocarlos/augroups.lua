@@ -62,23 +62,21 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 
     local lang = vim.treesitter.language.get_lang(event.match)
 
-    local avaliable_parsers = treesitter.get_available()
+    local installed_parsers = treesitter.get_installed()
 
-    -- Check if lang is in the list of available parsers
-    if not vim.tbl_contains(avaliable_parsers, lang) then return end
+    -- Only proceed if lang is in the list of installed parsers
+    if not vim.tbl_contains(installed_parsers, lang) then
+      -- Check if lang is in the list of available parsers and install it for the next time
+      local avaliable_parsers = treesitter.get_available()
+      if vim.tbl_contains(avaliable_parsers, lang) then treesitter.install(lang) end
 
-    -- Try to start the parser install for the language.
-    local ok, task = pcall(treesitter.install, { lang })
-    if not ok then return end
-
-    -- Wait for the installation to finish (up to 10 seconds).
-    task:wait(10000)
+      return
+    end
 
     vim.g["no_" .. lang .. "_maps"] = true
 
     -- Enable syntax highlighting for the buffer
-    ok, _ = pcall(vim.treesitter.start, event.buf, lang)
-    if not ok then return end
+    vim.treesitter.start(event.buf, lang)
 
     vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
