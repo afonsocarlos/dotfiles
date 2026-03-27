@@ -134,6 +134,7 @@ return {
     { "<leader>hh", ":DiffviewFileHistory<CR>", silent = true },
 
     -- Fugitive Shortcuts
+    { "<leader>ga", ":G add %<CR>", silent = true },
     { "<leader>gb", ":G blame<CR>", silent = true },
     { "<leader>gca", ":bot G commit --verbose --all<CR>", silent = true },
     { "<leader>gcc", ":bot G commit --verbose<CR>", silent = true },
