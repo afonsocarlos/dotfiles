@@ -61,22 +61,5 @@ return {
   -- PHP tools
   "afonsocarlos/composer.nvim",
 
-  -- AI stuff
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({
-        keymaps = {
-          accept_word = "<M-]>",
-        }
-      })
-    end,
-  },
-
-
-
-
-
-
   "ThePrimeagen/refactoring.nvim",
 }
