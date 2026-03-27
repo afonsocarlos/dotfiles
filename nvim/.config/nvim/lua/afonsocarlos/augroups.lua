@@ -58,7 +58,9 @@ vim.api.nvim_create_autocmd({"FileType"}, {
   group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
   pattern = "*",
   callback = function(event)
-    local treesitter = require('nvim-treesitter')
+    local has_treesitter, treesitter = pcall(require, 'nvim-treesitter')
+
+    if not has_treesitter then return end
 
     local lang = vim.treesitter.language.get_lang(event.match)
 
