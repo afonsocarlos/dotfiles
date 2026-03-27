@@ -72,6 +72,8 @@ vim.keymap.set("n", "<Esc>", function ()
   CloseAllFloatingWindows()
   vim.cmd.nohl()
 end, default_opts)
+-- Undo ALL changes back to the last saved state
+vim.keymap.set("n", "U", ":earlier 1f<CR>", default_opts)
 
 -- Search within visual selection
 vim.keymap.set("x", "/", "<Esc>/\\%V", default_opts)
