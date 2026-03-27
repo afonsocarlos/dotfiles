@@ -52,7 +52,24 @@ return {
         end,
         mode = "n",
         nowait = true,
-        desc = "Find files in the current directory"
+        desc = "Grep files in the current directory"
+      },
+      -- Git actions
+      ["<leader>ga"] = {
+        function()
+          local dir = require("oil").get_current_dir()
+          local entry = require("oil").get_cursor_entry()
+
+          if not entry or not dir then
+            return
+          end
+
+          local path = dir .. entry.name
+          vim.fn.jobstart("git add " .. path)
+        end,
+        mode = "n",
+        nowait = true,
+        desc = "Git add current entry"
       },
     },
     lsp_file_methods = {
