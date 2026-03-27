@@ -1,16 +1,30 @@
 ;extends
-(field
- .
- name: (_) @array_key.inner
- .
- "=" @_end
- (#make-range! "array_key.outer" @array_key.inner @_end)
+(
+  [
+    (function_definition)
+  ]
+) @function.full
+
+(
+  (
+    (table_constructor
+      (field
+        .
+        (identifier) @array_key.inner
+        "="
+        (_) @array_value.inner
+      )
+    )
+  )
 )
 
 (
- (field
-   value: (_) @array_value.inner)
- .
- ","? @_end
- (#make-range! "array_value.outer" @array_value.inner @_end)
+  (table_constructor
+    (field
+      .
+      (identifier) @array_key.outer
+      "=" @array_key.outer
+      (_) @array_value.outer
+    ) ","? @array_value.outer
+  )
 )
