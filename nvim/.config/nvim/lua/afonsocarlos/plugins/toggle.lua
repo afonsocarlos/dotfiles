@@ -1,5 +1,7 @@
 return {
-  dir = "afonsocarlos/toggle.nvim",
+  "toggle.nvim",
+  name = "toggle.nvim",
+  dev = true,
   config = function()
     _G.toggle_checkbox = function(mode)
       local mark1 = mode == "visual" and "<" or "["
