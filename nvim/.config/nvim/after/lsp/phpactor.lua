@@ -1,3 +1,6 @@
+-- Reset phpactor default configs
+vim.lsp.config.phpactor = {}
+
 return {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
   on_attach = function(client, bufnr)
