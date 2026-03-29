@@ -155,3 +155,5 @@ if command -v neofetch >/dev/null 2>&1; then
     alias clear='clear; neofetch'
     clear; neofetch
 fi
+
+eval "$(zoxide init --cmd cd zsh)"
