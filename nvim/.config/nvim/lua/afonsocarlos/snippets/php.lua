@@ -46,9 +46,6 @@ return {
 
       namespace {namespace};
 
-      /**
-       * @package {namespace}
-       */
       class {class}{extra}
       {{
           {}
@@ -108,9 +105,7 @@ return {
     trig = "test",
     dscr = "public  function test()",
   }, fmt([[
-      /**
-       * @test
-       */
+      #[Test]
       public function it_should_{method}(): void
       {{
           {}
@@ -119,18 +114,6 @@ return {
     i(0),
     method = i(1),
   })),
-  s("if",
-    fmt([[
-      if ({condition}) {{
-          {}
-      }}
-    ]], {
-      i(0),
-      condition = c(1, {
-        sn(nil, { t "", r(1, "condition", i(1, "condition")) }),
-        sn(nil, { t "!", r(1, "condition") }),
-      }),
-    })),
   s({
     trig = "for",
     dscr = "for loop",
@@ -147,22 +130,6 @@ return {
     },
     { repeat_duplicates = true })
   ),
-  s({
-    trig = "forea?c?h?",
-    regTrig = true,
-  },
-    fmt([[
-      foreach ({items} as {item}) {{
-          {}
-      }}
-    ]], {
-      i(0),
-      items = i(1, "$items"),
-      item = c(2, {
-        sn(nil, { t "", r(1, "item", i(2, "$item")) }),
-        sn(nil, { t "$key => ", r(1, "item") }),
-      }),
-    })),
   s("try",
     fmt([[
       try {{

@@ -104,9 +104,7 @@ return {
     trig = "test",
     dscr = "public  function test()",
   }, fmt([[
-      /**
-       * @test
-       */
+      #[Test]
       public function {method}()
       {{
           {}
