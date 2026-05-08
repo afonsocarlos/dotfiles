@@ -42,8 +42,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "williamboman/mason.nvim", config = true },
-    "williamboman/mason-lspconfig.nvim",
+    { "mason-org/mason.nvim", config = true },
+    "mason-org/mason-lspconfig.nvim",
   },
   config = function()
     local mason_lspconfig = require("mason-lspconfig")

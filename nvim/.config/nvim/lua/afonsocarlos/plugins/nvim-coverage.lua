@@ -11,7 +11,7 @@ end
 
 return {
   "andythigpen/nvim-coverage",
-  dependencies = { "nvim-lua/plenary.nvim", "asb/lua-xmlreader" },
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = {
     auto_reload = true,
     auto_reload_timeout_ms = 1000,
