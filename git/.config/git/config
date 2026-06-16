@@ -46,7 +46,7 @@
     defaultBranch = master
 [merge]
     tool = vim_mergetool
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [mergetool]
     prompt = false
     keepBackup = false
