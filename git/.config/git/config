@@ -29,9 +29,12 @@
     whitespace = red reverse
 [core]
     editor = nvim
-    pager = diff-so-fancy | emojify | less --tabs=4 -RFX
+    pager = emojify | delta --pager='less --tabs=4 -RF'
+[interactive]
+    diffFilter = delta --color-only
 [diff]
     tool = nvimdiff
+    colorMoved = default
 [fetch]
     prune = true
 [filter "lfs"]
@@ -51,7 +54,7 @@
     cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
     trustExitCode = true
 [pager]
-    diff = git-split-diffs --color | emojify | less -RFX
+    diff = emojify | delta --pager='less --tabs=4 -RF'
 [pull]
     ff = only
 [push]
@@ -62,9 +65,13 @@
     updateRefs = true
 [rerere]
     enabled = 1
-[split-diffs]
-    theme-name = github-dark-dim
-    syntax-highlighting-theme = one-dark-pro
+[include]
+    path = ~/.config/delta/themes.gitconfig
+[delta]
+    features = catppuccin-mocha
+    navigate = true    # use n and N to move between diff sections
+    line-numbers = true
+    side-by-side = true
 [user]
     name = Carlos Afonso
     email = afonso.carlos.braga@gmail.com
