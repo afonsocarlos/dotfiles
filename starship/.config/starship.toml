@@ -11,6 +11,7 @@ $line_break\
 $shell\
 $php\
 $python\
+$jobs\
 $character"""
 
 command_timeout = 800
@@ -31,7 +32,8 @@ style = "blue"
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+vimcmd_symbol = '[\[N\]❮](blue)'
+vimcmd_visual_symbol = '[\[V\]❮](green)'
 
 [git_commit]
 format = '[\($hash\)]($style)[$tag](yellow) '
@@ -76,6 +78,7 @@ style = "bright-black"
 [shell]
 format = "[$indicator]($style)"
 bash_indicator = "bash"
-zsh_indicator = ""
+fish_indicator = ""
+zsh_indicator = "zsh"
 style = "black italic"
 disabled = false
