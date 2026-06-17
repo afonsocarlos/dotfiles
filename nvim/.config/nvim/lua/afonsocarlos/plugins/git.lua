@@ -128,7 +128,7 @@ return {
     { "<leader>htd", ":Gitsigns toggle_deleted<CR>", silent = true },
 
     -- Diffview Shortcuts
-    { "<leader>hd", ":DiffviewOpen<CR>", silent = true },
+    { "<leader>hd", ":DiffviewOpen -uno<CR>", silent = true },
     { "<leader>hD", ":Gdiffsplit @<CR>", silent = true },
     { "<leader>hf", ":DiffviewFileHistory %<CR>", silent = true },
     { "<leader>hh", ":DiffviewFileHistory<CR>", silent = true },

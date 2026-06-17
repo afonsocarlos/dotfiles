@@ -6,6 +6,10 @@ return {
         vim.opt_local.wrap = false
       end,
     },
+    default_args = {
+      DiffviewOpen = { "--untracked-files=no", "--imply-local" },
+      DiffviewFileHistory = { "--base=LOCAL" },
+    },
     keymaps = {
       view = {
         ["gq"] = ":DiffviewClose<CR>",
