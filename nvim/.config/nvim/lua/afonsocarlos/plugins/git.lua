@@ -130,7 +130,8 @@ return {
     -- Diffview Shortcuts
     { "<leader>hd", ":DiffviewOpen -uno<CR>", silent = true },
     { "<leader>hD", ":Gdiffsplit @<CR>", silent = true },
-    { "<leader>hf", ":DiffviewFileHistory %<CR>", silent = true },
+    { "<leader>hf", ":DiffviewFileHistory --follow %<CR>", silent = true },
+    { "<leader>hF", ":DiffviewFileHistory --base=LOCAL --follow %<CR>", silent = true },
     { "<leader>hh", ":DiffviewFileHistory<CR>", silent = true },
 
     -- Fugitive Shortcuts

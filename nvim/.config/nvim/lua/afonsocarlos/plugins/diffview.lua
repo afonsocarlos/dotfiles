@@ -8,7 +8,6 @@ return {
     },
     default_args = {
       DiffviewOpen = { "--untracked-files=no", "--imply-local" },
-      DiffviewFileHistory = { "--base=LOCAL" },
     },
     keymaps = {
       view = {
