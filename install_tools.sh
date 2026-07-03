@@ -32,6 +32,7 @@ if [ -x "$(command -v apt)" ]; then
     curl \
     flatpak \
     git \
+    git-delta \
     ghostty \
     htop \
     httpie \
@@ -43,6 +44,8 @@ if [ -x "$(command -v apt)" ]; then
     python3-pip \
     ripgrep \
     screenkey \
+    sesh \
+    starship \
     stow \
     tmux \
     vim \
