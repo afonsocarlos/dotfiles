@@ -1,7 +1,7 @@
 abbr ga 'git add'
 abbr gau 'git add --update'
 abbr gc 'git commit'
-abbr gcm 'git commit -m'
+abbr gcm --set-cursor 'git commit -m "%"'
 abbr gl 'git pull'
 abbr gr 'git pull -r'
 abbr glom "git pull $(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|/| |')"
