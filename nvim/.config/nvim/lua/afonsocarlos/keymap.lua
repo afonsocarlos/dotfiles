@@ -29,10 +29,11 @@ vim.keymap.set("n", "<leader>w", ":noa w<CR>", default_opts)
 -- Make file executable
 vim.keymap.set("n", "<leader>X", ":silent ![[ -x % ]] && chmod -x % || chmod +x %<CR>:echo 'File stat: ' . getfperm(expand('%'))<CR>", default_opts)
 -- Close buffer
+vim.keymap.set("n", "<leader>da", ":bufdo bd<CR>", default_opts)
 vim.keymap.set("n", "<leader>db", ":bdel!<CR>", default_opts)
 vim.keymap.set("n", "<leader>dd", ":Bdel<CR>", default_opts)
+vim.keymap.set("n", "<leader>de", ":Bdel #<CR>", default_opts)
 vim.keymap.set("n", "<leader>df", ":Bdel!<CR>", default_opts)
-vim.keymap.set("n", "<leader>da", ":Bdel #<CR>", default_opts)
 vim.keymap.set("n", "<leader>dt", ":tabclose<CR>", default_opts)
 -- Toggle spell check
 vim.keymap.set("n", "<F5>", ":setlocal spell! spelllang=pt_br<CR>")
