@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+tmux kill-window -t 1
+tmux select-window -t 1
+tmux split-window -h
+tmux select-pane -t :.+
+tmux resize-pane -Z
+tmux send-keys "nvim" Enter

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+database=$(tmux display-message -p '#S' | tr '[:upper:]' '[:lower:]' | sed 's/-/_/g; s/ //g')
+pgcli --prompt-dsn '\dsn_alias> ' -D $database
