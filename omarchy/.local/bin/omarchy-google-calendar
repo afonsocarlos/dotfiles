@@ -1,0 +1,239 @@
+#!/usr/bin/env python3
+"""OAuth-backed Google Calendar bridge for the Omarchy clock."""
+
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+import tempfile
+from datetime import date, datetime, time as datetime_time, timedelta
+from pathlib import Path
+
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+
+CONFIG_DIR = Path.home() / ".config/omarchy"
+CLIENT_FILE = CONFIG_DIR / "google-calendar-oauth-client.json"
+TOKEN_FILE = CONFIG_DIR / "google-calendar-oauth-token.json"
+SELECTION_FILE = CONFIG_DIR / "google-calendar-selection.json"
+SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"]
+
+
+def output(value: dict) -> None:
+    print(json.dumps(value, ensure_ascii=False, separators=(",", ":")))
+
+
+def atomic_private_json(path: Path, value: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}-", dir=path.parent, text=True)
+    try:
+        os.fchmod(fd, 0o600)
+        with os.fdopen(fd, "w") as stream:
+            json.dump(value, stream, ensure_ascii=False, separators=(",", ":"))
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+        os.chmod(path, 0o600)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+
+def notify(title: str, message: str, critical: bool = False) -> None:
+    command = ["omarchy-notification-send"]
+    if critical:
+        command += ["-u", "critical"]
+    subprocess.run(command + [title, message], check=False)
+
+
+def oauth() -> int:
+    if not CLIENT_FILE.exists():
+        notify("Google Calendar", "OAuth client credentials are missing.", True)
+        return 1
+    try:
+        flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_FILE), SCOPES)
+        credentials = flow.run_local_server(port=0, open_browser=True)
+        atomic_private_json(TOKEN_FILE, json.loads(credentials.to_json()))
+        notify("Google Calendar", "Account connected. Open the clock and choose Calendars.")
+        return 0
+    except Exception as error:
+        notify("Google Calendar", f"Authentication failed: {error}", True)
+        print(error, file=sys.stderr)
+        return 1
+
+
+def credentials() -> Credentials | None:
+    if not TOKEN_FILE.exists():
+        return None
+    value = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+    if value.expired and value.refresh_token:
+        value.refresh(Request())
+        atomic_private_json(TOKEN_FILE, json.loads(value.to_json()))
+    return value if value.valid else None
+
+
+def service():
+    value = credentials()
+    return build("calendar", "v3", credentials=value, cache_discovery=False) if value else None
+
+
+def calendar_entries(api) -> list[dict]:
+    entries = []
+    token = None
+    while True:
+        result = api.calendarList().list(pageToken=token, showHidden=True).execute()
+        entries.extend(result.get("items", []))
+        token = result.get("nextPageToken")
+        if not token:
+            break
+    return entries
+
+
+def configured_selection(entries: list[dict]) -> set[str]:
+    if SELECTION_FILE.exists():
+        try:
+            data = json.loads(SELECTION_FILE.read_text())
+            if isinstance(data.get("selected"), list):
+                return {str(item) for item in data["selected"]}
+        except (OSError, ValueError):
+            pass
+    return {str(item["id"]) for item in entries if item.get("primary")}
+
+
+def calendars() -> int:
+    api = service()
+    if not api:
+        output({"configured": False, "calendars": []})
+        return 0
+    try:
+        entries = calendar_entries(api)
+        selected = configured_selection(entries)
+        rows = [{
+            "id": str(item["id"]),
+            "name": str(item.get("summaryOverride") or item.get("summary") or item["id"]),
+            "description": str(item.get("description") or ""),
+            "color": str(item.get("backgroundColor") or ""),
+            "primary": item.get("primary") is True,
+            "selected": str(item["id"]) in selected,
+        } for item in entries]
+        rows.sort(key=lambda item: (not item["primary"], item["name"].casefold()))
+        output({"configured": True, "calendars": rows})
+        return 0
+    except Exception as error:
+        output({"configured": True, "calendars": [], "error": str(error)})
+        return 1
+
+
+def toggle(calendar_id: str) -> int:
+    api = service()
+    if not api:
+        return 1
+    entries = calendar_entries(api)
+    available = {str(item["id"]) for item in entries}
+    if calendar_id not in available:
+        return 1
+    selected = configured_selection(entries)
+    if calendar_id in selected:
+        selected.remove(calendar_id)
+    else:
+        selected.add(calendar_id)
+    atomic_private_json(SELECTION_FILE, {"version": 1, "selected": sorted(selected)})
+    return 0
+
+
+def parse_google_datetime(value: str) -> datetime:
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return parsed.astimezone() if parsed.tzinfo else parsed.astimezone()
+
+
+def event_record(item: dict, calendar: dict) -> dict:
+    raw_start = item.get("start", {})
+    raw_end = item.get("end", {})
+    all_day = "date" in raw_start
+    if all_day:
+        start = datetime.combine(date.fromisoformat(raw_start["date"]), datetime_time.min).astimezone()
+        exclusive_end = datetime.combine(date.fromisoformat(raw_end.get("date", raw_start["date"])), datetime_time.min).astimezone()
+    else:
+        start = parse_google_datetime(raw_start["dateTime"])
+        exclusive_end = parse_google_datetime(raw_end.get("dateTime", raw_start["dateTime"]))
+    if exclusive_end <= start:
+        exclusive_end = start + (timedelta(days=1) if all_day else timedelta(hours=1))
+    return {
+        "id": str(item.get("id") or ""),
+        "calendarId": str(calendar["id"]),
+        "calendar": str(calendar.get("summaryOverride") or calendar.get("summary") or "Calendar"),
+        "color": str(calendar.get("backgroundColor") or ""),
+        "date": start.strftime("%Y-%m-%d"),
+        "endDate": (exclusive_end - timedelta(microseconds=1)).strftime("%Y-%m-%d"),
+        "start": start.isoformat(),
+        "end": exclusive_end.isoformat(),
+        "time": "All day" if all_day else start.strftime("%H:%M"),
+        "title": str(item.get("summary") or "Untitled event"),
+        "location": str(item.get("location") or ""),
+        "allDay": all_day,
+    }
+
+
+def events(start_text: str, end_text: str) -> int:
+    api = service()
+    if not api:
+        output({"configured": False, "events": []})
+        return 0
+    try:
+        entries = calendar_entries(api)
+        selected = configured_selection(entries)
+        start = datetime.combine(date.fromisoformat(start_text), datetime_time.min).astimezone()
+        end = datetime.combine(date.fromisoformat(end_text), datetime_time.min).astimezone()
+        records = []
+        errors = []
+        for calendar in entries:
+            calendar_id = str(calendar["id"])
+            if calendar_id not in selected:
+                continue
+            try:
+                token = None
+                while True:
+                    result = api.events().list(
+                        calendarId=calendar_id,
+                        timeMin=start.isoformat(),
+                        timeMax=end.isoformat(),
+                        singleEvents=True,
+                        orderBy="startTime",
+                        maxResults=2500,
+                        pageToken=token,
+                    ).execute()
+                    records.extend(event_record(item, calendar) for item in result.get("items", [])
+                                   if item.get("status") != "cancelled")
+                    token = result.get("nextPageToken")
+                    if not token:
+                        break
+            except Exception as error:
+                errors.append(f"{calendar.get('summary', calendar_id)}: {error}")
+        records.sort(key=lambda item: (item["start"], item["title"].casefold()))
+        output({"configured": True, "events": records[:1000], "error": "; ".join(errors)})
+        return 0
+    except Exception as error:
+        output({"configured": True, "events": [], "error": str(error)})
+        return 1
+
+
+def main() -> int:
+    if len(sys.argv) == 2 and sys.argv[1] in {"setup", "oauth"}:
+        return oauth()
+    if len(sys.argv) == 2 and sys.argv[1] == "calendars":
+        return calendars()
+    if len(sys.argv) == 3 and sys.argv[1] == "toggle":
+        return toggle(sys.argv[2])
+    if len(sys.argv) == 3:
+        return events(sys.argv[1], sys.argv[2])
+    print(f"Usage: {sys.argv[0]} oauth | calendars | toggle ID | START END", file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
