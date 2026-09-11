@@ -53,6 +53,9 @@ vim.keymap.set("n", "gA", "ga")
 vim.keymap.set("x", "ga", "<Plug>(EasyAlign)", { remap = true })
 vim.keymap.set("n", "ga", "<Plug>(EasyAlign)", { remap = true })
 
+vim.keymap.set("v", "<", "<gv", default_opts)
+vim.keymap.set("v", ">", ">gv", default_opts)
+
 -- yank from the cursor to the end of the line, to be consistent with C and D
 vim.keymap.set("n", "Y", "y$")
 -- Quit All windows without checking for changes
