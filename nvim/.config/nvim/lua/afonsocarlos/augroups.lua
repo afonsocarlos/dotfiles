@@ -32,6 +32,14 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
+-- Hightlight yanking
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    callback = function()
+        vim.hl.on_yank()
+    end,
+})
+
 -- close some filetypes with <gq>
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("quickclose", { clear = true }),
