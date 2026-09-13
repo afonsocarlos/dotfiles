@@ -43,9 +43,11 @@ vim.api.nvim_create_autocmd("FileType", {
     "man",
     "neotest-summary",
     "notify",
+    "pager",
     "qf",
     "startuptime",
     "tsplayground",
+    "undotree",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
