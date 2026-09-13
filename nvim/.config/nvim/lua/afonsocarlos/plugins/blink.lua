@@ -25,8 +25,8 @@ return {
         menu = { auto_show = true },
       },
       keymap = {
-        ["<Right>"] = { "fallback" },
-        ["<Left>"] = { "fallback" },
+        ["<Right>"] = false,
+        ["<Left>"] = false,
       },
       sources = function()
         if vim.fn.getcmdtype() == ":" then return { "cmdline", "path" } end
