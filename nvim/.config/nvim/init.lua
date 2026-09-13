@@ -25,5 +25,7 @@ require "afonsocarlos.options"
 require "afonsocarlos.keymap"
 require "afonsocarlos.augroups"
 require "afonsocarlos.lazy"
+require "ui.core"
+require "ui.statuscolumn"
 
 vim.cmd.colorscheme "catppuccin-mocha"
