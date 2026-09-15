@@ -14,12 +14,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = treat_trailing_whitespace,
   pattern = "*",
   callback = function()
-    local search = vim.fn.getreg("/")
     local current_position = vim.api.nvim_win_get_cursor(0)
 
-    vim.cmd [[%s/\s\+$//e]]
-
-    vim.fn.setreg("/", search)
+    vim.cmd [[keeppatterns %s/\s\+$//e]]
     vim.api.nvim_win_set_cursor(0, current_position)
   end
 })
