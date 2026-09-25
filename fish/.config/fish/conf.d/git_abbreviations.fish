@@ -55,10 +55,10 @@ abbr gstd 'git stash drop'
 abbr gstl 'git stash list'
 abbr gstp 'git stash pop --index'
 abbr gsts 'git stash show --text'
-abbr gstall 'git stash --all'
+abbr gstu 'git stash -u'
 
 abbr gdm "git diff $(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null).."
-abbr glm "git log $(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null).."
+abbr glm "git range-diff $(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null)..."
 
 abbr gw 'git worktree'
 abbr gwl 'git worktree list'
