@@ -70,7 +70,7 @@ return {
     { "<leader>fb", ":FzfLua buffers<CR>", silent = true },
     { "<leader>fc", ":FzfLua git_branches<CR>", silent = true },
     { "<leader>fd", ":FzfLua diagnostics_workspace<CR>", silent = true },
-    { "<leader>ff", ":FzfLua files<CR>", silent = true },
+    { "<leader>ff", ":FzfLua files line_query=true<CR>", silent = true },
     { "<leader>fF", find_dirs, silent = true },
     { "<leader>fg", ":FzfLua live_grep<CR>", silent = true },
     { "<leader>fh", ":FzfLua helptags<CR>", silent = true },
