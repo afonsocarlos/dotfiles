@@ -4,22 +4,22 @@ cache = true
 [[session]]
 name = "HR SignUp - Internal - main"
 path = "~/work/HR-SignUp/main"
-windows = [ "Code", "Docker", "DB", "AI" ]
+windows = [ "Code", "Docker", "DB", "AI", "PR Review" ]
 
 [[session]]
 name = "HR SignUp - Internal - work"
 path = "~/work/HR-SignUp/work"
-windows = [ "Code", "Docker", "DB", "AI" ]
+windows = [ "Code", "Docker", "DB", "AI", "PR Review" ]
 
 [[session]]
 name = "HR SignUp - Internal - review"
 path = "~/work/HR-SignUp/review"
-windows = [ "Code", "Docker", "DB", "AI" ]
+windows = [ "Code", "Docker", "DB", "AI", "PR Review" ]
 
 [[session]]
 name = "HR SignUp - External"
 path = "~/work/HR-SignUp-External/"
-windows = [ "Code", "Docker", "DB", "AI" ]
+windows = [ "Code", "Docker", "DB", "AI", "PR Review" ]
 
 [[window]]
 name = "Code"
@@ -36,3 +36,7 @@ startup_script = "~/.config/sesh/scripts/db"
 [[window]]
 name = "AI"
 startup_script = "pi"
+
+[[window]]
+name = "PR Review"
+startup_script = "gh dash"
